@@ -16,7 +16,7 @@ class Street extends Phaser.Scene {
 
         this.road = this.add.image(game.config.width + 90, game.config.height * 3/4, 'road');
         
-        this.detective = this.add.sprite(this.xpos, game.config.height/2,'detective');
+        this.detective = this.add.sprite(this.xpos, game.config.height*9/16,'detective');
         // define keys
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -35,9 +35,11 @@ class Street extends Phaser.Scene {
         }
         if (keyW.isDown && this.detective.y > game.config.height*3/8) {
             this.detective.y -= 5;
+            this.detective.setScale(this.detective.scale-.005);
         }
         if (keyS.isDown && this.detective.y < game.config.height*3/4) {
             this.detective.y += 5;
+            this.detective.setScale(this.detective.scale+.005);
         }
     }
 
