@@ -20,5 +20,8 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             this.scene.start("streetScene");
         }
+        if (this.input.activePointer.isDown) {
+            this.scene.start("investigateScene");
+        }
     }
 }
