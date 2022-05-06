@@ -41,6 +41,9 @@ class Street extends Phaser.Scene {
             this.detective.y += moveSpd;
             this.detective.setScale(this.detective.scale+.005);
         }
+        if (this.input.activePointer.isDown) {
+            this.scene.start("talkScene");
+        }
     }
 
     changeX(road, detective) {
