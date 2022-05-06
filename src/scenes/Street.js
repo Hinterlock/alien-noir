@@ -26,19 +26,19 @@ class Street extends Phaser.Scene {
 
     update() {
         if (keyD.isDown && this.xpos < this.road.width - this.detective.width) {
-            this.xpos += 5;
+            this.xpos += moveSpd;
             this.changeX(this.road, this.detective);
         }
         if (keyA.isDown && this.xpos > this.detective.width/2) {
-            this.xpos -= 5;
+            this.xpos -= moveSpd;
             this.changeX(this.road, this.detective);
         }
         if (keyW.isDown && this.detective.y > game.config.height*3/8) {
-            this.detective.y -= 5;
+            this.detective.y -= moveSpd;
             this.detective.setScale(this.detective.scale-.005);
         }
         if (keyS.isDown && this.detective.y < game.config.height*3/4) {
-            this.detective.y += 5;
+            this.detective.y += moveSpd;
             this.detective.setScale(this.detective.scale+.005);
         }
     }
