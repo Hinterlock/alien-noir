@@ -12,11 +12,20 @@ class Street extends Phaser.Scene {
         this.add.text(20, 20, 'Street');
 
         // x position (for camera)
-        this.xpos = 50;
+        this.xpos = enter;
 
         this.road = this.add.image(game.config.width + 90, game.config.height * 3/4, 'road');
-        
         this.detective = this.add.sprite(this.xpos, game.config.height*9/16,'detective');
+
+        if (this.xpos < this.road.width - game.config.width/2 - this.detective.width*.5 &&
+            this.xpos > game.config.width/2) {
+            this.road.x = game.config.width*1.5 + 90 - this.xpos;
+            this.detective.x = game.config.width/2;
+        }
+        if (enter != 50) {
+            this.detective.y = game.config.height*3/8;
+            this.detective.setScale(0.885);
+        }
         // define keys
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
@@ -36,6 +45,7 @@ class Street extends Phaser.Scene {
         if (keyW.isDown && this.detective.y > game.config.height*3/8) {
             this.detective.y -= moveSpd;
             this.detective.setScale(this.detective.scale-.005);
+            //console.log(this.detective.scale);
         }
         if (keyS.isDown && this.detective.y < game.config.height*3/4) {
             this.detective.y += moveSpd;
