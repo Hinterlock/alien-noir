@@ -21,9 +21,12 @@ class Street extends Phaser.Scene {
         keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
         keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+
+        this.move = false;
     }
     update() {
         let cam = this.cameras.main;
+        /* keyboard movement (doesn't play nice with the mouse movement)
         if (keyD.isDown && this.detective.x < this.road.width - this.detective.width/2) {
             if (cam.scrollX < this.road.width - cam.width && this.detective.x > cam.width/2) {
                 cam.scrollX += moveSpd;
@@ -44,10 +47,30 @@ class Street extends Phaser.Scene {
         if (keyS.isDown && this.detective.y < game.config.height*3/4) {
             this.detective.y += moveSpd;
             this.detective.setScale(this.detective.scale+.005);
-        }
-        if (this.input.activePointer.isDown) {
+        }*/
+        /*if (this.input.activePointer.isDown) {
             this.scene.start("talkScene");
+        }*/
+        if (/*!this.move &&*/ this.input.activePointer.isDown && this.input.activePointer.y > game.config.height * 3/4 - this.road.height/2) {
+            //this.move = true;
+            this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y);
         }
-
+        if (this.detective.x < this.road.width - cam.width/2 && this.detective.x > cam.width/2) {
+            cam.scrollX = this.detective.x - cam.width/2;
+        }
+    }
+    moveTo(det, x, y) {
+        let cam = this.cameras.main;
+        let dur = moveSpd * Math.sqrt((det.x - (x+cam.scrollX))*(det.x - (x+cam.scrollX)) + (det.y - y)*(det.y - y));
+        this.tweens.add({
+            targets: det,
+            x: { from: det.x, to: x + cam.scrollX},
+            y: { from: det.y, to: y},
+            scale: {from: det.scale, to: det.scale - (det.y - y)*.0015},
+            ease: 'Linear',
+            duration: dur/*,
+            onComplete: function() {this.move = false;},
+            onCompleteScope: this*/
+        });
     }
 }
