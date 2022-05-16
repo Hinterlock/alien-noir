@@ -13,7 +13,7 @@ class Street extends Phaser.Scene {
         this.detective = this.add.sprite(enter, game.config.height*9/16,'detective');
         if (enter != 50) {
             this.detective.y = game.config.height*3/8;
-            this.detective.setScale(0.885);
+            this.detective.setScale(0.90);
         }
         
         // define keys
@@ -51,9 +51,9 @@ class Street extends Phaser.Scene {
         /*if (this.input.activePointer.isDown) {
             this.scene.start("talkScene");
         }*/
-        if (/*!this.move &&*/ this.input.activePointer.isDown && this.input.activePointer.y > game.config.height * 3/4 - this.road.height/2) {
+        if (/*!this.move &&*/ this.input.activePointer.isDown && this.input.activePointer.y > game.config.height * 3/8) {
             //this.move = true;
-            this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y);
+            this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y - this.detective.height*3/8);
         }
         if (this.detective.x < this.road.width - cam.width/2 && this.detective.x > cam.width/2) {
             cam.scrollX = this.detective.x - cam.width/2;
@@ -66,11 +66,14 @@ class Street extends Phaser.Scene {
             targets: det,
             x: { from: det.x, to: x + cam.scrollX},
             y: { from: det.y, to: y},
-            scale: {from: det.scale, to: det.scale - (det.y - y)*.0015},
+            scale: {from: det.scale, to: (.0012*(y-(game.config.height*9/16)) + 1)},
             ease: 'Linear',
-            duration: dur/*,
-            onComplete: function() {this.move = false;},
-            onCompleteScope: this*/
+            duration: dur,
+            onComplete: function() {
+                //this.move = false;
+                console.log(det.y, det.scale);
+            },
+            onCompleteScope: this
         });
     }
 }
