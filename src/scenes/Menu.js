@@ -22,7 +22,7 @@ class Menu extends Phaser.Scene {
             this.scene.start("streetScene");
         }
         if (this.input.activePointer.isDown) {
-            this.scene.start("investigateScene");
+            this.scene.start("alleyWayScene");
         }
     }
 }
