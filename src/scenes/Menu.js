@@ -5,6 +5,8 @@ class Menu extends Phaser.Scene {
 
     preload() {
         // load audio
+        this.load.audio('click', './assets/click.wav');
+        this.load.audio('investigate', './assets/investigate.wav');
 
         // load menu images
         //this.load.image('title', './assets/Menu.png');
@@ -20,9 +22,15 @@ class Menu extends Phaser.Scene {
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
             enter = 1000;
             this.scene.start("streetScene");
+
+            this.sound.play('click');
+
         }
         if (this.input.activePointer.isDown) {
             this.scene.start("alleyWayScene");
+
+            this.sound.play('investigate');
         }
+
     }
 }

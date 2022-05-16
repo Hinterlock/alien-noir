@@ -150,6 +150,7 @@ class Alleyway extends Phaser.Scene {
                 this.state = 1;
             }
         }
+        this.sound.play('click');
     }
 
     update() {
@@ -158,6 +159,7 @@ class Alleyway extends Phaser.Scene {
             this.cursor.y = this.input.activePointer.y;
             if (this.checkMouseOver(this.input.activePointer, this.cards) && this.input.activePointer.isDown) {
                 this.startDialogue(this.dialogue2);
+                this.sound.play('investigate');
             }
         }
     }
