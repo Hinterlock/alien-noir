@@ -4,11 +4,13 @@ class Street extends Phaser.Scene {
     }
     preload() {
         this.load.image('road', './assets/road.png');
+        this.load.image('street', './assets/street.png');
         this.load.image('detective', './assets/detective.png');
     }
     create() {
         this.cameras.main.setBackgroundColor('#42f557');
         
+        this.street = this.add.image(game.config.width + 100, game.config.height* 3/4 , 'street');
         this.road = this.add.image(game.config.width + 90, game.config.height * 3/4, 'road');
         this.detective = this.add.sprite(enter, game.config.height*9/16,'detective');
         if (enter != 50) {
