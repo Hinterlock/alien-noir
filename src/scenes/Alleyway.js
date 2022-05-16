@@ -50,13 +50,30 @@ class Alleyway extends Phaser.Scene {
                 'speaker': 'someone else lol'
             }
         ];
-        this.dialogue = this.dialogue1;
-        this.textBox = 0;
+        this.dialogue2 = [
+            {
+                'text': ["*Sigh…*"],
+                'speaker': 'det'
+            },
+            {
+                'text': ["yay",
+                        "a a b",
+                        ""],
+                'speaker': 'someone else lol'
+            }
+        ];
         this.wordDelay = 100;
         this.timer;
+        this.startDialogue(this.dialogue1);
+        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        keySPACE.on('down', this.space, this);
+    }
 
-        //console.log(this.dialogue[this.lineIndex].text);
-
+    startDialogue(dialogue) {
+        this.dialogue = dialogue;
+        this.textBox = 0;
+        this.state = 0;
+        this.cursor.x = -100;
         this.tweens.add({
             targets: this.fade,
             alpha: { from: 0, to: 1},
@@ -71,10 +88,6 @@ class Alleyway extends Phaser.Scene {
             onComplete: this.nextBox(),
             onCompleteScope: this
         });
-
-        this.state = 0;
-        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        keySPACE.on('down', this.space, this);
     }
 
     nextBox() {
@@ -143,7 +156,8 @@ class Alleyway extends Phaser.Scene {
         if (this.state) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
-            if (this.checkMouseOver(this.input.activePointer, this.cards)) {
+            if (this.checkMouseOver(this.input.activePointer, this.cards) && this.input.activePointer.isDown) {
+                this.startDialogue(this.dialogue2);
             }
         }
     }
