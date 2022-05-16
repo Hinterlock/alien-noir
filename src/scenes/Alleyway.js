@@ -122,15 +122,29 @@ class Alleyway extends Phaser.Scene {
             this.text.x = game.config.width*2/8;
         } else {
             this.text.x = game.config.width/2;
+            let temp;
+            switch (this.dialogue[this.textBox].speaker) {
+                case 'Natieks':
+                    temp = this.natieks;
+                    break;
+                case 'det2':
+                    temp = this.det2;
+            }
+            /*
+            switch (this.dialogue[this.textBox].mood) {
+                case 'neutral':
+                    break;
+                case 'happy':
+                    break;
+                case 'sad':
+                    break;
+                case 'frustrated':
+                    break;
+                case 'inquisitive':
+                    
+            }
+            */
             if (this.dialogue[this.textBox].new) {
-                let temp;
-                switch (this.dialogue[this.textBox].speaker) {
-                    case 'Natieks':
-                        temp = this.natieks;
-                        break;
-                    case 'det2':
-                        temp = this.det2;
-                }
                 if (this.rightSpeaker) {
                     let timeline = this.tweens.createTimeline();
                     timeline.add({
@@ -232,6 +246,7 @@ class Alleyway extends Phaser.Scene {
             if (this.checkMouseOver(this.input.activePointer, this.cards) && this.input.activePointer.isDown) {
                 this.startDialogue(this.dialogue2);
                 this.sound.play('investigate');
+                this.cards.x = -500;
             }
         }
     }
