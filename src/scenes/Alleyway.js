@@ -9,6 +9,7 @@ class Alleyway extends Phaser.Scene {
         this.load.image('cursor', './assets/Cursor.png');
         this.load.image('fade', './assets/fade.png');
         this.load.image('det_neut', './assets/Detective_Neutral.png');
+        this.load.image('nat_frus', './assets/Lady_Frustrated.png');
     }
 
     create() {
@@ -27,6 +28,21 @@ class Alleyway extends Phaser.Scene {
         this.det.scale = .2;
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
+
+        this.natieks = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, 'nat_frus');
+        this.natieks.scale = .2;
+        this.natieks.y = game.config.height - this.natieks.height*this.natieks.scale/2;
+        this.natieks.flipX = -1;
+        this.natieks.x = this.natieks.width*this.natieks.scale + game.config.width;
+
+        
+        this.det2 = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, 'det_neut');
+        this.det2.scale = .2;
+        this.det2.y = game.config.height - this.det2.height*this.det2.scale/2;
+        this.det2.flipX = -1;
+        this.det2.x = this.det2.width*this.det2.scale + game.config.width;
+
+        this.rightSpeaker;
 
         //text formatting (please change)
         this.textConfig = {
@@ -59,7 +75,17 @@ class Alleyway extends Phaser.Scene {
                 'text': ["yay",
                         "a a b",
                         ""],
-                'speaker': 'someone else lol'
+                'speaker': 'Natieks',
+                'mood': 'frustrated',
+                'new': true
+            },
+            {
+                'text': ["yay",
+                        "a a b",
+                        ""],
+                'speaker': 'det2',
+                'mood': 'frustrated',
+                'new': true
             }
         ];
         this.wordDelay = 100;
@@ -96,6 +122,42 @@ class Alleyway extends Phaser.Scene {
             this.text.x = game.config.width*2/8;
         } else {
             this.text.x = game.config.width/2;
+            if (this.dialogue[this.textBox].new) {
+                let temp;
+                switch (this.dialogue[this.textBox].speaker) {
+                    case 'Natieks':
+                        temp = this.natieks;
+                        break;
+                    case 'det2':
+                        temp = this.det2;
+                }
+                if (this.rightSpeaker) {
+                    let timeline = this.tweens.createTimeline();
+                    timeline.add({
+                        targets: this.rightSpeaker,
+                        x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
+                        ease: 'Sine.easeIn',
+                        duration: 500,
+                        onComplete: function() {this.rightSpeaker = temp;},
+                        onCompleteScope: this
+                    });
+                    timeline.add({
+                        targets: temp,
+                        x: { from: temp.x, to: game.config.width*5/6},
+                        ease: 'Sine.easeOut',
+                        duration: 500
+                    });
+                    timeline.play();
+                } else {
+                    this.rightSpeaker = temp;
+                    this.tweens.add({
+                        targets: this.rightSpeaker,
+                        x: { from: this.rightSpeaker.x, to: game.config.width*5/6},
+                        ease: 'Sine.easeOut',
+                        duration: 1000
+                    });
+                }
+            }
         }
         this.nextLine(0);
     }
@@ -148,6 +210,16 @@ class Alleyway extends Phaser.Scene {
                     duration: 1000
                 });
                 this.state = 1;
+                if (this.rightSpeaker) {
+                    this.tweens.add({
+                        targets: this.rightSpeaker,
+                        x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
+                        ease: 'Sine.easeIn',
+                        duration: 1000,
+                        onComplete: function() {this.rightSpeaker = null;},
+                        onCompleteScope: this
+                    });
+                }
             }
         }
         this.sound.play('click');

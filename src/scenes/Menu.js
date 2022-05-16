@@ -13,7 +13,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(20, 20, 'Menu');
+        this.add.text(20, 20, 'Menu, click to start, spacebar to progress');
         //this.title = this.add.image(game.config.width/2, game.config.height/2, 'title');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
     }
