@@ -5,7 +5,7 @@ let config = {
     width: 970,
     height: 600,
     backgroundColor: '#5e554d',
-    scene: [ Menu, Street, Investigate, Talk, Alleyway ]
+    scene: [ Menu, Street, Investigate, Talk, Alleyway, baseScene ]
 }
 let game = new Phaser.Game(config);
 // set UI sizes
