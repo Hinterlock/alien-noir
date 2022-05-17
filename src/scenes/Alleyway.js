@@ -152,7 +152,12 @@ class Alleyway extends Phaser.Scene {
                         x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
                         ease: 'Sine.easeIn',
                         duration: 500,
-                        onComplete: function() {this.rightSpeaker = temp;},
+                        onComplete: function() {
+                            this.rightSpeaker = temp;
+                            if (this.state) {
+                                timeline.destroy();
+                            }
+                        },
                         onCompleteScope: this
                     });
                     timeline.add({
