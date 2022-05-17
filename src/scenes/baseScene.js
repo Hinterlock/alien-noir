@@ -2,8 +2,6 @@ class baseScene extends Phaser.Scene {
     constructor(config) {
         super(config);
     }
-    preload() {
-    }
     setup() {
         console.log('oh');
         this.rat = "rat";
@@ -33,43 +31,6 @@ class baseScene extends Phaser.Scene {
             //color: ''
         };
         this.text = this.add.text(game.config.width*3/8, game.config.height/8, '', this.textFormat);
-
-        //json object containing dialogue: in future will move to separate file thats loaded in
-        this.dialogue1 = [
-            {
-                'text': ["A B C",
-                        "1 2 3 4 5"],
-                'speaker': 'det'
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'someone else lol'
-            }
-        ];
-        this.dialogue2 = [
-            {
-                'text': ["*Sigh…*"],
-                'speaker': 'det'
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'Natieks',
-                'mood': 'frustrated',
-                'new': true
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'det2',
-                'mood': 'frustrated',
-                'new': true
-            }
-        ];
         this.wordDelay = 100;
         this.timer;
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);

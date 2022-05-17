@@ -24,6 +24,42 @@ class Alleyway extends baseScene {
         this.natieks.flipX = -1;
         this.natieks.x = this.natieks.width*this.natieks.scale + game.config.width;
 
+        //json object containing dialogue: in future will move to separate file thats loaded in
+        this.dialogue1 = [
+            {
+                'text': ["A B C",
+                        "1 2 3 4 5"],
+                'speaker': 'det'
+            },
+            {
+                'text': ["yay",
+                        "a a b",
+                        ""],
+                'speaker': 'someone else lol'
+            }
+        ];
+        this.dialogue2 = [
+            {
+                'text': ["*Sigh…*"],
+                'speaker': 'det'
+            },
+            {
+                'text': ["yay",
+                        "a a b",
+                        ""],
+                'speaker': 'Natieks',
+                'mood': 'frustrated',
+                'new': true
+            },
+            {
+                'text': ["yay",
+                        "a a b",
+                        ""],
+                'speaker': 'det2',
+                'mood': 'frustrated',
+                'new': true
+            }
+        ];
 
         this.startDialogue(this.dialogue1);
     }
