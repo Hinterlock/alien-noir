@@ -246,7 +246,12 @@ class Alleyway extends Phaser.Scene {
             if (this.checkMouseOver(this.input.activePointer, this.cards) && this.input.activePointer.isDown) {
                 this.startDialogue(this.dialogue2);
                 this.sound.play('investigate');
-                this.cards.x = -500;
+                this.cards.x = this.cards.x *2.5;
+                this.cards.y = this.cards.y *.70;
+            }
+            if (this.input.activePointer.x > game.config.width*.7 && this.input.activePointer.isDown) {
+                enter = 710;
+                this.scene.start("streetScene");
             }
         }
     }
