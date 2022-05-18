@@ -20,9 +20,10 @@ class Street extends Phaser.Scene {
         this.street = this.add.image(game.config.width - 70, game.config.height * 1/2, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
         this.detective = this.add.sprite(enter, game.config.height*9/16,'detective');
-        if (enter != 50) {
-            this.detective.y = game.config.height*3/8; 
-            this.detective.setScale(0.90);
+        let startY = .45;
+        if (enter != 50) { 
+            this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
+            this.detective.y = game.config.height*startY - this.detective.height*3/8;
         }
         
         // define keys
@@ -32,6 +33,13 @@ class Street extends Phaser.Scene {
         keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.move = false;
+
+        this.input.on('pointerdown', function() {
+            if (this.input.activePointer.y > game.config.height*startY) {
+                //this.move = true;
+                this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y - this.detective.height*3/8);
+            }
+        }, this);
     }
     update() {
         let cam = this.cameras.main;
@@ -57,13 +65,6 @@ class Street extends Phaser.Scene {
             this.detective.y += moveSpd;
             this.detective.setScale(this.detective.scale+.005);
         }*/
-        /*if (this.input.activePointer.isDown) {
-            this.scene.start("talkScene");
-        }*/
-        if (/*!this.move &&*/ this.input.activePointer.isDown && this.input.activePointer.y > game.config.height * 3/8) {
-            //this.move = true;
-            this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y - this.detective.height*3/8);
-        }
         if (this.detective.x < this.street.width - cam.width/2 && this.detective.x > cam.width/2) {
             cam.scrollX = this.detective.x - cam.width/2;
         }
@@ -80,7 +81,7 @@ class Street extends Phaser.Scene {
             duration: dur,
             onComplete: function() {
                 //this.move = false;
-                console.log(det.y, det.scale);
+                // console.log(det.y, det.scale);
             },
             onCompleteScope: this
         });

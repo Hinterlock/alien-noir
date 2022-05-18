@@ -1,0 +1,23 @@
+[
+    {
+        "text": ["*Sigh…*"],
+        "speaker": "det"
+    },
+    {
+        "text": ["yay",
+                "a a b",
+                ""],
+        "speaker": "Natieks",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["yay",
+                "a a b",
+                ""],
+        "speaker": "det2",
+        "mood": "frustrated",
+        "new": true
+    }
+
+]

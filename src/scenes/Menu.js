@@ -10,6 +10,8 @@ class Menu extends Phaser.Scene {
 
         // load menu images
         //this.load.image('title', './assets/Menu.png');
+        this.load.image('fade', './assets/fade.png');
+        this.load.image('det_neut', './assets/Detective_Neutral.png');
     }
 
     create() {
