@@ -8,6 +8,8 @@ class Alleyway extends baseScene {
         this.load.image('cards', './assets/cards.png');
         this.load.image('cursor', './assets/Cursor.png');
         this.load.image('nat_frus', './assets/Lady_Frustrated.png');
+        this.load.json('text_json1', './assets/test.json');
+        this.load.json('text_json2', './assets/test2.json');
     }
 
     create() {
@@ -25,41 +27,11 @@ class Alleyway extends baseScene {
         this.natieks.x = this.natieks.width*this.natieks.scale + game.config.width;
 
         //json object containing dialogue: in future will move to separate file thats loaded in
-        this.dialogue1 = [
-            {
-                'text': ["A B C",
-                        "1 2 3 4 5"],
-                'speaker': 'det'
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'someone else lol'
-            }
-        ];
-        this.dialogue2 = [
-            {
-                'text': ["*Sigh…*"],
-                'speaker': 'det'
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'Natieks',
-                'mood': 'frustrated',
-                'new': true
-            },
-            {
-                'text': ["yay",
-                        "a a b",
-                        ""],
-                'speaker': 'det2',
-                'mood': 'frustrated',
-                'new': true
-            }
-        ];
+
+        this.dialogue1 = this.cache.json.get('text_json1');
+        this.dialogue2 = this.cache.json.get('text_json2');
+            
+        
 
         this.startDialogue(this.dialogue1);
     }

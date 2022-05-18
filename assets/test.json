@@ -1,0 +1,13 @@
+[
+    {
+        "text": ["A B C",
+                "1 2 3 4 5"],
+        "speaker": "det"
+    },
+    {
+        "text": ["yay",
+                "a a b",
+                ""],
+        "speaker": "someone else lol"
+    }
+]
