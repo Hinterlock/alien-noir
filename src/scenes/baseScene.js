@@ -3,8 +3,6 @@ class baseScene extends Phaser.Scene {
         super(config);
     }
     setup() {
-        console.log('oh');
-        this.rat = "rat";
         //bg fade in dialogue
         this.fade = this.add.image(game.config.width/2, game.config.height/2, 'fade');
         this.fade.scale = 1.5;
@@ -16,11 +14,7 @@ class baseScene extends Phaser.Scene {
         this.det.x = -this.det.width*this.det.scale;
 
         
-        this.det2 = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, 'det_neut');
-        this.det2.scale = .2;
-        this.det2.y = game.config.height - this.det2.height*this.det2.scale/2;
-        this.det2.flipX = -1;
-        this.det2.x = this.det2.width*this.det2.scale + game.config.width;
+        this.det2 = this.setupSprite('det_neut');
 
         this.rightSpeaker;
 
@@ -35,6 +29,15 @@ class baseScene extends Phaser.Scene {
         this.timer;
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
+    }
+
+    setupSprite(key) {
+        let temp = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, key);
+        temp.scale = .2;
+        temp.y = game.config.height - temp.height*temp.scale/2;
+        temp.flipX = -1;
+        temp.x = temp.width*temp.scale + game.config.width;
+        return temp;
     }
 
     startDialogue(dialogue) {

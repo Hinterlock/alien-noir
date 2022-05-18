@@ -8,8 +8,8 @@ class Alleyway extends baseScene {
         this.load.image('cards', './assets/cards.png');
         this.load.image('cursor', './assets/Cursor.png');
         this.load.image('nat_frus', './assets/Lady_Frustrated.png');
-        this.load.json('text_json1', './assets/test.json');
-        this.load.json('text_json2', './assets/test2.json');
+        this.load.json('alley1_intro', './assets/test.json');
+        this.load.json('alley2', './assets/test2.json');
     }
 
     create() {
@@ -20,18 +20,10 @@ class Alleyway extends baseScene {
         this.cursor = this.add.sprite(-100, -100, 'cursor');
         this.setup();
 
-        this.natieks = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, 'nat_frus');
-        this.natieks.scale = .2;
-        this.natieks.y = game.config.height - this.natieks.height*this.natieks.scale/2;
-        this.natieks.flipX = -1;
-        this.natieks.x = this.natieks.width*this.natieks.scale + game.config.width;
+        this.natieks = this.setupSprite('nat_frus');
 
-        //json object containing dialogue: in future will move to separate file thats loaded in
-
-        this.dialogue1 = this.cache.json.get('text_json1');
-        this.dialogue2 = this.cache.json.get('text_json2');
-            
-        
+        this.dialogue1 = this.cache.json.get('alley1_intro');
+        this.dialogue2 = this.cache.json.get('alley2');
 
         this.startDialogue(this.dialogue1);
     }
