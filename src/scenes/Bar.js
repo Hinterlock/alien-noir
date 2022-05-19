@@ -7,6 +7,7 @@ class Bar extends baseScene {
     }
     create() {
         this.bg = this.add.image(game.config.width/2, game.config.height/2, 'bar_interior');
+        this.wipeIn();
         this.setup();
     }
 }

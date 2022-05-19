@@ -40,6 +40,37 @@ class baseScene extends Phaser.Scene {
         return temp;
     }
 
+    wipeIn(dialogue){
+        this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
+        this.tweens.add({
+            targets: this.wipe,
+            x: { from: this.cameras.main.scrollX + game.config.width/2, to: this.cameras.main.scrollX + game.config.width*2},
+            ease: 'Sine.easeIn',
+            duration: 1000,
+            onComplete: function() {
+                this.wipe.y = game.config.height*2;
+                if (dialogue) {
+                    this.startDialogue(dialogue);
+                }
+            },
+            onCompleteScope: this
+        });
+    }
+    wipeOut(destination){
+        this.wipe.x = this.cameras.main.scrollX - game.config.width/2;
+        this.wipe.y = game.config.height/2;
+        this.tweens.add({
+            targets: this.wipe,
+            x: { from: this.cameras.main.scrollX - game.config.width/2, to: this.cameras.main.scrollX + game.config.width/2},
+            ease: 'Sine.easeIn',
+            duration: 1000,
+            onComplete: function() {
+                this.scene.start(destination);
+            },
+            onCompleteScope: this
+        });
+    }
+
     startDialogue(dialogue) {
         this.dialogue = dialogue;
         this.textBox = 0;

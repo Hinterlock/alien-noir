@@ -24,16 +24,19 @@ class Street extends baseScene {
         if (enter != 50) { 
             this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
             this.detective.y = game.config.height*startY - this.detective.height*3/8;
+            if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
+                this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
+            }
         }
-        console.log(this.detective.x);
         
         // define keys
-        keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
+        // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
+        // keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        // keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
+        // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.move = false;
+        this.wipeIn();
 
         this.input.on('pointerdown', function() {
             if (this.input.activePointer.y > game.config.height*startY) {
@@ -92,7 +95,7 @@ class Street extends baseScene {
             onComplete: function() {
                 //this.move = false;
                 if (enter) {
-                    this.scene.start(enter);
+                    this.wipeOut(enter);
                 }
             },
             onCompleteScope: this
