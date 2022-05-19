@@ -7,5 +7,7 @@ class Bakery extends baseScene {
     }
     create() {
         this.setup();
+        enter = 50;
+        this.scene.start("streetScene");
     }
 }

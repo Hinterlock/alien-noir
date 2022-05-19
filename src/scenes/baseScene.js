@@ -6,13 +6,13 @@ class baseScene extends Phaser.Scene {
         //bg fade in dialogue
         this.fade = this.add.image(game.config.width/2, game.config.height/2, 'fade');
         this.fade.scale = 1.5;
+        this.fade.alpha = 0;
 
         //detective talksprite
         this.det = this.add.sprite(game.config.width/6, game.config.height*1/2, 'det_neut');
         this.det.scale = .2;
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
-
         
         this.det2 = this.setupSprite('det_neut');
 
@@ -186,5 +186,17 @@ class baseScene extends Phaser.Scene {
             }
         }
         this.sound.play('click');
+    }
+
+    checkMouseOver(mouse, sprite) {
+        // simple AABB checking
+        if (mouse.x + this.cameras.main.scrollX < sprite.x + sprite.width/2 && 
+            mouse.x + this.cameras.main.scrollX > sprite.x - sprite.width/2 &&
+            mouse.y < sprite.y + sprite.height/2 &&
+            mouse.y > sprite.y - sprite.height/2) {
+                return true;
+        } else {
+            return false;
+        }
     }
 }

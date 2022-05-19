@@ -1,4 +1,4 @@
-class Street extends Phaser.Scene {
+class Street extends baseScene {
     constructor() {
         super("streetScene");
     }
@@ -14,9 +14,9 @@ class Street extends Phaser.Scene {
         this.cameras.main.setBackgroundColor('#42f557');
         
         this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/2, 'buildings');
-        this.bar = this.add.image(game.config.width - 70, game.config.height * 1/2, 'bar');
-        this.alleyway = this.add.image(game.config.width - 70, game.config.height * 1/2, 'alleyway');
-        this.bakery = this.add.image(game.config.width - 70, game.config.height * 1/2, 'bakery');
+        this.bar = this.add.image(this.buildings.width*5/6, game.config.height * 1/3, 'bar');
+        this.alleyway = this.add.image(this.buildings.width *4/9, game.config.height * 1/3, 'alleyway');
+        this.bakery = this.add.image(this.buildings.width *1/8, game.config.height * 1/3, 'bakery');
         this.street = this.add.image(game.config.width - 70, game.config.height * 1/2, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
         this.detective = this.add.sprite(enter, game.config.height*9/16,'detective');
@@ -25,6 +25,7 @@ class Street extends Phaser.Scene {
             this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
             this.detective.y = game.config.height*startY - this.detective.height*3/8;
         }
+        console.log(this.detective.x);
         
         // define keys
         keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -37,7 +38,17 @@ class Street extends Phaser.Scene {
         this.input.on('pointerdown', function() {
             if (this.input.activePointer.y > game.config.height*startY) {
                 //this.move = true;
-                this.moveTo(this.detective, this.input.activePointer.x, this.input.activePointer.y - this.detective.height*3/8);
+                this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
+            } else {
+                if (this.checkMouseOver(this.input.activePointer, this.bar)) {
+                    this.moveTo(this.detective, 1500, game.config.height*startY - this.detective.height*3/8, "barScene");
+                }
+                if (this.checkMouseOver(this.input.activePointer, this.bakery)) {
+                    this.moveTo(this.detective, 20, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
+                }
+                if (this.checkMouseOver(this.input.activePointer, this.alleyway)) {
+                    this.moveTo(this.detective, 710, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                }
             }
         }, this);
     }
@@ -69,19 +80,20 @@ class Street extends Phaser.Scene {
             cam.scrollX = this.detective.x - cam.width/2;
         }
     }
-    moveTo(det, x, y) {
-        let cam = this.cameras.main;
-        let dur = moveSpd * Math.sqrt((det.x - (x+cam.scrollX))*(det.x - (x+cam.scrollX)) + (det.y - y)*(det.y - y));
+    moveTo(det, x, y, enter) {
+        let dur = moveSpd * Math.sqrt((det.x - (x))*(det.x - (x)) + (det.y - y)*(det.y - y));
         this.tweens.add({
             targets: det,
-            x: { from: det.x, to: x + cam.scrollX},
+            x: { from: det.x, to: x},
             y: { from: det.y, to: y},
             scale: {from: det.scale, to: (.0012*(y-(game.config.height*9/16)) + 1)},
             ease: 'Linear',
             duration: dur,
             onComplete: function() {
                 //this.move = false;
-                // console.log(det.y, det.scale);
+                if (enter) {
+                    this.scene.start(enter);
+                }
             },
             onCompleteScope: this
         });

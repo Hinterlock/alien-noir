@@ -25,6 +25,17 @@ class Alleyway extends baseScene {
         this.dialogue1 = this.cache.json.get('alley1_intro');
         this.dialogue2 = this.cache.json.get('alley2');
 
+        /*this.wipe = new Shape(game.config.width, 0, game.config.width, game.config.height, game.config.backgroundColor);
+        this.tweens.add({
+            targets: this.wipe,
+            x: { from: game.config.width, to: 0},
+            ease: 'Sine.easeOut',
+            duration: 1000,
+            onComplete: function() {
+                this.startDialogue(this.dialogue1);
+            },
+            onCompleteScope: this
+        });*/
         this.startDialogue(this.dialogue1);
     }
     update() {
@@ -41,18 +52,6 @@ class Alleyway extends baseScene {
                 enter = 710;
                 this.scene.start("streetScene");
             }
-        }
-    }
-
-    checkMouseOver(mouse, sprite) {
-        // simple AABB checking
-        if (mouse.x < sprite.x + sprite.width/2 && 
-            mouse.x > sprite.x - sprite.width/2 &&
-            mouse.y < sprite.y + sprite.height/2 &&
-            mouse.y > sprite.y - sprite.height/2) {
-                return true;
-        } else {
-            return false;
         }
     }
 }

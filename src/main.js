@@ -4,7 +4,7 @@ let config = {
     type: Phaser.AUTO,
     width: 970,
     height: 600,
-    backgroundColor: '#5e554d',
+    backgroundColor: '#303030',
     scene: [ Menu, Street, Alleyway, baseScene, Bar, Bakery ]
 }
 let game = new Phaser.Game(config);
