@@ -31,7 +31,7 @@ class baseScene extends Phaser.Scene {
         keySPACE.on('down', this.space, this);
     }
 
-    setupSprite(key) {
+    setupSprite(key) { //sets up a sprite for the right side of the screen, if needed i can add functionality for it to set up sprites for the left
         let temp = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, key);
         temp.scale = .2;
         temp.y = game.config.height - temp.height*temp.scale/2;
@@ -40,13 +40,13 @@ class baseScene extends Phaser.Scene {
         return temp;
     }
 
-    wipeIn(dialogue){
+    wipeIn(dialogue){ //horizontal wipe for start of scene, takes input for if dialogue automatically starts
         this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
         this.tweens.add({
             targets: this.wipe,
             x: { from: this.cameras.main.scrollX + game.config.width/2, to: this.cameras.main.scrollX + game.config.width*2},
             ease: 'Sine.easeIn',
-            duration: 1000,
+            duration: 500,
             onComplete: function() {
                 this.wipe.y = game.config.height*2;
                 if (dialogue) {
@@ -56,14 +56,14 @@ class baseScene extends Phaser.Scene {
             onCompleteScope: this
         });
     }
-    wipeOut(destination){
+    wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to
         this.wipe.x = this.cameras.main.scrollX - game.config.width/2;
         this.wipe.y = game.config.height/2;
         this.tweens.add({
             targets: this.wipe,
             x: { from: this.cameras.main.scrollX - game.config.width/2, to: this.cameras.main.scrollX + game.config.width/2},
             ease: 'Sine.easeIn',
-            duration: 1000,
+            duration: 500,
             onComplete: function() {
                 this.scene.start(destination);
             },
@@ -71,7 +71,7 @@ class baseScene extends Phaser.Scene {
         });
     }
 
-    startDialogue(dialogue) {
+    startDialogue(dialogue) { //brings in background fade and detective talk sprite, hands off to nextBox()
         this.dialogue = dialogue;
         this.textBox = 0;
         this.state = 0;
@@ -91,7 +91,7 @@ class baseScene extends Phaser.Scene {
             onCompleteScope: this
         });
     }
-    nextBox() {
+    nextBox() { //checks who is speaking, their emotion, switches up the sprites based on that, then hands off to nextLine()
         this.text.text = '';
         if (this.dialogue[this.textBox].speaker == 'det') {
             this.text.x = game.config.width*2/8;
@@ -108,6 +108,7 @@ class baseScene extends Phaser.Scene {
             /*
             switch (this.dialogue[this.textBox].mood) {
                 case 'neutral':
+                    temp.setFrame(0);
                     break;
                 case 'happy':
                     break;
@@ -119,8 +120,8 @@ class baseScene extends Phaser.Scene {
                     
             }
             */
-            if (this.dialogue[this.textBox].new) {
-                if (this.rightSpeaker) {
+            if (this.dialogue[this.textBox].new) { //right speaker is changing
+                if (this.rightSpeaker) { //there is a speaker on the right already
                     let timeline = this.tweens.createTimeline();
                     timeline.add({
                         targets: this.rightSpeaker,
@@ -155,7 +156,7 @@ class baseScene extends Phaser.Scene {
         }
         this.nextLine(0);
     }
-    nextLine(lineIndex) {
+    nextLine(lineIndex) { //uses timer to display a word at a time by calling nextWord()
         if (lineIndex == this.dialogue[this.textBox].text.length) {
             this.textBox += 1;
             return;
@@ -172,7 +173,7 @@ class baseScene extends Phaser.Scene {
             repeat: line.length
         });
     }
-    nextWord(line, wordIndex, lineIndex) {
+    nextWord(line, wordIndex, lineIndex) { //concats words, recursively calls back to nextLine() if at the end of a line
         if (wordIndex == line.length) {
             this.text.text = this.text.text.concat("\n");
             this.nextLine(lineIndex+1);
@@ -181,7 +182,7 @@ class baseScene extends Phaser.Scene {
         }
     }
 
-    space() {
+    space() { //spacebar input to progress dialogue
         if (!this.state){
             if (this.timer.getOverallRemaining() > 0) {
                 this.timer.remove(false);
