@@ -29,6 +29,8 @@ class baseScene extends Phaser.Scene {
         this.timer;
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
+        this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
+        this.events.on('wake', function() {this.wipeIn();}, this);
     }
 
     setupSprite(key) { //sets up a sprite for the right side of the screen, if needed i can add functionality for it to set up sprites for the left
@@ -41,7 +43,6 @@ class baseScene extends Phaser.Scene {
     }
 
     wipeIn(dialogue){ //horizontal wipe for start of scene, takes input for if dialogue automatically starts
-        this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
         this.tweens.add({
             targets: this.wipe,
             x: { from: this.cameras.main.scrollX + game.config.width/2, to: this.cameras.main.scrollX + game.config.width*2},
@@ -65,7 +66,15 @@ class baseScene extends Phaser.Scene {
             ease: 'Sine.easeIn',
             duration: 500,
             onComplete: function() {
-                this.scene.start(destination);
+                //this.scene.start(destination);
+                this.scene.sleep();
+                if (this.scene.isSleeping(destination)) {
+                    // console.log(destination);
+                    this.scene.wake(destination);
+                } else {
+                    // console.log('a');
+                    this.scene.launch(destination);
+                }
             },
             onCompleteScope: this
         });

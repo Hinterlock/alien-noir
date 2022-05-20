@@ -28,6 +28,7 @@ class Street extends baseScene {
                 this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
             }
         }
+        this.setup();
         
         // define keys
         // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
