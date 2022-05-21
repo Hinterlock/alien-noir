@@ -13,8 +13,6 @@ class baseScene extends Phaser.Scene {
         this.det.scale = .2;
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
-        
-        this.det2 = this.setupSprite('det_neut');
 
         this.rightSpeaker;
 

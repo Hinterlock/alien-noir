@@ -19,6 +19,7 @@ class Alleyway extends baseScene {
 
         this.cursor = this.add.sprite(-100, -100, 'cursor');
         this.setup();
+        this.det2 = this.setupSprite('det_neut');
 
         this.natieks = this.setupSprite('nat_frus');
 
