@@ -7,6 +7,7 @@ class Alleyway extends baseScene {
         this.load.image('alley', './assets/alley.png');
         this.load.image('cards', './assets/cards.png');
         this.load.image('cursor', './assets/Cursor.png');
+        this.load.image('cursorArrow', './assets/CursorArrow.png');
         this.load.spritesheet('nat', './assets/spritesheets/LadySheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.json('alley1_intro', './assets/text/test.json');
         this.load.json('alley2', './assets/text/test2.json');
@@ -33,6 +34,13 @@ class Alleyway extends baseScene {
         if (this.state) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
+            if (this.input.activePointer.x > game.config.width*.7) {
+                if (this.cursor.texture.key == 'cursor') {
+                    this.cursor.setTexture('cursorArrow');
+                }
+            } else if (this.cursor.texture.key == 'cursorArrow') {
+                this.cursor.setTexture('cursor');
+            }
         }        
     }
     clickButton() {
