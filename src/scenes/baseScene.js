@@ -29,6 +29,12 @@ class baseScene extends Phaser.Scene {
         keySPACE.on('down', this.space, this);
         this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
         this.events.on('wake', function() {this.wipeIn();}, this);
+        this.input.on('pointerdown', function() {
+            this.clickButton();
+        }, this);
+    } 
+    update(){
+        this.cursorUpdate();
     }
 
     setupSprite(key) { //sets up a sprite for the right side of the screen, if needed i can add functionality for it to set up sprites for the left
@@ -76,6 +82,20 @@ class baseScene extends Phaser.Scene {
             },
             onCompleteScope: this
         });
+    }
+    
+    cursorUpdate() {
+        if (this.state) {
+            this.cursor.x = this.input.activePointer.x;
+            this.cursor.y = this.input.activePointer.y;
+            if (this.input.activePointer.x > game.config.width*.7) {
+                if (this.cursor.texture.key == 'cursor') {
+                    this.cursor.setTexture('cursorArrow');
+                }
+            } else if (this.cursor.texture.key == 'cursorArrow') {
+                this.cursor.setTexture('cursor');
+            }
+        }  
     }
 
     startDialogue(dialogue) { //brings in background fade and detective talk sprite, hands off to nextBox()

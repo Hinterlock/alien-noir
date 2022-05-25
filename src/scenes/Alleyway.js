@@ -25,23 +25,7 @@ class Alleyway extends baseScene {
 
         this.dialogue1 = this.cache.json.get('alley1_intro');
         this.dialogue2 = this.cache.json.get('alley2');
-        this.input.on('pointerdown', function() {
-            this.clickButton();
-        }, this);
         this.wipeIn(this.dialogue1);
-    }
-    update() {
-        if (this.state) {
-            this.cursor.x = this.input.activePointer.x;
-            this.cursor.y = this.input.activePointer.y;
-            if (this.input.activePointer.x > game.config.width*.7) {
-                if (this.cursor.texture.key == 'cursor') {
-                    this.cursor.setTexture('cursorArrow');
-                }
-            } else if (this.cursor.texture.key == 'cursorArrow') {
-                this.cursor.setTexture('cursor');
-            }
-        }        
     }
     clickButton() {
         if (this.state) {

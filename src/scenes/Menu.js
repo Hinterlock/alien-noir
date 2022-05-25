@@ -17,20 +17,15 @@ class Menu extends Phaser.Scene {
         this.add.text(20, 20, 'Menu, click to start, spacebar to progress');
         //this.title = this.add.image(game.config.width/2, game.config.height/2, 'title');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-    }
-
-    update(){
-        if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
+        keySPACE.on('down', function() {
             this.scene.start("streetScene");
-
             this.sound.play('click');
-
-        }
-        if (this.input.activePointer.isDown) {
+        }, this);
+        this.input.on('pointerdown', function() {
             this.scene.start("alleyWayScene");
-
             this.sound.play('investigate');
-        }
-
+        }, this);
     }
+    
+    update(){}
 }

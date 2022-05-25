@@ -51,9 +51,10 @@ class Street extends baseScene {
 
         this.move = false;
         this.wipeIn();
-
-        this.input.on('pointerdown', function() {
-            if (this.input.activePointer.y > game.config.height*startY) {
+    }
+    clickButton() {
+        let startY = .45;
+        if (this.input.activePointer.y > game.config.height*startY) {
                 //this.move = true;
                 this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
             } else {
@@ -67,7 +68,6 @@ class Street extends baseScene {
                     this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
                 }
             }
-        }, this);
     }
     update() {
         let cam = this.cameras.main;
