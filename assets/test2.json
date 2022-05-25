@@ -15,7 +15,7 @@
         "text": ["yay",
                 "a a b",
                 ""],
-        "speaker": "det2",
+        "speaker": "det",
         "mood": "frustrated",
         "new": true
     }

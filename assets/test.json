@@ -1,7 +1,8 @@
 [
     {
         "text": ["Sigh..."],
-        "speaker": "det"
+        "speaker": "det",
+        "mood": "frustrated"
     },
     {
         "text": ["I’ve been on this planet for a week now but I still haven’t gotten any clients.",
@@ -12,6 +13,7 @@
                 "There’s no guarantee of my credentials, perhaps if I display my business cards, I’ll seem more professional…",
                 "Yes! That must be it!",
                 "Now, where did I place those?"],
-        "speaker": "det"
+        "speaker": "det",
+        "mood": "neutral"
     }
 ]

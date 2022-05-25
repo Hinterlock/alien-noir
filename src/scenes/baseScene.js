@@ -9,7 +9,7 @@ class baseScene extends Phaser.Scene {
         this.fade.alpha = 0;
 
         //detective talksprite
-        this.det = this.add.sprite(game.config.width/6, game.config.height*1/2, 'det_neut');
+        this.det = this.add.sprite(game.config.width/6, game.config.height*1/2, 'detective');
         this.det.scale = .2;
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
@@ -100,33 +100,27 @@ class baseScene extends Phaser.Scene {
     }
     nextBox() { //checks who is speaking, their emotion, switches up the sprites based on that, then hands off to nextLine()
         this.text.text = '';
+        let temp;
         if (this.dialogue[this.textBox].speaker == 'det') {
             this.text.x = game.config.width*2/8;
+            temp = this.det;
         } else {
             this.text.x = game.config.width/2;
-            let temp;
             switch (this.dialogue[this.textBox].speaker) {
                 case 'Natieks':
                     temp = this.natieks;
                     break;
-                case 'det2':
-                    temp = this.det2;
+                case 'Baker':
+                    temp = this.baker;
+                    break;
+                case 'Fatale':
+                    temp = this.fatale;
+                    break;
+                case 'Bartender':
+                    temp = this.bartender;
             }
-            /*
-            switch (this.dialogue[this.textBox].mood) {
-                case 'neutral':
-                    temp.setFrame(0);
-                    break;
-                case 'happy':
-                    break;
-                case 'sad':
-                    break;
-                case 'frustrated':
-                    break;
-                case 'inquisitive':
-                    
-            }
-            */
+            
+            
             if (this.dialogue[this.textBox].new) { //right speaker is changing
                 if (this.rightSpeaker) { //there is a speaker on the right already
                     let timeline = this.tweens.createTimeline();
@@ -160,6 +154,23 @@ class baseScene extends Phaser.Scene {
                     });
                 }
             }
+        }
+        switch (this.dialogue[this.textBox].mood) {
+            case 'neutral':
+                temp.setFrame(3);
+                break;
+            case 'happy':
+                temp.setFrame(1);
+                break;
+            case 'sad':
+                temp.setFrame(4);
+                break;
+            case 'frustrated':
+                temp.setFrame(0);
+                break;
+            case 'inquisitive':
+                temp.setFrame(2);
+                
         }
         this.nextLine(0);
     }

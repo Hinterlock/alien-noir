@@ -9,9 +9,8 @@ class Menu extends Phaser.Scene {
         this.load.audio('investigate', './assets/investigate.wav');
 
         // load menu images
-        //this.load.image('title', './assets/Menu.png');
         this.load.image('fade', './assets/fade.png');
-        this.load.image('det_neut', './assets/Detective_Neutral.png');
+        this.load.spritesheet('detective', 'assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
     }
 
     create() {

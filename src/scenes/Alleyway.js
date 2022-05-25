@@ -7,7 +7,7 @@ class Alleyway extends baseScene {
         this.load.image('alley', './assets/alley.png');
         this.load.image('cards', './assets/cards.png');
         this.load.image('cursor', './assets/Cursor.png');
-        this.load.image('nat_frus', './assets/Lady_Frustrated.png');
+        this.load.spritesheet('nat', './assets/spritesheets/LadySheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.json('alley1_intro', './assets/test.json');
         this.load.json('alley2', './assets/test2.json');
     }
@@ -19,9 +19,8 @@ class Alleyway extends baseScene {
 
         this.cursor = this.add.sprite(-100, -100, 'cursor');
         this.setup();
-        this.det2 = this.setupSprite('det_neut');
 
-        this.natieks = this.setupSprite('nat_frus');
+        this.natieks = this.setupSprite('nat');
 
         this.dialogue1 = this.cache.json.get('alley1_intro');
         this.dialogue2 = this.cache.json.get('alley2');
