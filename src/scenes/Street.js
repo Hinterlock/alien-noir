@@ -3,23 +3,35 @@ class Street extends baseScene {
         super("streetScene");
     }
     preload() {
-        this.load.image('buildings', './assets/buildings.png');
-        this.load.image('alleyway', './assets/alleyway.png');
-        this.load.image('bar', './assets/bar.png');
-        this.load.image('bakery', './assets/bakery.png');
-        this.load.image('street', './assets/street.png');
-        this.load.image('detective', './assets/detective.png');
+        this.load.image('street', './assets/street/street_road.png');
+        this.load.image('sky', './assets/street/street_sky.png');
+        this.load.image('alleyway', './assets/street/street_alley.png');
+        this.load.image('bar', './assets/street/street_bar.png');
+        this.load.image('bakery', './assets/street/street_bakery.png');
+        this.load.image('cats', './assets/street/street_cats.png');
+        this.load.image('cones', './assets/street/street_cones.png');
+        this.load.image('mushrooms', './assets/street/street_mushrooms.png');
+        this.load.image('ufo', './assets/street/street_ufo.png');
+
+        this.load.image('lilDet', './assets/detective.png');
     }
     create() {
         this.cameras.main.setBackgroundColor('#42f557');
         
-        this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/2, 'buildings');
-        this.bar = this.add.image(this.buildings.width*5/6, game.config.height * 1/3, 'bar');
-        this.alleyway = this.add.image(this.buildings.width *4/9, game.config.height * 1/3, 'alleyway');
-        this.bakery = this.add.image(this.buildings.width *1/8, game.config.height * 1/3, 'bakery');
-        this.street = this.add.image(game.config.width - 70, game.config.height * 1/2, 'street');
+        this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/4, 'sky');
+
+        this.bar = this.add.image(this.buildings.width*7/8, game.config.height * 1/4, 'bar');
+        this.alleyway = this.add.image(this.buildings.width *3/8, game.config.height * 1/4, 'alleyway');
+        this.bakery = this.add.image(this.buildings.width *1/8, game.config.height * 1/4, 'bakery');
+
+        this.cats = this.add.image(this.buildings.width *6/8, game.config.height * 1/4, 'cats');
+        this.cones = this.add.image(this.buildings.width *5/8, game.config.height * 1/4, 'cones');
+        this.mushrooms = this.add.image(this.buildings.width *4/8, game.config.height * 1/4, 'mushrooms');
+        this.ufo = this.add.image(this.buildings.width *2/8, game.config.height * 1/4, 'ufo');
+
+        this.street = this.add.image(game.config.width - 70, game.config.height * .7, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
-        this.detective = this.add.sprite(enter, game.config.height*9/16,'detective');
+        this.detective = this.add.sprite(enter, game.config.height*9/16,'lilDet');
         let startY = .45;
         if (enter != 50) { 
             this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
