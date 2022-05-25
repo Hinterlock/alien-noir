@@ -31,15 +31,16 @@ class Street extends baseScene {
 
         this.street = this.add.image(game.config.width - 70, game.config.height * .7, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
-        this.detective = this.add.sprite(enter, game.config.height*9/16,'lilDet');
+        
+        this.detective = this.add.sprite(710, game.config.height*9/16,'lilDet');
+        //i need to go back and clean up this code about changing the detective's y coordinate
         let startY = .45;
-        if (enter != 50) { 
-            this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
-            this.detective.y = game.config.height*startY - this.detective.height*3/8;
-            if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
-                this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
-            }
+        this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
+        this.detective.y = game.config.height*startY - this.detective.height*3/8;
+        if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
+            this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
         }
+
         this.setup();
         
         // define keys
@@ -57,13 +58,13 @@ class Street extends baseScene {
                 this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
             } else {
                 if (this.checkMouseOver(this.input.activePointer, this.bar)) {
-                    this.moveTo(this.detective, 1500, game.config.height*startY - this.detective.height*3/8, "barScene");
+                    this.moveTo(this.detective, this.bar.x, game.config.height*startY - this.detective.height*3/8, "barScene");
                 }
                 if (this.checkMouseOver(this.input.activePointer, this.bakery)) {
-                    this.moveTo(this.detective, 20, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
+                    this.moveTo(this.detective, this.bakery.x, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
                 }
                 if (this.checkMouseOver(this.input.activePointer, this.alleyway)) {
-                    this.moveTo(this.detective, 710, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                    this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
                 }
             }
         }, this);

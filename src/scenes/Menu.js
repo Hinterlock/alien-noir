@@ -21,7 +21,6 @@ class Menu extends Phaser.Scene {
 
     update(){
         if (Phaser.Input.Keyboard.JustDown(keySPACE)) {
-            enter = 1000;
             this.scene.start("streetScene");
 
             this.sound.play('click');

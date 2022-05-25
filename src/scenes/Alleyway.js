@@ -53,8 +53,6 @@ class Alleyway extends baseScene {
                 this.cards.y = this.cards.y *.70;
             }
             if (this.input.activePointer.x > game.config.width*.7) {
-                enter = 710;
-                // console.log('ahh');
                 this.wipeOut("streetScene");
             }
         }
