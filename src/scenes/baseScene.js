@@ -3,6 +3,7 @@ class baseScene extends Phaser.Scene {
         super(config);
     }
     setup() {
+        this.state = 1;
         //bg fade in dialogue
         this.fade = this.add.image(game.config.width/2, game.config.height/2, 'fade');
         this.fade.scale = 1.5;
@@ -15,6 +16,8 @@ class baseScene extends Phaser.Scene {
         this.det.x = -this.det.width*this.det.scale;
 
         this.rightSpeaker;
+        
+        this.cursor = this.add.sprite(-100, -100, 'cursor');
 
         //text formatting (please change)
         this.textConfig = {
