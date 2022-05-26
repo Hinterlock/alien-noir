@@ -15,9 +15,10 @@ class baseScene extends Phaser.Scene {
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
 
-        this.rightSpeaker;
+        this.rightSpeaker; //variable to store who is currently speaking on the right
+        //honestly i should probably turn the right speakers into like, a prefab. that's a stretch goal atm tho
         
-        this.cursor = this.add.sprite(-100, -100, 'cursor');
+        this.cursor = this.add.sprite(-100, -100, 'cursor'); //cursor sprite
 
         //text formatting (please change)
         this.textConfig = {
@@ -28,12 +29,13 @@ class baseScene extends Phaser.Scene {
         this.text = this.add.text(game.config.width*3/8, game.config.height/8, '', this.textFormat);
         this.wordDelay = 100;
         this.timer;
+
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
         this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
         this.events.on('wake', function() {this.wipeIn();}, this);
         this.input.on('pointerdown', function() {
-            this.clickButton();
+            this.clickButton(); //this is defined in the individual scenes, covers investigation clicks
         }, this);
     } 
     update(){
@@ -64,7 +66,7 @@ class baseScene extends Phaser.Scene {
             onCompleteScope: this
         });
     }
-    wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to
+    wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to, uses sleep instead of stop
         this.wipe.x = this.cameras.main.scrollX - game.config.width/2;
         this.wipe.y = game.config.height/2;
         this.tweens.add({
@@ -87,7 +89,7 @@ class baseScene extends Phaser.Scene {
         });
     }
     
-    cursorUpdate() {
+    cursorUpdate() { //moves cursor to mouse
         if (this.state) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
@@ -129,7 +131,7 @@ class baseScene extends Phaser.Scene {
             temp = this.det;
         } else {
             this.text.x = game.config.width/2;
-            switch (this.dialogue[this.textBox].speaker) {
+            switch (this.dialogue[this.textBox].speaker) { //character handling
                 case 'Natieks':
                     temp = this.natieks;
                     break;
@@ -178,7 +180,7 @@ class baseScene extends Phaser.Scene {
                 }
             }
         }
-        switch (this.dialogue[this.textBox].mood) {
+        switch (this.dialogue[this.textBox].mood) { //mood handling
             case 'neutral':
                 temp.setFrame(3);
                 break;
