@@ -5,13 +5,19 @@ class baseScene extends Phaser.Scene {
     setup() {
         this.state = 1;
         //bg fade in dialogue
+        /*
         this.fade = this.add.image(game.config.width/2, game.config.height/2, 'fade');
         this.fade.scale = 1.5;
         this.fade.alpha = 0;
-
+        */
+        this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
+        this.borders.scale = 1.5;
+        
+        this.box = this.add.image(game.config.width/2, game.config.height/2, 'box');
+        this.box.alpha = 0;
         //detective talksprite
         this.det = this.add.sprite(game.config.width/6, game.config.height*1/2, 'detective');
-        this.det.scale = .2;
+        this.det.scale = .125;
         this.det.y = game.config.height - this.det.height*this.det.scale/2;
         this.det.x = -this.det.width*this.det.scale;
 
@@ -23,10 +29,10 @@ class baseScene extends Phaser.Scene {
         //text formatting (please change)
         this.textConfig = {
             fontFamily: 'Courier',
-            fontSize: '24px'
-            //color: ''
+            fontSize: '24px',
+            color: '#0a0a0a'
         };
-        this.text = this.add.text(game.config.width*3/8, game.config.height/8, '', this.textFormat);
+        this.text = this.add.text(game.config.width*2/8, game.config.height*6/8, '', this.textConfig);
         this.wordDelay = 100;
         this.timer;
 
@@ -44,7 +50,7 @@ class baseScene extends Phaser.Scene {
 
     setupSprite(key) { //sets up a sprite for the right side of the screen, if needed i can add functionality for it to set up sprites for the left
         let temp = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, key);
-        temp.scale = .2;
+        temp.scale = .125;
         temp.y = game.config.height - temp.height*temp.scale/2;
         temp.flipX = -1;
         temp.x = temp.width*temp.scale + game.config.width;
@@ -109,14 +115,20 @@ class baseScene extends Phaser.Scene {
         this.state = 0;
         this.cursor.x = -100;
         this.tweens.add({
-            targets: this.fade,
+            targets: this.box,
             alpha: { from: 0, to: 1},
             ease: 'Sine.easeOut',
             duration: 1000
         });
         this.tweens.add({
+            targets: this.borders,
+            scale: { from: 1.5, to: 1},
+            ease: 'Sine.easeOut',
+            duration: 1000
+        });
+        this.tweens.add({
             targets: this.det,
-            x: { from: this.det.x, to: game.config.width/6},
+            x: { from: this.det.x, to: game.config.width/8},
             ease: 'Sine.easeOut',
             duration: 1000,
             onComplete: this.nextBox(),
@@ -127,10 +139,30 @@ class baseScene extends Phaser.Scene {
         this.text.text = '';
         let temp;
         if (this.dialogue[this.textBox].speaker == 'det') {
-            this.text.x = game.config.width*2/8;
             temp = this.det;
+            if (this.rightSpeaker) {
+                this.tweens.add({
+                    targets: this.rightSpeaker,
+                    x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
+                    ease: 'Sine.easeIn',
+                    duration: 1000,
+                    onComplete: function() {this.rightSpeaker = null;},
+                    onCompleteScope: this
+                });
+                this.tweens.add({
+                    targets: this.det,
+                    x: { from: this.det.x, to: game.config.width/8},
+                    ease: 'Sine.easeOut',
+                    duration: 1000
+                });
+            }
         } else {
-            this.text.x = game.config.width/2;
+            this.tweens.add({
+                targets: this.det,
+                x: { from: this.det.x, to: -this.det.width*this.det.scale},
+                ease: 'Sine.easeIn',
+                duration: 1000
+            });
             switch (this.dialogue[this.textBox].speaker) { //character handling
                 case 'Natieks':
                     temp = this.natieks;
@@ -144,8 +176,6 @@ class baseScene extends Phaser.Scene {
                 case 'Bartender':
                     temp = this.bartender;
             }
-            
-            
             if (this.dialogue[this.textBox].new) { //right speaker is changing
                 if (this.rightSpeaker) { //there is a speaker on the right already
                     let timeline = this.tweens.createTimeline();
@@ -164,7 +194,7 @@ class baseScene extends Phaser.Scene {
                     });
                     timeline.add({
                         targets: temp,
-                        x: { from: temp.x, to: game.config.width*5/6},
+                        x: { from: temp.x, to: game.config.width*7/8},
                         ease: 'Sine.easeOut',
                         duration: 500
                     });
@@ -173,7 +203,7 @@ class baseScene extends Phaser.Scene {
                     this.rightSpeaker = temp;
                     this.tweens.add({
                         targets: this.rightSpeaker,
-                        x: { from: this.rightSpeaker.x, to: game.config.width*5/6},
+                        x: { from: this.rightSpeaker.x, to: game.config.width*7/8},
                         ease: 'Sine.easeOut',
                         duration: 1000
                     });
@@ -236,8 +266,14 @@ class baseScene extends Phaser.Scene {
             } else {
                 this.text.text = '';
                 this.tweens.add({
-                    targets: this.fade,
+                    targets: this.box,
                     alpha: { from: 1, to: 0},
+                    ease: 'Sine.easeIn',
+                    duration: 1000
+                });
+                this.tweens.add({
+                    targets: this.borders,
+                    scale: { from: 1, to: 1.5},
                     ease: 'Sine.easeIn',
                     duration: 1000
                 });
