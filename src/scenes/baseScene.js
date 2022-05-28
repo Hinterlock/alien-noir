@@ -4,25 +4,19 @@ class baseScene extends Phaser.Scene {
     }
     setup() {
         this.state = 1;
-        //bg fade in dialogue
-        /*
-        this.fade = this.add.image(game.config.width/2, game.config.height/2, 'fade');
-        this.fade.scale = 1.5;
-        this.fade.alpha = 0;
-        */
+        this.typing = false;
+        this.wordDelay = 100;
+        // this.timer;
+        this.speaker = null;
+        this.lastSpeaker = null;
+
         this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
         this.borders.scale = 1.5;
         
         this.box = this.add.image(game.config.width/2, game.config.height/2, 'box');
         this.box.alpha = 0;
         //detective talksprite
-        this.det = this.add.sprite(game.config.width/6, game.config.height*1/2, 'detective');
-        this.det.scale = .125;
-        this.det.y = game.config.height - this.det.height*this.det.scale/2;
-        this.det.x = -this.det.width*this.det.scale;
-
-        this.rightSpeaker; //variable to store who is currently speaking on the right
-        //honestly i should probably turn the right speakers into like, a prefab. that's a stretch goal atm tho
+        this.det = new Speaker(this, 0, 'detective');
         
         this.cursor = this.add.sprite(-100, -100, 'cursor'); //cursor sprite
 
@@ -33,28 +27,20 @@ class baseScene extends Phaser.Scene {
             color: '#0a0a0a'
         };
         this.text = this.add.text(game.config.width*2/8, game.config.height*6/8, '', this.textConfig);
-        this.wordDelay = 100;
-        this.timer;
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
+
         this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
+        
         this.events.on('wake', function() {this.wipeIn();}, this);
+
         this.input.on('pointerdown', function() {
             this.clickButton(); //this is defined in the individual scenes, covers investigation clicks
         }, this);
     } 
     update(){
         this.cursorUpdate();
-    }
-
-    setupSprite(key) { //sets up a sprite for the right side of the screen, if needed i can add functionality for it to set up sprites for the left
-        let temp = this.add.sprite(game.config.width * 5/6, game.config.height*1/2, key);
-        temp.scale = .125;
-        temp.y = game.config.height - temp.height*temp.scale/2;
-        temp.flipX = -1;
-        temp.x = temp.width*temp.scale + game.config.width;
-        return temp;
     }
 
     wipeIn(dialogue){ //horizontal wipe for start of scene, takes input for if dialogue automatically starts
@@ -81,13 +67,10 @@ class baseScene extends Phaser.Scene {
             ease: 'Sine.easeIn',
             duration: 500,
             onComplete: function() {
-                //this.scene.start(destination);
                 this.scene.sleep();
                 if (this.scene.isSleeping(destination)) {
-                    // console.log(destination);
                     this.scene.wake(destination);
                 } else {
-                    // console.log('a');
                     this.scene.launch(destination);
                 }
             },
@@ -111,6 +94,7 @@ class baseScene extends Phaser.Scene {
 
     startDialogue(dialogue) { //brings in background fade and detective talk sprite, hands off to nextBox()
         this.dialogue = dialogue;
+        this.lastSpeaker = null;
         this.textBox = 0;
         this.state = 0;
         this.cursor.x = -100;
@@ -124,12 +108,6 @@ class baseScene extends Phaser.Scene {
             targets: this.borders,
             scale: { from: 1.5, to: 1},
             ease: 'Sine.easeOut',
-            duration: 1000
-        });
-        this.tweens.add({
-            targets: this.det,
-            x: { from: this.det.x, to: game.config.width/8},
-            ease: 'Sine.easeOut',
             duration: 1000,
             onComplete: this.nextBox(),
             onCompleteScope: this
@@ -137,101 +115,53 @@ class baseScene extends Phaser.Scene {
     }
     nextBox() { //checks who is speaking, their emotion, switches up the sprites based on that, then hands off to nextLine()
         this.text.text = '';
-        let temp;
-        if (this.dialogue[this.textBox].speaker == 'det') {
-            temp = this.det;
-            if (this.rightSpeaker) {
+        this.typing = true;
+        let x;
+
+        this.speaker = this.dialogue[this.textBox]['speaker'];
+        if (this.speaker == 'det') {
+            x = game.config.width/8;
+        } else {
+            x = game.config.width - game.config.width/8;
+        }
+        switch (this.dialogue[this.textBox].mood) { //mood handling
+            case 'neutral': 
+                this[this.speaker].setFrame(3);
+                break;
+            case 'happy':
+                this[this.speaker].setFrame(1);
+                break;
+            case 'sad':
+                this[this.speaker].setFrame(4);
+                break;
+            case 'frustrated':
+                this[this.speaker].setFrame(0);
+                break;
+            case 'inquisitive':
+                this[this.speaker].setFrame(2);
+        }
+        if (this.dialogue[this.textBox]['new'] == true) {
+            if (this.lastSpeaker) {
                 this.tweens.add({
-                    targets: this.rightSpeaker,
-                    x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
+                    targets: this[this.lastSpeaker],
+                    x: { from: this[this.lastSpeaker].x, to: this[this.lastSpeaker].home},
                     ease: 'Sine.easeIn',
-                    duration: 1000,
-                    onComplete: function() {this.rightSpeaker = null;},
-                    onCompleteScope: this
-                });
-                this.tweens.add({
-                    targets: this.det,
-                    x: { from: this.det.x, to: game.config.width/8},
-                    ease: 'Sine.easeOut',
                     duration: 1000
                 });
             }
-        } else {
             this.tweens.add({
-                targets: this.det,
-                x: { from: this.det.x, to: -this.det.width*this.det.scale},
+                targets: this[this.speaker],
+                x: { from: this[this.speaker].home, to: x},
                 ease: 'Sine.easeIn',
                 duration: 1000
             });
-            switch (this.dialogue[this.textBox].speaker) { //character handling
-                case 'Natieks':
-                    temp = this.natieks;
-                    break;
-                case 'Baker':
-                    temp = this.baker;
-                    break;
-                case 'Fatale':
-                    temp = this.fatale;
-                    break;
-                case 'Bartender':
-                    temp = this.bartender;
-            }
-            if (this.dialogue[this.textBox].new) { //right speaker is changing
-                if (this.rightSpeaker) { //there is a speaker on the right already
-                    let timeline = this.tweens.createTimeline();
-                    timeline.add({
-                        targets: this.rightSpeaker,
-                        x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
-                        ease: 'Sine.easeIn',
-                        duration: 500,
-                        onComplete: function() {
-                            this.rightSpeaker = temp;
-                            if (this.state) {
-                                timeline.destroy();
-                            }
-                        },
-                        onCompleteScope: this
-                    });
-                    timeline.add({
-                        targets: temp,
-                        x: { from: temp.x, to: game.config.width*7/8},
-                        ease: 'Sine.easeOut',
-                        duration: 500
-                    });
-                    timeline.play();
-                } else {
-                    this.rightSpeaker = temp;
-                    this.tweens.add({
-                        targets: this.rightSpeaker,
-                        x: { from: this.rightSpeaker.x, to: game.config.width*7/8},
-                        ease: 'Sine.easeOut',
-                        duration: 1000
-                    });
-                }
-            }
-        }
-        switch (this.dialogue[this.textBox].mood) { //mood handling
-            case 'neutral':
-                temp.setFrame(3);
-                break;
-            case 'happy':
-                temp.setFrame(1);
-                break;
-            case 'sad':
-                temp.setFrame(4);
-                break;
-            case 'frustrated':
-                temp.setFrame(0);
-                break;
-            case 'inquisitive':
-                temp.setFrame(2);
-                
         }
         this.nextLine(0);
     }
     nextLine(lineIndex) { //uses timer to display a word at a time by calling nextWord()
         if (lineIndex == this.dialogue[this.textBox].text.length) {
             this.textBox += 1;
+            this.typing = false;
             return;
         }
         let wordIndex = 0;
@@ -257,12 +187,15 @@ class baseScene extends Phaser.Scene {
 
     space() { //spacebar input to progress dialogue
         if (!this.state){
-            if (this.timer.getOverallRemaining() > 0) {
-                this.timer.remove(false);
-                this.textBox ++;
-            }
+            // if (this.timer.getOverallRemaining() > 0) {
+            //     this.timer.remove(false);
+            //     this.textBox ++;
+            // }
             if (this.textBox < this.dialogue.length) {
-                this.nextBox();
+                if (!this.typing) {
+                    this.lastSpeaker = this.speaker;
+                    this.nextBox();
+                }
             } else {
                 this.text.text = '';
                 this.tweens.add({
@@ -284,16 +217,6 @@ class baseScene extends Phaser.Scene {
                     duration: 1000
                 });
                 this.state = 1;
-                if (this.rightSpeaker) {
-                    this.tweens.add({
-                        targets: this.rightSpeaker,
-                        x: { from: this.rightSpeaker.x, to: game.config.width + this.rightSpeaker.width*this.rightSpeaker.scale},
-                        ease: 'Sine.easeIn',
-                        duration: 1000,
-                        onComplete: function() {this.rightSpeaker = null;},
-                        onCompleteScope: this
-                    });
-                }
             }
         }
         this.sound.play('click');

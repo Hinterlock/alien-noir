@@ -1,13 +1,14 @@
 [
     {
         "text": ["*Sigh…*"],
-        "speaker": "det"
+        "speaker": "det",
+        "new": true
     },
     {
         "text": ["yay",
                 "a a b",
                 ""],
-        "speaker": "Natieks",
+        "speaker": "natieks",
         "mood": "frustrated",
         "new": true
     },

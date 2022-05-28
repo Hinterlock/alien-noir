@@ -18,7 +18,7 @@ class Alleyway extends baseScene {
 
         this.setup();
 
-        this.natieks = this.setupSprite('nat');
+        this.natieks = new Speaker(this, 1, 'nat');
 
         this.dialogue1 = this.cache.json.get('alley1_intro');
         this.dialogue2 = this.cache.json.get('alley2');
