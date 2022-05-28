@@ -21,12 +21,14 @@ class baseScene extends Phaser.Scene {
         this.cursor = this.add.sprite(-100, -100, 'cursor'); //cursor sprite
 
         //text formatting (please change)
-        this.textConfig = {
-            fontFamily: 'Courier',
-            fontSize: '24px',
-            color: '#0a0a0a'
-        };
-        this.text = this.add.text(game.config.width*2/8, game.config.height*6/8, '', this.textConfig);
+        // this.textConfig = {
+        //     fontFamily: 'Courier',
+        //     fontSize: '24px',
+        //     color: '#0a0a0a'
+        // };
+        // this.text = this.add.text(game.config.width*2/8, game.config.height*6/8, '', this.textConfig);
+        this.text = this.add.bitmapText(game.config.width*2/8, game.config.height*5/8, 'gem_font', '', 24);
+        this.text.maxWidth = 600;
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);

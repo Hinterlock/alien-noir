@@ -15,6 +15,9 @@ class Menu extends Phaser.Scene {
         this.load.image('cursorArrow', './assets/CursorArrow.png');
         this.load.image('borders', './assets/borders.png');
         this.load.image('box', './assets/textbox.png');
+
+        
+        this.load.bitmapFont('gem_font', './assets/font/gem.png', './assets/font/gem.xml');
     }
 
     create() {
