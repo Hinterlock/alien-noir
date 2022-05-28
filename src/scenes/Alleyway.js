@@ -26,7 +26,6 @@ class Alleyway extends baseScene {
     }
     clickButton() {
         if (this.state) {
-            // console.log("oy");
             if (this.checkMouseOver(this.input.activePointer, this.cards)) {
                 this.startDialogue(this.dialogue2);
                 this.sound.play('investigate');

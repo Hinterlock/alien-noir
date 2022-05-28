@@ -5,8 +5,8 @@ class baseScene extends Phaser.Scene {
     setup() {
         this.state = 1;
         this.typing = false;
-        this.wordDelay = 100;
-        // this.timer;
+        this.wordDelay = 30;
+        this.tweenTime = 750;
         this.speaker = null;
         this.lastSpeaker = null;
 
@@ -32,7 +32,6 @@ class baseScene extends Phaser.Scene {
         keySPACE.on('down', this.space, this);
 
         this.wipe = this.add.rectangle(this.cameras.main.scrollX + game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
-        
         this.events.on('wake', function() {this.wipeIn();}, this);
 
         this.input.on('pointerdown', function() {
@@ -146,14 +145,14 @@ class baseScene extends Phaser.Scene {
                     targets: this[this.lastSpeaker],
                     x: { from: this[this.lastSpeaker].x, to: this[this.lastSpeaker].home},
                     ease: 'Sine.easeIn',
-                    duration: 1000
+                    duration: this.tweenTime
                 });
             }
             this.tweens.add({
                 targets: this[this.speaker],
                 x: { from: this[this.speaker].home, to: x},
                 ease: 'Sine.easeIn',
-                duration: 1000
+                duration: this.tweenTime
             });
         }
         this.nextLine(0);
@@ -165,7 +164,7 @@ class baseScene extends Phaser.Scene {
             return;
         }
         let wordIndex = 0;
-        let line = this.dialogue[this.textBox].text[lineIndex].split(' ');
+        let line = this.dialogue[this.textBox].text[lineIndex].split('');
         this.timer = this.time.addEvent({
             delay: this.wordDelay,
             callback: function(){
@@ -181,7 +180,7 @@ class baseScene extends Phaser.Scene {
             this.text.text = this.text.text.concat("\n");
             this.nextLine(lineIndex+1);
         } else {
-            this.text.text = this.text.text.concat(line[wordIndex] + " ");
+            this.text.text = this.text.text.concat(line[wordIndex]);
         }
     }
 
@@ -202,19 +201,19 @@ class baseScene extends Phaser.Scene {
                     targets: this.box,
                     alpha: { from: 1, to: 0},
                     ease: 'Sine.easeIn',
-                    duration: 1000
+                    duration: this.tweenTime
                 });
                 this.tweens.add({
                     targets: this.borders,
                     scale: { from: 1, to: 1.5},
                     ease: 'Sine.easeIn',
-                    duration: 1000
+                    duration: this.tweenTime
                 });
                 this.tweens.add({
                     targets: this.det,
                     x: { from: this.det.x, to: -this.det.width*this.det.scale},
                     ease: 'Sine.easeIn',
-                    duration: 1000
+                    duration: this.tweenTime
                 });
                 this.state = 1;
             }
