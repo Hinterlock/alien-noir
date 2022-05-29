@@ -3,15 +3,15 @@ class Street extends baseScene {
         super("streetScene");
     }
     preload() {
-        this.load.image('street', './assets/street_road.png');
-        this.load.image('sky', './assets/street_sky.png');
-        this.load.image('alleyway', './assets/street_alley.png');
-        this.load.image('bar', './assets/street_bar.png');
-        this.load.image('bakery', './assets/street_bakery.png');
-        this.load.image('cats', './assets/street_cats.png');
-        this.load.image('cones', './assets/street_cones.png');
-        this.load.image('mushrooms', './assets/street_mushrooms.png');
-        this.load.image('ufo', './assets/street_ufo.png');
+        this.load.image('street', './assets/street/street_road.PNG');
+        this.load.image('sky', './assets/street/street_sky.PNG');
+        this.load.image('alleyway', './assets/street/street_alley.PNG');
+        this.load.image('bar', './assets/street/street_bar.PNG');
+        this.load.image('bakery', './assets/street/street_bakery.PNG');
+        this.load.image('cats', './assets/street/street_cats.PNG');
+        this.load.image('cones', './assets/street/street_cones.PNG');
+        this.load.image('mushrooms', './assets/street/street_mushrooms.PNG');
+        this.load.image('ufo', './assets/street/street_ufo.PNG');
 
         this.load.image('lilDet', './assets/detective.png');
     }
