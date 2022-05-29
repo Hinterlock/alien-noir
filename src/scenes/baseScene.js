@@ -170,14 +170,14 @@ class baseScene extends Phaser.Scene {
         this.timer = this.time.addEvent({
             delay: this.wordDelay,
             callback: function(){
-                this.nextWord(line, wordIndex, lineIndex);
+                this.nextLetter(line, wordIndex, lineIndex);
                 wordIndex++;
             },
             callbackScope: this,
             repeat: line.length
         });
     }
-    nextWord(line, wordIndex, lineIndex) { //concats words, recursively calls back to nextLine() if at the end of a line
+    nextLetter(line, wordIndex, lineIndex) { //concats words, recursively calls back to nextLine() if at the end of a line
         if (wordIndex == line.length) {
             this.text.text = this.text.text.concat("\n");
             this.nextLine(lineIndex+1);
