@@ -12,7 +12,7 @@ class Street extends baseScene {
         this.load.image('cones', './assets/street/street_cones.PNG');
         this.load.image('mushrooms', './assets/street/street_mushrooms.PNG');
         this.load.image('ufo', './assets/street/street_ufo.PNG');
-
+        this.load.spritesheet('walk', './assets/street/WalkcycleSheet.png');
         this.load.image('lilDet', './assets/detective.png');
     }
     create() {

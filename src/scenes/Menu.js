@@ -11,7 +11,7 @@ class Menu extends Phaser.Scene {
         // load menu images
         this.load.image('fade', './assets/fade.png');
         this.load.spritesheet('detective', 'assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
-        this.load.image('cursor', './assets/Cursor.png');
+        this.load.image('cursor', './assets/magnifying.png');
         this.load.image('cursorArrow', './assets/CursorArrow.png');
         this.load.image('borders', './assets/borders.png');
         this.load.image('box', './assets/textbox.png');
