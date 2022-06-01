@@ -48,6 +48,7 @@ class Street extends baseScene {
         // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.move = false;
+        this.music = this.sound.add('streetsMusic',{loop: true})
         this.wipeIn();
     }
     clickButton() {

@@ -4,19 +4,22 @@ class Menu extends Phaser.Scene {
     }
 
     preload() {
-        // load audio
+        // load audio sfx
         this.load.audio('click', './assets/click.wav');
         this.load.audio('investigate', './assets/investigate.wav');
+        // load music
+        this.load.audio('streetsMusic', './assets/sound/The_Streets.wav');
+        this.load.audio('slugKarenMusic', './assets/sound/An_Interruption.wav');
 
-        // load menu images
+        // load base images
         this.load.image('fade', './assets/fade.png');
-        this.load.spritesheet('detective', 'assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
+        this.load.spritesheet('detective', './assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.image('cursor', './assets/magnifying.png');
         this.load.image('cursorArrow', './assets/CursorArrow.png');
         this.load.image('borders', './assets/borders.png');
         this.load.image('box', './assets/textbox.png');
 
-        
+        // load font
         this.load.bitmapFont('gem_font', './assets/font/gem.png', './assets/font/gem.xml');
     }
 

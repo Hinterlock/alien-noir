@@ -20,13 +20,6 @@ class baseScene extends Phaser.Scene {
         
         this.cursor = this.add.sprite(-100, -100, 'cursor'); //cursor sprite
 
-        //text formatting (please change)
-        // this.textConfig = {
-        //     fontFamily: 'Courier',
-        //     fontSize: '24px',
-        //     color: '#0a0a0a'
-        // };
-        // this.text = this.add.text(game.config.width*2/8, game.config.height*6/8, '', this.textConfig);
         this.text = this.add.bitmapText(game.config.width*2/8, game.config.height*5/8, 'gem_font', '', 24);
         this.text.maxWidth = 600;
 
@@ -58,6 +51,15 @@ class baseScene extends Phaser.Scene {
             },
             onCompleteScope: this
         });
+        if (this.music) {
+            this.music.play();
+            this.tweens.add({
+                targets: this.music,
+                volume: { from: 0, to: 1},
+                ease: 'Sine.easeIn',
+                duration: 500
+            });
+        }
     }
     wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to, uses sleep instead of stop
         this.wipe.x = this.cameras.main.scrollX - game.config.width/2;
@@ -77,6 +79,18 @@ class baseScene extends Phaser.Scene {
             },
             onCompleteScope: this
         });
+        if (this.music) {
+            this.tweens.add({
+                targets: this.music,
+                volume: { from: 1, to: 0},
+                ease: 'Sine.easeIn',
+                duration: 500,
+                onComplete: function() {
+                    this.music.stop();
+                },
+                onCompleteScope: this
+            });
+        }
     }
     
     cursorUpdate() { //moves cursor to mouse
@@ -163,6 +177,7 @@ class baseScene extends Phaser.Scene {
         if (lineIndex == this.dialogue[this.textBox].text.length) {
             this.textBox += 1;
             this.typing = false;
+            //make space prompt visible
             return;
         }
         let wordIndex = 0;
