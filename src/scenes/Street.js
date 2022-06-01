@@ -5,14 +5,14 @@ class Street extends baseScene {
     preload() {
         this.load.image('street', './assets/street/street_road.PNG');
         this.load.image('sky', './assets/street/street_sky.PNG');
-        this.load.image('alleyway', './assets/street/street_alley.PNG');
+        this.load.image('alleyway', './assets/street/street_alley.png');
         this.load.image('bar', './assets/street/street_bar.PNG');
         this.load.image('bakery', './assets/street/street_bakery.PNG');
         this.load.image('cats', './assets/street/street_cats.PNG');
         this.load.image('cones', './assets/street/street_cones.PNG');
         this.load.image('mushrooms', './assets/street/street_mushrooms.PNG');
         this.load.image('ufo', './assets/street/street_ufo.PNG');
-        this.load.spritesheet('walk', './assets/street/WalkcycleSheet.png');
+        this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 260, frameHeight: 368});
         this.load.image('lilDet', './assets/detective.png');
     }
     create() {
@@ -30,7 +30,7 @@ class Street extends baseScene {
         this.street = this.add.image(game.config.width - 70, game.config.height * .72, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
         
-        this.detective = this.add.sprite(710, game.config.height*9/16,'lilDet');
+        this.detective = this.add.sprite(710, game.config.height*9/16,'walk');
         //i need to go back and clean up this code about changing the detective's y coordinate
         let startY = .45;
         this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
