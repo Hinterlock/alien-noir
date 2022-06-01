@@ -15,7 +15,7 @@ class Bar extends baseScene {
         this.wipeIn();
     }
     clickButton() {
-        if (this.input.activePointer.x > game.config.width*.7) {
+        if (this.input.activePointer.y > game.config.height*.85) {
             this.wipeOut("streetScene");
         }
     }

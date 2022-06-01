@@ -94,10 +94,11 @@ class baseScene extends Phaser.Scene {
     }
     
     cursorUpdate() { //moves cursor to mouse
+        // console.log(this.cursor.x, this.cursor.y);
         if (this.state) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
-            if (this.input.activePointer.x > game.config.width*.7) {
+            if (this.input.activePointer.y > game.config.height*.85) {
                 if (this.cursor.texture.key == 'cursor') {
                     this.cursor.setTexture('cursorArrow');
                 }
