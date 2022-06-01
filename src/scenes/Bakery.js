@@ -17,14 +17,14 @@ class Bakery extends baseScene {
     }
     create() {
         this.walls = this.add.image(game.config.width/2, game.config.height/2, 'walls');
-        this.circle = this.add.image(game.config.width/2, game.config.height*5/6, 'circle');
+        this.circle = this.add.image(game.config.width/2, game.config.height*4/5, 'circle');
         this.cauldron = this.add.image(game.config.width/2, game.config.height/2, 'cauldron');
-        this.shelves = this.add.image(game.config.width/2, game.config.height*3/8, 'shelves');
-        this.shelf_items = this.add.image(game.config.width/2, game.config.height*2/8, 'shelf_items');
-        this.broken_shelf = this.add.image(game.config.width*5/6, game.config.height/2, 'broken_shelf');
-        this.right_stand = this.add.image(game.config.width - 275/2, game.config.height*2/3, 'right_stand');
-        this.broken_stand = this.add.image(275/2, game.config.height*2/3, 'broken_stand');
-        this.trail_bakery = this.add.image(game.config.width/3, game.config.height*3/4, 'trail_bakery');
+        this.shelves = this.add.image(game.config.width/2, game.config.height*2/8, 'shelves');
+        this.shelf_items = this.add.image(game.config.width/2, game.config.height*1/6, 'shelf_items');
+        this.broken_shelf = this.add.image(game.config.width*7/8, game.config.height/2.9, 'broken_shelf');
+        this.right_stand = this.add.image(game.config.width - 275/2, game.config.height*3/4, 'right_stand');
+        this.broken_stand = this.add.image(275/2, game.config.height*3/4, 'broken_stand');
+        this.trail_bakery = this.add.image(game.config.width/3.6, game.config.height*8/9, 'trail_bakery');
         this.setup();
         this.input.on('pointerdown', function() {
             this.clickButton();
