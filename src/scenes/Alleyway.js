@@ -41,7 +41,7 @@ class Alleyway extends baseScene {
 
         this.natieks = new Speaker(this, 1, 'nat');
 
-        this.intoTxt = this.cache.json.get('alley1_intro');
+        this.introTxt = this.cache.json.get('alley1_intro');
         this.cardsTxt = this.cache.json.get('alley2');
         this.wipeIn(this.introTxt);
         this.investigateStatus = 0;
