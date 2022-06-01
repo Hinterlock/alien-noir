@@ -3,7 +3,7 @@ class Bakery extends baseScene {
         super("bakeryScene");
     }
     preload() {
-        this.load.image('walls', './assets/bakery/walls.png');
+        this.load.image('bakery_walls', './assets/bakery/walls.png');
         this.load.image('circle', './assets/bakery/summoning_circle.png');
         this.load.image('cauldron', './assets/bakery/cauldron.png');
         this.load.image('shelves', './assets/bakery/shelves.png');
@@ -16,7 +16,7 @@ class Bakery extends baseScene {
         this.load.image('trail_bakery', './assets/bakery/trail_bakery.png');
     }
     create() {
-        this.walls = this.add.image(game.config.width/2, game.config.height/2, 'walls');
+        this.bakerywalls = this.add.image(game.config.width/2, game.config.height/2, 'bakery_walls');
         this.circle = this.add.image(game.config.width/2, game.config.height*4/5, 'circle');
         this.cauldron = this.add.image(game.config.width/2, game.config.height/2, 'cauldron');
         this.shelves = this.add.image(game.config.width/2, game.config.height*2/8, 'shelves');

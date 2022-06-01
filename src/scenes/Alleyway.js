@@ -18,7 +18,7 @@ class Alleyway extends baseScene {
         this.load.image('posters', './assets/alleyway/posters.png');
         this.load.image('stand', './assets/alleyway/stand.png');
         this.load.image('trash', './assets/alleyway/trash.png');
-        this.load.image('walls', './assets/alleyway/walls.png');
+        this.load.image('alley_walls', './assets/alleyway/walls.png');
 
     }
 
@@ -26,7 +26,7 @@ class Alleyway extends baseScene {
         // this.bg = this.add.image(game.config.width/2, game.config.height/2, 'walls');
         //this.cards = this.add.sprite(game.config.width/4, game.config.height*3/4, 'cards');
         //this.cards.scale = .5;
-        this.walls = this.add.image(game.config.width/2, game.config.height/2, 'walls');
+        this.alleywalls = this.add.image(game.config.width/2, game.config.height/2, 'alley_walls');
         this.posters = this.add.image(game.config.width/2, game.config.height/3, 'posters');
         this.stand = this.add.image(game.config.width/2, game.config.height/2, 'stand');
         this.papers = this.add.image(game.config.width/2, game.config.height*1/2, 'papers');
@@ -34,8 +34,6 @@ class Alleyway extends baseScene {
         this.cards = this.add.image(game.config.width/10, game.config.height*3/4, 'cards');
         this.cards_outlined = this.add.image(game.config.width/10, game.config.height*3/4, 'cards_outlined');
         this.boxes = this.add.image(game.config.width*5/6, game.config.height*5/6, 'boxes');
-
-
 
         this.setup();
 
