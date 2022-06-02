@@ -29,8 +29,15 @@ class Bar extends baseScene {
             this.clickButton();
         }, this);
 
+        this.clues[1] = this.bartender;
+        this.clues[2] = this.stage;
+        this.clues[3] = this.aliens;
+
         this.introTxt = this.cache.json.get('bar1_intro');
-        // this.cardsTxt = this.cache.json.get('alley2');
+        this.bartenderTxt = this.cache.json.get('bar2');
+        this.stage2Txt = this.cache.json.get('bar3');
+        this.stage1Txt = this.cache.json.get('bar4');
+        this.pplTxt = this.cache.json.get('bar5');
         
         this.music = this.sound.add('slugKarenMusic',{loop: true});
         this.music.play();
@@ -39,8 +46,18 @@ class Bar extends baseScene {
         this.wipeIn(this.introTxt);
     }
     clickButton() {
-        if (this.input.activePointer.y > game.config.height*.85) {
-            this.wipeOut("streetScene");
+        if (this.state) {
+            // if (this.checkMouseOver(this.input.activePointer, this.cards) && this.investigateStatus < 1) {
+            //     this.startDialogue(this.cardsTxt);
+            //     this.sound.play('cardSFX');
+            //     this.cards.x = 530;
+            //     this.cards.y = 300;
+            //     this.cards.setTexture('cards');
+            //     this.investigateStatus++;
+            // }
+            if (this.input.activePointer.y > game.config.height*.85) {
+                this.wipeOut("streetScene");
+            }
         }
     }
 }
