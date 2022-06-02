@@ -24,7 +24,7 @@ class Menu extends Phaser.Scene {
     }
 
     create() {
-        this.add.text(20, 20, 'Menu, click to start, spacebar to progress');
+        this.add.text(20, 20, 'Click to start, use the mouse to investigate and move around the neighborhood');
         //this.title = this.add.image(game.config.width/2, game.config.height/2, 'title');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', function() {

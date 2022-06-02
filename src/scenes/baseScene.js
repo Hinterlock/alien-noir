@@ -5,7 +5,7 @@ class baseScene extends Phaser.Scene {
     setup() {
         this.state = 1;
         this.typing = false;
-        this.wordDelay = 30;
+        this.wordDelay = 10;
         this.tweenTime = 750;
         this.speaker = null;
         this.lastSpeaker = null;
@@ -20,8 +20,11 @@ class baseScene extends Phaser.Scene {
         
         this.cursor = this.add.sprite(-100, -100, 'cursor'); //cursor sprite
 
-        this.text = this.add.bitmapText(game.config.width*2/8, game.config.height*5/8, 'gem_font', '', 24);
+        this.FONT = 'gem_font';
+        this.FONTSIZE = 24;
+        this.text = this.add.bitmapText(game.config.width*2/8, game.config.height*5/8, this.FONT, '', this.FONTSIZE);
         this.text.maxWidth = 600;
+        this.nextText = this.add.bitmapText(800, 550, this.FONT, '', this.FONTSIZE).setOrigin(1);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
@@ -131,6 +134,7 @@ class baseScene extends Phaser.Scene {
     }
     nextBox() { //checks who is speaking, their emotion, switches up the sprites based on that, then hands off to nextLine()
         this.text.text = '';
+        this.nextText.text = '';
         this.typing = true;
         let x;
 
@@ -180,7 +184,7 @@ class baseScene extends Phaser.Scene {
         if (lineIndex == this.dialogue[this.textBox].text.length) {
             this.textBox += 1;
             this.typing = false;
-            //make space prompt visible
+            this.nextText.text = '[SPACE]';
             return;
         }
         let wordIndex = 0;
@@ -217,6 +221,7 @@ class baseScene extends Phaser.Scene {
                 }
             } else {
                 this.text.text = '';
+                this.nextText.text = '';
                 this.tweens.add({
                     targets: this.box,
                     alpha: { from: 1, to: 0},
