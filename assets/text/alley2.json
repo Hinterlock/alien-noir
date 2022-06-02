@@ -12,10 +12,11 @@
     },
     {
         "text": ["Just as I prepared to doze off, a figure emerged walking down the alleyway, silhouetting the dull morning sun like an eclipsing moon.",
-        "As they got closer, I was able to give em a good look.",
-        "It appeared to be a dame who resembled some sort of tall reptile.",
-        "She looked a bit more humanoid than the folk that had been giving me the side eye from across the alley. "
-        ]
+        "As they got closer, I was able to give em a good look."]
+    },
+    {
+        "text": ["It appeared to be a dame who resembled some sort of tall reptile.",
+        "She looked a bit more humanoid than the folk that had been giving me the side eye from across the alley. "]
     },
     {   
         "text": ["YOU!"],
@@ -30,10 +31,14 @@
         "mood": "frustrated"
     },
     {
-        "text": [],
-        "speaker": "",
-        "mood": ""
+        "text": ["...Huh?"],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["I don’t recall taking a case from you.", "For that matter, I don’t even know who you are."],
+        "speaker": "det",
+        "mood": "frustrated"
     }
-
-
 ]
