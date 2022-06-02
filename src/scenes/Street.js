@@ -6,8 +6,11 @@ class Street extends baseScene {
         this.load.image('street', './assets/street/street_road.png');
         this.load.image('sky', './assets/street/street_sky.png');
         this.load.image('alleyway', './assets/street/street_alley.png');
+        this.load.image('alleyway_outlined', './assets/street/street_alley_outlined.png');
         this.load.image('bar', './assets/street/street_bar.png');
+        this.load.image('bar_outlined', './assets/street/street_bar_outlined.png');
         this.load.image('bakery', './assets/street/street_bakery.png');
+        this.load.image('bakery_outlined', './assets/street/street_bakery_outlined.png');
         this.load.image('cats', './assets/street/street_cats.png');
         this.load.image('cones', './assets/street/street_cones.png');
         this.load.image('mushrooms', './assets/street/street_mushrooms.png');
@@ -40,6 +43,10 @@ class Street extends baseScene {
         }
 
         this.setup();
+
+        this.clues[1] = this.alleyway;
+        this.clues[2] = this.bakery;
+        this.clues[3] = this.bar;
         
         // define keys
         // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -47,7 +54,8 @@ class Street extends baseScene {
         // keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
         // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
-        this.move = false;
+        this.state = 2;
+        // this.move = false;
         this.music = this.sound.add('streetsMusic',{loop: true});
         this.music.play();
         this.music.pause();
@@ -77,6 +85,7 @@ class Street extends baseScene {
     }
     update() {
         let cam = this.cameras.main;
+        this.cursorUpdate();
         /* keyboard movement (doesn't play nice with the mouse movement)
         if (keyD.isDown && this.detective.x < this.road.width - this.detective.width/2) {
             if (cam.scrollX < this.road.width - cam.width && this.detective.x > cam.width/2) {

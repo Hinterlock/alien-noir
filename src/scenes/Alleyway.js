@@ -38,26 +38,17 @@ class Alleyway extends baseScene {
         this.boxes = this.add.image(game.config.width*5/6, game.config.height*5/6, 'boxes');
 
         this.setup();
+        this.clues[1] = this.cards;
 
         this.natieks = new Speaker(this, 1, 'nat');
 
         this.introTxt = this.cache.json.get('alley1_intro');
         this.cardsTxt = this.cache.json.get('alley2');
         this.wipeIn(this.introTxt);
-        this.investigateStatus = 0;
     }
 
     update() {
         this.cursorUpdate();
-        if (this.state && this.investigateStatus < 1) {
-            if (this.checkMouseOver(this.input.activePointer, this.cards)) {
-                if (this.cards.texture.key == 'cards') {
-                    this.cards.setTexture('cards_outlined');
-                }
-            } else if (this.cards.texture.key == 'cards_outlined') {
-                this.cards.setTexture('cards');
-            }
-        }
     }
 
     clickButton() {

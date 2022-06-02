@@ -9,6 +9,9 @@ class baseScene extends Phaser.Scene {
         this.tweenTime = 750;
         this.speaker = null;
         this.lastSpeaker = null;
+        this.investigateStatus = 0;
+
+        this.clues = {};
 
         this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
         this.borders.scale = 1.5;
@@ -98,7 +101,7 @@ class baseScene extends Phaser.Scene {
     
     cursorUpdate() { //moves cursor to mouse
         // console.log(this.cursor.x, this.cursor.y);
-        if (this.state) {
+        if (this.state == 1) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
             if (this.input.activePointer.y > game.config.height*.85) {
@@ -109,6 +112,21 @@ class baseScene extends Phaser.Scene {
                 this.cursor.setTexture('cursor');
             }
         }  
+
+        if (this.state > 0) {
+            for (let n in this.clues) {
+                if (n > this.investigateStatus) {
+                    if (this.checkMouseOver(this.input.activePointer, this.clues[n])) {
+                        if (!this.clues[n].texture.key.includes('_outlined')) {
+                            this.clues[n].setTexture(this.clues[n].texture.key.concat('_outlined'));
+                        }
+                    } else if (this.clues[n].texture.key.includes('_outlined')) {
+                        this.clues[n].setTexture(this.clues[n].texture.key.replace('_outlined',''));
+                    }
+                }
+            }
+            
+        }
     }
 
     startDialogue(dialogue) { //brings in background fade and detective talk sprite, hands off to nextBox()
