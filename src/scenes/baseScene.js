@@ -228,8 +228,8 @@ class baseScene extends Phaser.Scene {
                     duration: this.tweenTime
                 });
                 this.tweens.add({
-                    targets: this.det,
-                    x: { from: this.det.x, to: -this.det.width*this.det.scale},
+                    targets: this[this.speaker],
+                    x: { from: this[this.speaker].x, to: this[this.speaker].home},
                     ease: 'Sine.easeIn',
                     duration: this.tweenTime
                 });

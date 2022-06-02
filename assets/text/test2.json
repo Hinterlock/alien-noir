@@ -1,24 +1,27 @@
 [
     {
-        "text": ["*Sigh…*"],
+        "text": ["As I grab my identification, I hold it up and stare at it in the one beacon of light that breaks through the darkness of the damp alleyway."],
         "speaker": "det",
+        "mood": "neutral",
         "new": true
     },
     {
-        "text": ["yay",
-                "a a b",
-                ""],
+        "text": ["In my fingers lies an elegant card, with “Dick Johnson : PRIVATE INVESTIGATOR”, printed in platinum Proxima Nova on sleek matte black cardstock",
+            "Perfect."],
+        "speaker": "det",
+        "mood": "happy"
+    },
+    {
+        "text": ["YOU!"],
         "speaker": "natieks",
         "mood": "frustrated",
         "new": true
     },
     {
-        "text": ["yay",
-                "a a b",
-                ""],
-        "speaker": "det",
-        "mood": "frustrated",
-        "new": true
+        "text": ["YOU SCAMMER DETECTIVE!!",
+            "I WANT A REFUND!!!"],
+        "speaker": "natieks",
+        "mood": "frustrated"
     }
 
 ]
