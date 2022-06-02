@@ -12,6 +12,7 @@ class baseScene extends Phaser.Scene {
         this.investigateStatus = 0;
 
         this.clues = {};
+        this.currentHighlight = 0;
 
         this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
         this.borders.scale = 1.5;
@@ -115,13 +116,18 @@ class baseScene extends Phaser.Scene {
 
         if (this.state > 0) {
             for (let n in this.clues) {
-                if (n > this.investigateStatus) {
+                if (n > this.investigateStatus && (n <= this.currentHighlight || this.currentHighlight == 0)) {
                     if (this.checkMouseOver(this.input.activePointer, this.clues[n])) {
                         if (!this.clues[n].texture.key.includes('_outlined')) {
                             this.clues[n].setTexture(this.clues[n].texture.key.concat('_outlined'));
+                            if (this.currentHighlight > 0) {
+                                this.clues[this.currentHighlight].setTexture(this.clues[this.currentHighlight].texture.key.replace('_outlined',''));
+                            }
+                            this.currentHighlight = n;
                         }
                     } else if (this.clues[n].texture.key.includes('_outlined')) {
                         this.clues[n].setTexture(this.clues[n].texture.key.replace('_outlined',''));
+                        this.currentHighlight = 0;
                     }
                 }
             }

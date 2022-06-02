@@ -47,14 +47,27 @@ class Bar extends baseScene {
     }
     clickButton() {
         if (this.state) {
-            // if (this.checkMouseOver(this.input.activePointer, this.cards) && this.investigateStatus < 1) {
-            //     this.startDialogue(this.cardsTxt);
-            //     this.sound.play('cardSFX');
-            //     this.cards.x = 530;
-            //     this.cards.y = 300;
-            //     this.cards.setTexture('cards');
-            //     this.investigateStatus++;
-            // }
+            if (this.investigateStatus < 1) {
+                switch (this.currentHighlight) {
+                    case '3':
+                        this.startDialogue(this.pplTxt);
+                        break;
+                    case '2':
+                        if (this.investigateStatus == 0) {
+                            this.startDialogue(this.stage1Txt);
+                        } else {
+                            this.startDialogue(this.stage2Txt);
+                            this.investigateStatus += 1;
+                        }
+                        break;
+                    case '1':
+                        this.startDialogue(this.bartenderTxt);
+                        this.investigateStatus += 1;
+                        break;
+                    default:
+                        console.log(this.currentHighlight);
+                }
+            }
             if (this.input.activePointer.y > game.config.height*.85) {
                 this.wipeOut("streetScene");
             }
