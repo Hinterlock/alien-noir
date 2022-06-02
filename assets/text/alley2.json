@@ -40,5 +40,38 @@
         "text": ["I don’t recall taking a case from you.", "For that matter, I don’t even know who you are."],
         "speaker": "det",
         "mood": "frustrated"
+    },
+    {
+        "text": ["DON’T LIE, OF COURSE YOU REMEMBER ME!"],
+        "speaker": "natieks",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["I met you just a few days ago in the local bar and hired you to figure out who graffitied my house!!",
+        "I’d recognize that trenchcoat anywhere!!! And that dinky cowboy hat!!"],
+        "speaker": "natieks",
+        "mood": "frustrated"
+    },
+    {
+        "text": ["The stranger points at my fedora as if to insinuate it’s a cowboy hat, an opinion as wrong as wearing socks in sandals."]
+    },
+    {
+        "text": ["I take another smoke to alleviate this newfound stress. "]
+    },
+    {
+        "text": ["As I stare at the billowing gray fumes I think to myself, “Maybe this isn’t worth it” ",
+            "and once again look down to face this",
+            "lady’s outstretched finger.."]
+    },
+    {
+        "text": ["I sigh and collect myself.",
+        "I need to make a good impression here if I want to expand my business, and more importantly I have a responsibility to help those in need."]
+    },
+    {
+        "text": ["There must be some sort of mistake. I only settled on this planet a few days ago; I haven’t received any jobs, let alone a reputation beyond “newcomer”."],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
     }
 ]
