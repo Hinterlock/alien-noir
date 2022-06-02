@@ -54,7 +54,8 @@
         "mood": "frustrated"
     },
     {
-        "text": ["The stranger points at my fedora as if to insinuate it’s a cowboy hat, an opinion as wrong as wearing socks in sandals."]
+        "text": ["The stranger points at my fedora as if to insinuate it’s a cowboy hat, an opinion as wrong as wearing socks in sandals."],
+        "new": true
     },
     {
         "text": ["I take another smoke to alleviate this newfound stress. "]
@@ -62,16 +63,81 @@
     {
         "text": ["As I stare at the billowing gray fumes I think to myself, “Maybe this isn’t worth it” ",
             "and once again look down to face this",
-            "lady’s outstretched finger.."]
+            "lady’s outstretched finger..."]
     },
     {
-        "text": ["I sigh and collect myself.",
-        "I need to make a good impression here if I want to expand my business, and more importantly I have a responsibility to help those in need."]
+        "text": ["I sigh and collect myself. I need to make a good impression here if I want to expand my business, and more importantly I have a responsibility to help those in need."]
     },
     {
         "text": ["There must be some sort of mistake. I only settled on this planet a few days ago; I haven’t received any jobs, let alone a reputation beyond “newcomer”."],
         "speaker": "det",
         "mood": "inquisitive",
         "new": true
+    },
+    {
+        "text": ["For the sake of professionalism, I bite back the urge to also correct her remark on my “dinky cowboy hat.”",
+            "Addressing the false accusation was my highest priority; my livelihood was on the line."],
+        "new": true
+    },
+    {
+        "text": ["...", "..........", "......................."],
+        "speaker": "natieks",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["Okay I guess the hat is a bit different from how I remembered it, but how do I know you’re not just lying to me or wearing a new hat!?"],
+        "speaker": "natieks",
+        "mood": "nuetral"
+    },
+    {
+        "text": ["If what you said is true, it’s probable that there’s another detective in town that I wasn’t aware of… ",
+            "some bloke who’s trying to tear down my business."],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["No, it could even be that they’re impersonating me."],
+        "speaker": "det",
+        "mood": "sad"
+    },
+    {
+        "text": ["While I lack solid evidence at the moment, if you gimme me some time, I’ll prove my innocence and uncover the true fraud."],
+        "speaker": "det",
+        "mood": "happy"
+    },
+    {
+        "text": ["If I fail to do so, well… I suppose I can compensate you for your losses.", 
+        "Please, give me a chance."],
+        "speaker": "det",
+        "mood": "sad"
+    },
+    {
+        "text": ["...Fine."],
+        "speaker": "natieks",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Since you make some good points, I’ll give you until the end of this day to figure out this… mess."],
+        "speaker": "natieks",
+        "mood": "neutral"
+    },
+    {
+        "text": ["And if it turns out I was right and you’re actually just lying to me again, I’ll go on Relp™ to make sure your business ends before it even begins!!"],
+        "speaker": "natieks",
+        "mood": "happy"
+    },
+    {
+        "text": ["When you’re done with your investigation, find me at the local bar…"],
+        "speaker": "natieks",
+        "mood": "neutral"
+    },
+    {
+        "text": ["I watch the back of my self-proclaimed customer strut back out the alleyway, deep in contemplation.",
+            "With only until the end of the day to clear my name, the investigation before me is daunting… but of course, far from impossible."],
+        "new": true
     }
+
 ]
