@@ -48,23 +48,30 @@ class Street extends baseScene {
         // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.move = false;
-        this.music = this.sound.add('streetsMusic',{loop: true})
+        this.music = this.sound.add('streetsMusic',{loop: true});
+        this.music.play();
+        this.music.pause();
         this.wipeIn();
+        this.interrupt = true;
     }
     clickButton() {
         let startY = .45;
         if (this.input.activePointer.y > game.config.height*startY) {
                 //this.move = true;
                 this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
+                this.interrupt = true;
             } else {
                 if (this.checkMouseOver(this.input.activePointer, this.bar)) {
                     this.moveTo(this.detective, this.bar.x, game.config.height*startY - this.detective.height*3/8, "barScene");
+                    this.interrupt = false;
                 }
                 if (this.checkMouseOver(this.input.activePointer, this.bakery)) {
                     this.moveTo(this.detective, this.bakery.x, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
+                    this.interrupt = false;
                 }
                 if (this.checkMouseOver(this.input.activePointer, this.alleyway)) {
                     this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                    this.interrupt = false;
                 }
             }
     }
@@ -107,7 +114,7 @@ class Street extends baseScene {
             duration: dur,
             onComplete: function() {
                 //this.move = false;
-                if (enter) {
+                if (enter && !this.interrupt) {
                     this.wipeOut(enter);
                 }
             },

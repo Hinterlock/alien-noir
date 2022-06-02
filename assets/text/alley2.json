@@ -1,15 +1,10 @@
 [
     {
-        "text": ["As I grab my identification, I hold it up and stare at it in the one beacon of light that breaks through the darkness of the damp alleyway."],
-        "speaker": "det",
-        "mood": "neutral",
-        "new": true
+        "text": ["As I grab my identification, I hold it up and stare at it in the one beacon of light that breaks through the darkness of the damp alleyway."]
     },
     {
         "text": ["In my fingers lies an elegant card, with “Dick Johnson : PRIVATE INVESTIGATOR”, printed in platinum Proxima Nova on sleek matte black cardstock",
-            "Perfect."],
-        "speaker": "det",
-        "mood": "happy"
+            "Perfect."]
     },
     {
         "text": ["YOU!"],

@@ -52,7 +52,7 @@ class baseScene extends Phaser.Scene {
             onCompleteScope: this
         });
         if (this.music) {
-            this.music.play();
+            this.music.resume();
             this.tweens.add({
                 targets: this.music,
                 volume: { from: 0, to: 1},
@@ -86,7 +86,7 @@ class baseScene extends Phaser.Scene {
                 ease: 'Sine.easeIn',
                 duration: 500,
                 onComplete: function() {
-                    this.music.stop();
+                    this.music.pause();
                 },
                 onCompleteScope: this
             });
@@ -165,12 +165,14 @@ class baseScene extends Phaser.Scene {
                     duration: this.tweenTime
                 });
             }
-            this.tweens.add({
-                targets: this[this.speaker],
-                x: { from: this[this.speaker].home, to: x},
-                ease: 'Sine.easeIn',
-                duration: this.tweenTime
-            });
+            if (this.speaker) {
+                this.tweens.add({
+                    targets: this[this.speaker],
+                    x: { from: this[this.speaker].home, to: x},
+                    ease: 'Sine.easeIn',
+                    duration: this.tweenTime
+                });
+            }
         }
         this.nextLine(0);
     }
