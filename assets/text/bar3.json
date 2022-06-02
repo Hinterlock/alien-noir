@@ -1,0 +1,150 @@
+[
+    {
+        "text": ["Now with my new lead, I head towards the stage.",
+        "I’m once again greeted by the entrancing voice of the singer on stage and as fate would have it, their performance comes to a close just seconds later."]
+    },
+    {
+        "text": ["Just as I begin to call out to the singer, my vision is blocked by a large, muscular figure.",
+            "Arms crossed and glaring down at me, I feel a threatening aura aimed directly at me."]
+    },
+    {
+        "text": ["… But if this was enough to deter me, I wouldn’t be able to call myself a detective."]
+    },
+    {
+        "text": ["WHAT DID I TELL YOU LAST TIME BUDDY, MY SISTER IS ALLERGIC TO CAKE!"],
+        "speaker": "ogai",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Wait, I’m not the person you think I am, that was someone else-"],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["OH YEAHHH SUREEE, YOU THINK I’M STUPID?!"],
+        "speaker": "ogai",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Ogai, calm down!"],
+        "speaker": "fatale",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["I think he’s telling the truth!! His hat is different and so is his voice."],
+        "speaker": "fatale",
+        "mood": "neutral"
+    },
+    {
+        "text": ["… I MEAN, IF YOU’RE SURE, LEIRZA…"],
+        "speaker": "ogai",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Yeah. You don’t need to be on guard, it looks like he just wants to talk."],
+        "speaker": "fatale",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["I’m so sorry for my brother, handsome sir, Ogai’s just a bit overprotective.", 
+            "Are you alright?"],
+        "speaker": "fatale",
+        "mood": "sad"
+    },
+    {
+        "text": ["Yes, thank you.",
+        "Anyways, I apologize for bothering you both, but I’m dealing with something urgent.",
+        "I believe you’ve run into someone… another detective who looks very similar to me."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Could you tell me about that?"],
+        "speaker": "det",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["Ah yes, that fella..."],
+        "speaker": "fatale",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Y’see, so last night I’m finishing my last song, and this fella with a trench coat and a cowboy hat approaches me with a cake box in hand,",
+            "and asks me to go on a date with him. Real sweet thing he was, but unfortunately I’m allergic to cake.",
+            "So I couldn’t accept it."],
+        "speaker": "fatale",
+        "mood": "neutral",
+    },
+    {
+        "text": ["But he really wanted to eat this cake with me and got into a small argument with my brother over here."],
+        "speaker": "fatale",
+        "mood": "neutral",
+    },
+    {
+        "text": ["THE NERVE OF THAT GUY!!"],
+        "speaker": "ogai",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Ah yes, that fella..."],
+        "speaker": "fatale",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Well, he left after a while… probably went to eat that cake by himself. Poor thing."],
+        "speaker": "fatale",
+        "mood": "sad"
+    },
+    {
+        "text": ["Not to be vain, but… if I went on a date with every person who asked me out, I wouldn’t even have the time to sing here on stage."],
+        "speaker": "fatale",
+        "mood": "neutral"
+    },
+    {
+        "text": ["Would you happen to know where he got that cake from?",
+            "It would be a very helpful lead."],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["Oh, it’s from the bakery on the other side of the street, a cute little shop shaped like a slice of bread.",
+            "Can’t miss it. "],
+        "speaker": "fatale",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["Alright, well... It’s been a pleasure meeting you both. Thank you."],
+        "speaker": "det",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["AND DON’T COME BACK!"],
+        "speaker": "ogai",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["HMPH! >:("],
+        "speaker": "ogai",
+        "mood": "frustrated",
+    },
+    {
+        "text": ["Oh hush, Ogai. I’ll see you later, Mister Detective~ I'm glad I was able to help."],
+        "speaker": "fatale",
+        "mood": "happy",
+        "new": true
+    }
+]
