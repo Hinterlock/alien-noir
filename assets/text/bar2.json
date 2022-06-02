@@ -2,7 +2,7 @@
     {
         "text": ["I know immediately from experience that my best bet will be speaking to the bartender.",
         "Unlike their transient customers, bartenders work regular shifts and any mixologist worth their money would pay careful attention to their patrons to avoid any funny business.",
-        "I stroll up to the bar."],
+        "I stroll up to the bar."]
     },
     {
         "text": ["The bartender is occupied serving drinks to the other aliens, but narrows his eye at me as I approach.",
@@ -17,7 +17,7 @@
     {
         "text": ["….Also if you’re trying to disguise yourself by putting on a new hat, I’m afraid it’s not working. "],
         "speaker": "bartender",
-        "mood": "frustrated",
+        "mood": "frustrated"
     },
     {
         "text": ["I’m Private Investigator Dick Johnson.",
@@ -54,14 +54,14 @@
     {
         "text": ["… But anyway, that’s besides the point-"],
         "speaker": "det",
-        "mood": "inquisitive",
+        "mood": "inquisitive"
     },
     {
         "text": ["This cowboy detective…",
             "could you describe in detail the circumstances when you last saw them?",
             "They may be impersonating me."],
         "speaker": "det",
-        "mood": "inquisitive",
+        "mood": "inquisitive"
     },
     {
         "text": ["Well if they are, just last night, your lookalike came in here trying to solve some kind of case, he said."],

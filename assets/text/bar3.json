@@ -81,12 +81,12 @@
             "and asks me to go on a date with him. Real sweet thing he was, but unfortunately I’m allergic to cake.",
             "So I couldn’t accept it."],
         "speaker": "fatale",
-        "mood": "neutral",
+        "mood": "neutral"
     },
     {
         "text": ["But he really wanted to eat this cake with me and got into a small argument with my brother over here."],
         "speaker": "fatale",
-        "mood": "neutral",
+        "mood": "neutral"
     },
     {
         "text": ["THE NERVE OF THAT GUY!!"],
@@ -139,7 +139,7 @@
     {
         "text": ["HMPH! >:("],
         "speaker": "ogai",
-        "mood": "frustrated",
+        "mood": "frustrated"
     },
     {
         "text": ["Oh hush, Ogai. I’ll see you later, Mister Detective~ I'm glad I was able to help."],

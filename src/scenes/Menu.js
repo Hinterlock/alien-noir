@@ -12,7 +12,6 @@ class Menu extends Phaser.Scene {
         this.load.audio('slugKarenMusic', './assets/sound/An_Interruption.wav');
 
         // load base images
-        this.load.image('fade', './assets/fade.png');
         this.load.spritesheet('detective', './assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.image('cursor', './assets/magnifying.png');
         this.load.image('cursorArrow', './assets/CursorArrow.png');
