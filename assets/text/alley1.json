@@ -6,10 +6,27 @@
         "new" : true
     },
     {
-        "text": ["I’ve been on this planet for a week now but I still haven’t gotten any clients.",
-                "My stand is immaculate. My trenchcoat is perfectly ironed.",
-                "My hat doesn’t have a single speck of dust.",
-                "So why isn’t anyone coming!?"],
+        "text": [
+            "I’ve had my detective agency set up for a week, yet no clients have come to me with a case.", 
+            "No murders, no disappearances, not even a missing item. If I didn’t know any better, I’d say this world exists free of conflict.", 
+            "But I’m no idiot. Conflict is just human nature- "
+            ],
+        "speaker": "det",
+        "mood": "neutral"
+    },
+    {
+        "text": ["No, it's something that exists between the conflicting ideals of different parties; it’s inevitable.",
+                "Sooner or later, some poor bloke is gonna walk in with some problem: a case for me and me alone.",
+                "And when the crime starts knocking, I’ll be there."
+            ],
+        "speaker": "det",
+        "mood": "neutral"
+    },
+    {
+        "text": ["I’m no stranger to hostile environments though. Folks tend to be untrusting of strangers that lurk in the dark. ",
+                "I’ll show them my credentials up front so they know that I’m the best.",
+                "I just need to grab my business card."
+            ],
         "speaker": "det",
         "mood": "neutral"
     }

@@ -7,6 +7,17 @@
             "Perfect."]
     },
     {
+        "text": ["I place the card flat on the table, the blackness of the card contrasting with the table like ink in a water glass.", 
+            "I set my legs across my stand and light a smoke, waiting in quiet anticipation for my first client."]
+    },
+    {
+        "text": ["Just as I prepared to doze off, a figure emerged walking down the alleyway, silhouetting the dull morning sun like an eclipsing moon.",
+        "As they got closer, I was able to give em a good look.",
+        "It appeared to be a dame who resembled some sort of tall reptile.",
+        "She looked a bit more humanoid than the folk that had been giving me the side eye from across the alley. "
+        ]
+    },
+    {   
         "text": ["YOU!"],
         "speaker": "natieks",
         "mood": "frustrated",
@@ -17,6 +28,12 @@
             "I WANT A REFUND!!!"],
         "speaker": "natieks",
         "mood": "frustrated"
+    },
+    {
+        "text": [],
+        "speaker": "",
+        "mood": ""
     }
+
 
 ]
