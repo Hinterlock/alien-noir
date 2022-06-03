@@ -51,7 +51,7 @@ class Bar extends baseScene {
     }
     clickButton() {
         if (this.state) {
-            if (this.investigateStatus < 1) {
+            if (this.investigateStatus < this.currentHighlight) {
                 switch (this.currentHighlight) {
                     case '3':
                         this.startDialogue(this.pplTxt);
@@ -61,15 +61,19 @@ class Bar extends baseScene {
                             this.startDialogue(this.stage1Txt);
                         } else {
                             this.startDialogue(this.stage2Txt);
+                            this.currentHighlight = 0;
+                            this.stage.setTexture('stage');
                             this.investigateStatus += 1;
                         }
                         break;
                     case '1':
                         this.startDialogue(this.bartenderTxt);
                         this.investigateStatus += 1;
+                        this.currentHighlight = 0;
+                        this.bartenderMini.setTexture('bartender');
                         break;
-                    default:
-                        console.log(this.currentHighlight);
+                    // default:
+                    //     console.log(this.currentHighlight);
                 }
             }
             if (this.input.activePointer.y > game.config.height*.85) {

@@ -3,7 +3,7 @@ class baseScene extends Phaser.Scene {
         super(config);
     }
     setup() {
-        this.state = 1;
+        this.state = 0;
         this.typing = false;
         this.wordDelay = 10;
         this.tweenTime = 750;
@@ -66,6 +66,8 @@ class baseScene extends Phaser.Scene {
                 ease: 'Sine.easeIn',
                 duration: 500
             });
+        } else {
+            this.state = 1;
         }
     }
     wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to, uses sleep instead of stop
