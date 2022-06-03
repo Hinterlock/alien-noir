@@ -9,6 +9,7 @@ class Menu extends Phaser.Scene {
         this.load.audio('investigate', './assets/investigate.wav');
         this.load.audio('bell', './assets/sound/bell.wav');
         this.load.audio('clue', './assets/sound/clue.wav');
+        this.load.audio('startup', './assets/sound/menu_startup.mp3');
         // load music
         this.load.audio('streetsMusic', './assets/sound/The_Streets.wav');
         this.load.audio('slugKarenMusic', './assets/sound/An_Interruption.wav');
@@ -35,7 +36,7 @@ class Menu extends Phaser.Scene {
         }, this);
         this.input.on('pointerdown', function() {
             this.scene.start("alleyWayScene");
-            this.sound.play('investigate');
+            this.sound.play('startup');
         }, this);
     }
     
