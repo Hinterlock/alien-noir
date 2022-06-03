@@ -21,6 +21,7 @@ class House extends baseScene {
         this.load.image('cake_outlined', './assets/house/cake_outlined.png');
         this.load.image('lights', './assets/house/lights.png');
         this.load.image('table', './assets/house/table.png');
+        this.load.image('note_zoomed', './assets/house/note_zoomed.png');
     }
     create() {
         // things behind the text boxes should be added before setup
