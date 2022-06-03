@@ -47,9 +47,9 @@ class Bar extends baseScene {
         this.stage1Txt = this.cache.json.get('bar4');
         this.pplTxt = this.cache.json.get('bar5');
         
-        this.music = this.sound.add('slugKarenMusic',{loop: true});
-        this.music.play();
-        this.music.pause();
+        // this.music = this.sound.add('slugKarenMusic',{loop: true});
+        // this.music.play();
+        // this.music.pause();
 
         this.wipeIn(this.introTxt);
     }

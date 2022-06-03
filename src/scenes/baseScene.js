@@ -204,6 +204,36 @@ class baseScene extends Phaser.Scene {
                 });
             }
         }
+        if (this.dialogue[this.textBox]['music'] != null) {
+            // console.log(this.dialogue[this.textBox]['music']);
+            let tl = this.tweens.createTimeline();
+            if (this.music) {
+                // console.log("a");
+                tl.add({
+                    targets: this.music,
+                    volume: { from: 1, to: 0},
+                    ease: 'Sine.easeIn',
+                    duration: 250,
+                    onComplete: function() {
+                        this.music.stop();
+                        this.music = this.sound.add(this.dialogue[this.textBox]['music'],{loop: true});
+                        this.music.play;
+                    },
+                    onCompleteScope: this
+                });
+            } else {
+                // console.log("b");
+                this.music = this.sound.add(this.dialogue[this.textBox]['music'],{loop: true});
+                this.music.play();
+            }
+            tl.add({
+                targets: this.music,
+                volume: { from: 0, to: 1},
+                ease: 'Sine.easeIn',
+                duration: 250
+            });
+            tl.play();
+        }
         this.nextLine(0);
     }
     nextLine(lineIndex) { //uses timer to display a word at a time by calling nextWord()
