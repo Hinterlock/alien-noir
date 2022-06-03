@@ -22,6 +22,9 @@ class House extends baseScene {
         this.load.image('lights', './assets/house/lights.png');
         this.load.image('table', './assets/house/table.png');
         this.load.image('note_zoomed', './assets/house/note_zoomed.png');
+
+        //dialogue
+        this.load.json('houseIntro', './assets/text/house1.json');
     }
     create() {
         // things behind the text boxes should be added before setup
@@ -44,14 +47,34 @@ class House extends baseScene {
         this.clues[5] = this.stairs;
         this.clues[6] = this.cake;
 
+        this.introTxt = this.cache.json.get('houseIntro');
+
         // talksprites added after
 
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
-        this.wipeIn();
+        this.wipeIn(this.introTxt);
     }
     clickButton() {
+        if (gameProgress['houseScene'][this.currentHighlight]) {
+            switch (this.currentHighlight) {
+                case '6':
+                    break;
+                case '5':
+                    break;
+                case '4':
+                    break;
+                case '3':
+                    // this.startDialogue(this.pplTxt);
+                    break;
+                case '2':
+                    break;
+                case '1':
+                    // this.startDialogue(this.bartenderTxt);
+                    break;
+            }
+        }
         if (this.input.activePointer.y > game.config.height*.85) {
             this.wipeOut("streetScene");
         }
