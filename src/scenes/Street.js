@@ -12,6 +12,7 @@ class Street extends baseScene {
         this.load.image('bakery', './assets/street/street_bakery.png');
         this.load.image('bakery_outlined', './assets/street/street_bakery_outlined.png');
         this.load.image('cats', './assets/street/street_cats.png');
+        this.load.image('cats_outlined', './assets/street/street_cats_outlined.png');
         this.load.image('cones', './assets/street/street_cones.png');
         this.load.image('mushrooms', './assets/street/street_mushrooms.png');
         this.load.image('ufo', './assets/street/street_ufo.png');
@@ -47,6 +48,7 @@ class Street extends baseScene {
         this.clues[1] = this.alleyway;
         this.clues[2] = this.bakery;
         this.clues[3] = this.bar;
+        this.clues[4] = this.cats;
         
         // define keys
         // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
@@ -77,6 +79,9 @@ class Street extends baseScene {
                 this.interrupt = false;
             } else if (this.checkMouseOver(this.input.activePointer, this.alleyway)) {
                 this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                this.interrupt = false;
+            } else if (this.checkMouseOver(this.input.activePointer, this.cats)) {
+                this.moveTo(this.detective, this.cats.x, game.config.height*startY - this.detective.height*3/8, "houseScene");
                 this.interrupt = false;
             } else {
                 this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY- this.detective.height*3/8);
