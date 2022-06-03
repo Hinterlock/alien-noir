@@ -1,0 +1,91 @@
+[
+    {
+        "text": ["I walk into the bakery and instantly feel a sense of unease."],
+        "new": true
+    },
+    {
+        "text": ["Despite the chaos of the upturned building, the scent of baked bread still wafts through the air.",
+            "At least I think that should be bread. It’s a bright shade of red."]
+    },
+    {
+        "text": ["I look down at the floor."]
+    },
+    {
+        "text": ["Several baskets of “bread” and other desserts line the floor, with several with visible foot sized craters in them. ",
+            "As I lean down to jot down the apparent foot size of our suspect, I notice that the floor is completely free of dirt, dust or grime."]
+    },
+    {
+        "text": ["Looking up towards the walls, I realize that this bakery is completely sterile.",
+            "Despite the woodsy looking interior, this building is more akin to a hospital than it is a bakery. Odd."]
+    },
+    {
+        "text": ["I stand back up to face the culty contraption I’ve dubbed Gabo."]
+    },
+    {
+        "text" :["Hm, they really did a number on this joint. Anything else you could tell me about the guy who did this?"],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text" :["YOU LACK THE PROPER CREDENTIALS IN ORDER TO ACCESS THAT INFORMATION"],
+        "speaker": "gabotop",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text" :["What? Hey pal, I’m just trying to h-"],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text" :["CREDENTIALS MAY BE ACQUIRED BY-"],
+        "speaker": "gabotop",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text" :["‘Btzz’"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text" :["by becoming an initiate in the cyberdough church."],
+        "speaker": "gabotop",
+        "mood": "happy"
+    },
+    {
+        "text" :["(sigh)"],
+        "speaker": "det",
+        "mood": "sad",
+        "new": true
+    },
+    {
+        "text" :["And that requires me to do…?"],
+        "speaker": "det",
+        "mood": "sad"
+    },
+    {
+        "text" :["Young one, all you need to do to be accepted into the church is to",
+        "‘bztt’ COLLECT [5/5] FOOD ITEMS OFF THE FLOOR",
+        "‘bztt’ and with that, access to all information in the great church will be at your disposal"],
+        "speaker": "gabotop",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text" :["Alright, fine. I’ll do it."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    }
+
+
+
+
+
+
+
+
+]
