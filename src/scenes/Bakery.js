@@ -3,6 +3,7 @@ class Bakery extends baseScene {
         super("bakeryScene");
     }
     preload() {
+        //images
         this.load.image('bakery_walls', './assets/bakery/walls.png');
         this.load.image('circle', './assets/bakery/summoning_circle.png');
         this.load.image('cauldron', './assets/bakery/cauldron.png');
@@ -15,6 +16,10 @@ class Bakery extends baseScene {
         this.load.image('fixed_stand', './assets/bakery/fixed_stand.png');
         this.load.image('trail_bakery', './assets/bakery/trail_bakery.png');
         this.load.image('trail_bakery_outlined', './assets/bakery/trail_bakery_outlined.png');
+        //spritesheets
+        this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});        
+        //dialogue
+        this.load.json('bakeryIntro', './assets/text/bakery2.json');
     }
     create() {
         this.bakerywalls = this.add.image(game.config.width/2, game.config.height/2, 'bakery_walls');
@@ -26,12 +31,19 @@ class Bakery extends baseScene {
         this.right_stand = this.add.image(game.config.width - 275/2, game.config.height*3/4, 'right_stand');
         this.broken_stand = this.add.image(275/2, game.config.height*3/4, 'broken_stand');
         this.trail_bakery = this.add.image(game.config.width/3.6, game.config.height*8/9, 'trail_bakery');
+
         this.setup();
+
+        this.gabotop = new Speaker(this, 1, 'baker');
+
         this.clues[1] = this.trail_bakery;
+        
+        this.introTxt = this.cache.json.get('bakeryIntro');
+
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
-        this.wipeIn(null, 'bell');
+        this.wipeIn(this.introTxt, 'bell');
         this.events.on('wake', function() {this.wipeIn(null, 'bell');}, this);
     }
     clickButton() {

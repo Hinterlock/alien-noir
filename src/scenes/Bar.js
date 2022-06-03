@@ -11,7 +11,7 @@ class Bar extends baseScene {
         this.load.image('bartender_outlined', './assets/bar/bartender_outlined.png');
         this.load.image('stage_outlined', './assets/bar/stage_outlined.png');
         this.load.image('aliens_outlined', './assets/bar/aliens_outlined.png');
-        
+        //spritesheets
         this.load.spritesheet('bt', './assets/spritesheets/BartenderSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.spritesheet('og', './assets/spritesheets/OgaiSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.spritesheet('fatale', './assets/spritesheets/FataleSheet.png', {frameWidth: 2891, frameHeight: 3133});
