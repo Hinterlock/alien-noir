@@ -22,7 +22,8 @@
         "text": ["YOU!"],
         "speaker": "natieks",
         "mood": "frustrated",
-        "new": true
+        "new": true,
+        "music": "slugKarenMusic"
     },
     {
         "text": ["YOU SCAMMER DETECTIVE!!",

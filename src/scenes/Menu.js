@@ -7,6 +7,9 @@ class Menu extends Phaser.Scene {
         // load audio sfx
         this.load.audio('click', './assets/click.wav');
         this.load.audio('investigate', './assets/investigate.wav');
+        this.load.audio('bell', './assets/sound/bell.wav');
+        this.load.audio('clue', './assets/sound/clue.wav');
+        this.load.audio('startup', './assets/sound/menu_startup.mp3');
         // load music
         this.load.audio('streetsMusic', './assets/sound/The_Streets.wav');
         this.load.audio('slugKarenMusic', './assets/sound/An_Interruption.wav');
@@ -28,12 +31,12 @@ class Menu extends Phaser.Scene {
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', function() {
             //change back to streetScene later
-            this.scene.start("houseScene");
+            this.scene.start("streetScene");
             this.sound.play('click');
         }, this);
         this.input.on('pointerdown', function() {
             this.scene.start("alleyWayScene");
-            this.sound.play('investigate');
+            this.sound.play('startup');
         }, this);
     }
     
