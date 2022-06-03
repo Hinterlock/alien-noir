@@ -16,7 +16,7 @@ class Street extends baseScene {
         this.load.image('cones', './assets/street/street_cones.png');
         this.load.image('mushrooms', './assets/street/street_mushrooms.png');
         this.load.image('ufo', './assets/street/street_ufo.png');
-        this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 260, frameHeight: 368, startFrame: 0, endFrame: 7});
+        this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 130, frameHeight: 184, startFrame: 0, endFrame: 7});
         this.load.image('lilDet', './assets/detective.png');
     }
     create() {
@@ -34,11 +34,7 @@ class Street extends baseScene {
         this.street = this.add.image(game.config.width - 70, game.config.height * .72, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
         
-        this.detective = this.add.sprite(710, game.config.height*9/16,'walk');
-        //i need to go back and clean up this code about changing the detective's y coordinate
-        let startY = .45;
-        this.detective.setScale((.0012*(game.config.height*startY - this.detective.height*3/8-(game.config.height*9/16)) + 1));
-        this.detective.y = game.config.height*startY - this.detective.height*3/8;
+        this.detective = this.add.sprite(710, game.config.height*.45,'walk').setOrigin(0.5, 0.9);
         if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
             this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
         }
@@ -49,12 +45,6 @@ class Street extends baseScene {
         this.clues[2] = this.bakery;
         this.clues[3] = this.bar;
         this.clues[4] = this.cats;
-        
-        // define keys
-        // keyD = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.D);
-        // keyA = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.A);
-        // keyW = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.W);
-        // keyS = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.S);
 
         this.state = 2;
         // this.move = false;
@@ -78,7 +68,7 @@ class Street extends baseScene {
         this.schmoovin++;
         if (this.input.activePointer.y > game.config.height*startY) {
             //this.move = true;
-            this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
+            this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y);
             this.interrupt = true;
             if (this.input.activePointer.x + this.cameras.main.scrollX < this.detective.x) {
                 this.detective.flipX = -1;
@@ -88,51 +78,29 @@ class Street extends baseScene {
         } else {
             switch (this.currentHighlight) {
                 case '1': //aleyway
-                    this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                    this.moveTo(this.detective, this.alleyway.x, game.config.height*startY, "alleyWayScene");
                     this.interrupt = false;
                     break;
                 case '2': //bakery
-                    this.moveTo(this.detective, this.bakery.x, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
+                    this.moveTo(this.detective, this.bakery.x, game.config.height*startY, "bakeryScene");
                     this.interrupt = false;
                     break;
                 case '3': //bar
-                    this.moveTo(this.detective, this.bar.x, game.config.height*startY - this.detective.height*3/8, "barScene");
+                    this.moveTo(this.detective, this.bar.x, game.config.height*startY, "barScene");
                     this.interrupt = false;
                     break;
                 case '4': //cats
-                    this.moveTo(this.detective, this.cats.x, game.config.height*startY - this.detective.height*3/8, "houseScene");
+                    this.moveTo(this.detective, this.cats.x, game.config.height*startY, "houseScene");
                     this.interrupt = false;
                     break;
                 default:
-                    this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY- this.detective.height*3/8);
+                    this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY);
             }
         }
     }
     update() {
         let cam = this.cameras.main;
         this.cursorUpdate();
-        /* keyboard movement (doesn't play nice with the mouse movement)
-        if (keyD.isDown && this.detective.x < this.road.width - this.detective.width/2) {
-            if (cam.scrollX < this.road.width - cam.width && this.detective.x > cam.width/2) {
-                cam.scrollX += moveSpd;
-            }
-            this.detective.x += moveSpd;
-        }
-        if (keyA.isDown && this.detective.x > this.detective.width/2) {
-            if (cam.scrollX > 0 && this.detective.x < this.road.width - cam.width/2) {
-                cam.scrollX -= moveSpd;
-            }
-            this.detective.x -= moveSpd;
-        }
-        if (keyW.isDown && this.detective.y > game.config.height*3/8) {
-            this.detective.y -= moveSpd;
-            this.detective.setScale(this.detective.scale-.005);
-            //console.log(this.detective.scale);
-        }
-        if (keyS.isDown && this.detective.y < game.config.height*3/4) {
-            this.detective.y += moveSpd;
-            this.detective.setScale(this.detective.scale+.005);
-        }*/
         if (this.detective.x < this.street.width - cam.width/2 && this.detective.x > cam.width/2) {
             cam.scrollX = this.detective.x - cam.width/2;
         }
@@ -143,7 +111,7 @@ class Street extends baseScene {
             targets: det,
             x: { from: det.x, to: x},
             y: { from: det.y, to: y},
-            scale: {from: det.scale, to: (.0012*(y-(game.config.height*9/16)) + 1)},
+            scale: {from: det.scale, to: (1 + 1.5*(y-(game.config.height*.45))/(game.config.height*.55))},
             ease: 'Linear',
             duration: dur,
             onActive: this.detective.anims.play('detwalk', true),

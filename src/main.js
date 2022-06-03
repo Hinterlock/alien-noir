@@ -11,7 +11,7 @@ let game = new Phaser.Game(config);
 // game values
 let moveSpd = 3;
 // reserve keyboard vars
-let keySPACE, keyA, keyD, keyW, keyS;
+let keySPACE;
 
 // global values to track investigation progress (what you can access)
 let gameProgress = {
