@@ -67,12 +67,30 @@
         "mood": "sad"
     },
     {
-        "text" :["Young one, all you need to do to be accepted into the church is to",
-        "‘bztt’ COLLECT [5/5] FOOD ITEMS OFF THE FLOOR",
-        "‘bztt’ and with that, access to all information in the great church will be at your disposal"],
+        "text" :["Young one, all you need to do to be accepted into the church is to-"],
         "speaker": "gabotop",
         "mood": "happy",
         "new": true
+    },
+    {
+        "text" :["‘Btzz’"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text" :["COLLECT [5/5] FOOD ITEMS OFF THE FLOOR-"],
+        "speaker": "gabotop",
+        "mood": "happy"
+    },
+    {
+        "text" :["‘Btzz’"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text" :["and with that, access to all information in the great church will be at your disposal"],
+        "speaker": "gabotop",
+        "mood": "happy"
     },
     {
         "text" :["Alright, fine. I’ll do it."],
