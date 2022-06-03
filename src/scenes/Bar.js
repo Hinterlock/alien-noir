@@ -13,6 +13,8 @@ class Bar extends baseScene {
         this.load.image('aliens_outlined', './assets/bar/aliens_outlined.png');
         
         this.load.spritesheet('bt', './assets/spritesheets/BartenderSheet.png', {frameWidth: 2891, frameHeight: 3133});
+        this.load.spritesheet('og', './assets/spritesheets/OgaiSheet.png', {frameWidth: 2891, frameHeight: 3133});
+        this.load.spritesheet('fatale', './assets/spritesheets/FataleSheet.png', {frameWidth: 2891, frameHeight: 3133});
         //text
         this.load.json('bar1_intro', './assets/text/bar1.json');
         this.load.json('bar2', './assets/text/bar2.json');
@@ -32,6 +34,8 @@ class Bar extends baseScene {
         }, this);
 
         this.bartender = new Speaker(this, 1, 'bt');
+        this.ogai = new Speaker(this, 1, 'og');
+        this.leirza = new Speaker(this, 1, 'fatale');
 
         this.clues[1] = this.bartenderMini;
         this.clues[2] = this.stage;
