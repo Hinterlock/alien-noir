@@ -1,7 +1,8 @@
 [
     {
         "text": ["As the day began to chill, it came to pass that I was standing in front of an unusual building.", 
-            " A bakery they called it. But it wasn’t like any bakery I’d ever seen."]
+            " A bakery they called it. But it wasn’t like any bakery I’d ever seen."],
+        "new": true
     },
     {
         "text": ["Glancing through the tinted windows, I could make out something resembling a cauldron of sorts in the main building,",
