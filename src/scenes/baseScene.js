@@ -9,7 +9,6 @@ class baseScene extends Phaser.Scene {
         this.tweenTime = 750;
         this.speaker = null;
         this.lastSpeaker = null;
-        this.investigateStatus = 0;
 
         this.clues = {};
         this.currentHighlight = 0;
@@ -123,8 +122,9 @@ class baseScene extends Phaser.Scene {
 
         if (this.state > 0) {
             for (let n in this.clues) {
-                if (n > this.investigateStatus && (n <= this.currentHighlight || this.currentHighlight == 0)) {
-                    if (this.checkMouseOver(this.input.activePointer, this.clues[n])) {
+                if ((n <= this.currentHighlight || this.currentHighlight == 0)) {
+                    // console.log(gameProgress[this.scene.key]);
+                    if (this.checkMouseOver(this.input.activePointer, this.clues[n]) && gameProgress[this.scene.key][n]) {
                         if (!this.clues[n].texture.key.includes('_outlined')) {
                             this.clues[n].setTexture(this.clues[n].texture.key.concat('_outlined'));
                             if (this.currentHighlight > 0) {

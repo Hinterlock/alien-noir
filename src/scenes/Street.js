@@ -71,20 +71,25 @@ class Street extends baseScene {
             this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
             this.interrupt = true;
         } else {
-            if (this.checkMouseOver(this.input.activePointer, this.bar)) {
-                this.moveTo(this.detective, this.bar.x, game.config.height*startY - this.detective.height*3/8, "barScene");
-                this.interrupt = false;
-            } else if (this.checkMouseOver(this.input.activePointer, this.bakery)) {
-                this.moveTo(this.detective, this.bakery.x, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
-                this.interrupt = false;
-            } else if (this.checkMouseOver(this.input.activePointer, this.alleyway)) {
-                this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
-                this.interrupt = false;
-            } else if (this.checkMouseOver(this.input.activePointer, this.cats)) {
-                this.moveTo(this.detective, this.cats.x, game.config.height*startY - this.detective.height*3/8, "houseScene");
-                this.interrupt = false;
-            } else {
-                this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY- this.detective.height*3/8);
+            switch (this.currentHighlight) {
+                case '1': //aleyway
+                    this.moveTo(this.detective, this.alleyway.x, game.config.height*startY - this.detective.height*3/8, "alleyWayScene");
+                    this.interrupt = false;
+                    break;
+                case '2': //bakery
+                    this.moveTo(this.detective, this.bakery.x, game.config.height*startY - this.detective.height*3/8, "bakeryScene");
+                    this.interrupt = false;
+                    break;
+                case '3': //bar
+                    this.moveTo(this.detective, this.bar.x, game.config.height*startY - this.detective.height*3/8, "barScene");
+                    this.interrupt = false;
+                    break;
+                case '4': //cats
+                    this.moveTo(this.detective, this.cats.x, game.config.height*startY - this.detective.height*3/8, "houseScene");
+                    this.interrupt = false;
+                    break;
+                default:
+                    this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY- this.detective.height*3/8);
             }
         }
     }

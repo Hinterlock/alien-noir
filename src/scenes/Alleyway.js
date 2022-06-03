@@ -53,13 +53,14 @@ class Alleyway extends baseScene {
 
     clickButton() {
         if (this.state) {
-            if (this.checkMouseOver(this.input.activePointer, this.cards) && this.investigateStatus < 1) {
+            if (this.checkMouseOver(this.input.activePointer, this.cards) && gameProgress['alleyWayScene'][1]) {
                 this.startDialogue(this.cardsTxt);
                 this.sound.play('cardSFX');
                 this.cards.x = 530;
                 this.cards.y = 300;
                 this.cards.setTexture('cards');
-                this.investigateStatus++;
+                gameProgress['alleyWayScene'][1] = false;
+                gameProgress['streetScene'][3] = true;
             }
             if (this.input.activePointer.y > game.config.height*.85) {
                 this.wipeOut("streetScene");

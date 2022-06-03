@@ -51,11 +51,13 @@ class Bar extends baseScene {
         // this.music.play();
         // this.music.pause();
 
+        this.investigateStatus = 0;
+
         this.wipeIn(this.introTxt);
     }
     clickButton() {
         if (this.state) {
-            if (this.investigateStatus < this.currentHighlight) {
+            if (gameProgress['barScene'][this.currentHighlight]) {
                 switch (this.currentHighlight) {
                     case '3':
                         this.startDialogue(this.pplTxt);
@@ -67,11 +69,12 @@ class Bar extends baseScene {
                             this.startDialogue(this.stage2Txt);
                             this.currentHighlight = 0;
                             this.stage.setTexture('stage');
-                            this.investigateStatus += 1;
+                            gameProgress['barScene'][2] = false;
                         }
                         break;
                     case '1':
                         this.startDialogue(this.bartenderTxt);
+                        gameProgress['barScene'][1] = false;
                         this.investigateStatus += 1;
                         this.currentHighlight = 0;
                         this.bartenderMini.setTexture('bartender');

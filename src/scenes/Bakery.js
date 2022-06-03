@@ -35,16 +35,16 @@ class Bakery extends baseScene {
         this.events.on('wake', function() {this.wipeIn(null, 'bell');}, this);
     }
     clickButton() {
-        if (this.input.activePointer.y > game.config.height*.85 && (this.input.activePointer.x < this.trail_bakery.x - this.trail_bakery.width/2 ||this.input.activePointer.x > this.trail_bakery.x + this.trail_bakery.width/2)) {
+        if (this.input.activePointer.y > game.config.height*.85 && (gameProgress['bakeryScene'][1] ? (this.input.activePointer.x < this.trail_bakery.x - this.trail_bakery.width/2 ||this.input.activePointer.x > this.trail_bakery.x + this.trail_bakery.width/2) : true)) {
             this.wipeOut("streetScene");
         }
         if (this.state) {
-            if (this.checkMouseOver(this.input.activePointer, this.trail_bakery) && this.investigateStatus < 1) {
+            if (this.checkMouseOver(this.input.activePointer, this.trail_bakery) && gameProgress['bakeryScene'][1]) {
                 // this.startDialogue(this.trailClue);
                 this.sound.play('clue');
                 this.trail_bakery.setTexture('trail_bakery');
                 this.currentHighlight = 0;
-                this.investigateStatus++;
+                gameProgress['bakeryScene'][1] = false;
             }
         }
     }

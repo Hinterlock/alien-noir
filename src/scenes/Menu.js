@@ -30,6 +30,9 @@ class Menu extends Phaser.Scene {
         //this.title = this.add.image(game.config.width/2, game.config.height/2, 'title');
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', function() {
+            for (let n in gameProgress['streetScene']) {
+                gameProgress['streetScene'][n] = true;
+            }
             //change back to streetScene later
             this.scene.start("streetScene");
             this.sound.play('click');
