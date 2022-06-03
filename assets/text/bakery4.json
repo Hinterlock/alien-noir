@@ -1,0 +1,29 @@
+[
+    {
+        "text": ["It seems our invader lost possession of this during his attempted escape.",
+            "It looks like a form of identification."],
+        "speaker": "gabotop",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["That it does Gabo."],
+        "speaker": "det",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["It seems like they tried their best to scratch out their mug on the card with some sort of sharp nail or claw.",
+            "Interesting."],
+        "speaker": "det",
+        "mood": "neutral"
+    },
+    {
+        "text": ["Regardless there is an address left on here.",
+            "This perp must be new to the business.",
+            "Amature mistake."],
+        "speaker": "det",
+        "mood": "neutral"
+    }
+
+]

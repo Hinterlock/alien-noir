@@ -1,0 +1,44 @@
+[
+    {
+        "text": ["Hey Gabo, do you have a pet? I’d assume not because of how clean you keep this joint, but I figured I’d ask anyway."],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["‘bzzt’ NEGATIVE"],
+        "speaker": "gabotop",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["THERE WAS A PET ONCE.",
+            "NO LONGER"],
+        "speaker": "gabotop",
+        "mood": "sad"
+    },
+    {
+        "text": ["THE AMOUNT OF FUR IN THAT SAMPLE IS MUCH MORE THAN THE MEDIAN FUR LOST FROM THE SHEDDING PROCEDURES OF PETS."],
+        "speaker": "gabotop",
+        "mood": "inqusitive"
+    },
+    {
+        "text": ["THIS FUR MUST BE PRODUCED BY THE SUSPECT."],
+        "speaker": "gabotop",
+        "mood": "frustrated"
+    },
+    {
+        "text": ["Interesting."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Then this guy must either have a fur coat or reside somewhere with a relatively large animal population. Hm…"],
+        "speaker": "det",
+        "mood": "neutral"
+    }
+
+
+
+]
