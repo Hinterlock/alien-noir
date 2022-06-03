@@ -7,7 +7,7 @@ class House extends baseScene {
         //images 
         this.load.image('house_bg', './assets/house/house_bg.png');
         this.load.image('stairs', './assets/house/stairs.png');
-        this.load.image('stairs_outlined', './assets/house/stairs_outline.png');
+        this.load.image('stairs_outlined', './assets/house/stairs_outlined.png');
         this.load.image('note', './assets/house/note.png');
         this.load.image('note_outlined', './assets/house/note_outlined.png');
         this.load.image('house_bg', './assets/house/house_bg.png');
@@ -34,9 +34,14 @@ class House extends baseScene {
         this.cake = this.add.image(game.config.width/2.3, game.config.height*2/3.9, 'cake');
         this.note = this.add.image(game.config.width/2.6, game.config.height*2.3/3, 'note');
         
-        
-
         this.setup();
+
+        this.clues[1] = this.hat;
+        this.clues[2] = this.closet;
+        this.clues[3] = this.note;
+        this.clues[4] = this.chairs;
+        this.clues[5] = this.stairs;
+        this.clues[6] = this.cake;
 
         // talksprites added after
 
