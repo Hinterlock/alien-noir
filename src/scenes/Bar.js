@@ -11,6 +11,8 @@ class Bar extends baseScene {
         this.load.image('bartender_outlined', './assets/bar/bartender_outlined.png');
         this.load.image('stage_outlined', './assets/bar/stage_outlined.png');
         this.load.image('aliens_outlined', './assets/bar/aliens_outlined.png');
+        
+        this.load.spritesheet('bt', './assets/spritesheets/BartenderSheet.png', {frameWidth: 2891, frameHeight: 3133});
         //text
         this.load.json('bar1_intro', './assets/text/bar1.json');
         this.load.json('bar2', './assets/text/bar2.json');
@@ -22,14 +24,16 @@ class Bar extends baseScene {
         this.barbg = this.add.image(game.config.width/2, game.config.height/2, 'bar_bg');
         this.stage = this.add.image(game.config.width/3.7, game.config.height*1/3, 'stage');
         this.aliens = this.add.image(game.config.width/2, game.config.height*.56, 'aliens');
-        this.bartender = this.add.image(game.config.width*6/8.3, game.config.height*1/2.6, 'bartender');
+        this.bartenderMini = this.add.image(game.config.width*6/8.3, game.config.height*1/2.6, 'bartender');
         
         this.setup();
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
 
-        this.clues[1] = this.bartender;
+        this.bartender = new Speaker(this, 1, 'bt');
+
+        this.clues[1] = this.bartenderMini;
         this.clues[2] = this.stage;
         this.clues[3] = this.aliens;
 
@@ -47,14 +51,31 @@ class Bar extends baseScene {
     }
     clickButton() {
         if (this.state) {
-            // if (this.checkMouseOver(this.input.activePointer, this.cards) && this.investigateStatus < 1) {
-            //     this.startDialogue(this.cardsTxt);
-            //     this.sound.play('cardSFX');
-            //     this.cards.x = 530;
-            //     this.cards.y = 300;
-            //     this.cards.setTexture('cards');
-            //     this.investigateStatus++;
-            // }
+            if (this.investigateStatus < this.currentHighlight) {
+                switch (this.currentHighlight) {
+                    case '3':
+                        this.startDialogue(this.pplTxt);
+                        break;
+                    case '2':
+                        if (this.investigateStatus == 0) {
+                            this.startDialogue(this.stage1Txt);
+                        } else {
+                            this.startDialogue(this.stage2Txt);
+                            this.currentHighlight = 0;
+                            this.stage.setTexture('stage');
+                            this.investigateStatus += 1;
+                        }
+                        break;
+                    case '1':
+                        this.startDialogue(this.bartenderTxt);
+                        this.investigateStatus += 1;
+                        this.currentHighlight = 0;
+                        this.bartenderMini.setTexture('bartender');
+                        break;
+                    // default:
+                    //     console.log(this.currentHighlight);
+                }
+            }
             if (this.input.activePointer.y > game.config.height*.85) {
                 this.wipeOut("streetScene");
             }
