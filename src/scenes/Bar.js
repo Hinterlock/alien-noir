@@ -70,6 +70,7 @@ class Bar extends baseScene {
                             this.currentHighlight = 0;
                             this.stage.setTexture('stage');
                             gameProgress['barScene'][2] = false;
+                            gameProgress['streetScene'][2] = true; //opens up bakery
                         }
                         break;
                     case '1':
