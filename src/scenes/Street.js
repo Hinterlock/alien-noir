@@ -63,6 +63,7 @@ class Street extends baseScene {
         this.music.pause();
         this.wipeIn();
         this.interrupt = true;
+        this.schmoovin = 0;
 
         //define anims
         this.anims.create({
@@ -74,10 +75,16 @@ class Street extends baseScene {
     }
     clickButton() {
         let startY = .45;
+        this.schmoovin++;
         if (this.input.activePointer.y > game.config.height*startY) {
             //this.move = true;
             this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y - this.detective.height*3/8);
             this.interrupt = true;
+            if (this.input.activePointer.x + this.cameras.main.scrollX < this.detective.x) {
+                this.detective.flipX = -1;
+            } else {
+                this.detective.flipX = 0;
+            }
         } else {
             switch (this.currentHighlight) {
                 case '1': //aleyway
@@ -142,7 +149,10 @@ class Street extends baseScene {
             onActive: this.detective.anims.play('detwalk', true),
             onComplete: function() {
                 //this.move = false;
-                this.detective.anims.stop(null, true)
+                this.schmoovin--;
+                if (this.schmoovin == 0) {
+                    this.detective.anims.stop(null, true);
+                }
                 if (enter && !this.interrupt) {
                     this.wipeOut(enter);
                 }
