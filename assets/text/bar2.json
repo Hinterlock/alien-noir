@@ -1,21 +1,27 @@
 [
     {
-        "text": ["I know immediately from experience that my best bet will be speaking to the bartender.",
-        "Unlike their transient customers, bartenders work regular shifts and any mixologist worth their money would pay careful attention to their patrons to avoid any funny business.",
-        "I stroll up to the bar."]
+        "text": ["I know immediately from experience that my best bet will be speaking to the bartender."]
     },
     {
-        "text": ["The bartender is occupied serving drinks to the other aliens, but narrows his eye at me as I approach.",
-            "I can’t help but be impressed at the skillful shake of the wrists of the bartender as he mixes multiple cocktails at a time, and serves them in quick succession."]
+        "text": ["Unlike their transient customers, bartenders work regular shifts and any mixologist worth their money would pay careful attention to their patrons to avoid any funny business."]
     },
     {
-        "text": ["…. For the last time sir, I can’t serve you any drinks if you can’t show me an ID."],
+        "text": ["I stroll up to the bar."]  
+    },
+    {
+        "text": ["The bartender is occupied serving drinks to the other aliens, but narrows his eye at me as I approach."]
+    },
+    {
+        "text": ["I can’t help but be impressed at the skillful shake of the wrists of the bartender as he mixes multiple cocktails at a time, and serves them in quick succession."]
+    },
+    {
+        "text": ["...For the last time sir, I can’t serve you any drinks if you can’t show me an ID."],
         "speaker": "bartender",
         "mood": "frustrated",
         "new": true
     },
     {
-        "text": ["….Also if you’re trying to disguise yourself by putting on a new hat, I’m afraid it’s not working. "],
+        "text": ["...Also if you’re trying to disguise yourself by putting on a new hat, I’m afraid it’s not working. "],
         "speaker": "bartender",
         "mood": "frustrated"
     },
@@ -34,7 +40,7 @@
         "text": ["He squints at me, but I can sense that my greeting has him caught off guard."]
     },
     {
-        "text": ["Oh I am very amazed…"],
+        "text": ["Oh I am very amazed..."],
         "speaker": "bartender",
         "mood": "inquisitive",
         "new": true
@@ -52,12 +58,12 @@
         "new": true
     },
     {
-        "text": ["… But anyway, that’s besides the point-"],
+        "text": ["... But anyway, that’s besides the point-"],
         "speaker": "det",
         "mood": "inquisitive"
     },
     {
-        "text": ["This cowboy detective…",
+        "text": ["This cowboy detective...",
             "could you describe in detail the circumstances when you last saw them?",
             "They may be impersonating me."],
         "speaker": "det",
@@ -75,8 +81,12 @@
         "mood": "inquisitive"
     },
     {
-        "text": ["If I recall, he asked for a drink and when I said I didn’t serve without ID, he threw a tantrum and left.",
-            "Then after some time passed he came back with a cake box and went over to the stage and talked to the lady performing.",
+        "text": ["If I recall, he asked for a drink and when I said I didn’t serve without ID, he threw a tantrum and left."],
+        "speaker": "bartender",
+        "mood": "neutral"
+    },
+    {
+        "text": ["Then after some time passed he came back with a cake box and went over to the stage and talked to the lady performing.",
             "Left a half hour later."],
         "speaker": "bartender",
         "mood": "neutral"

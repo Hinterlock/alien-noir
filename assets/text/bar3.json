@@ -13,7 +13,7 @@
     {
         "text": ["WHAT DID I TELL YOU LAST TIME BUDDY, MY SISTER IS ALLERGIC TO CAKE!"],
         "speaker": "ogai",
-        "mood": "frustrated",
+        "mood": "neutral",
         "new": true
     },
     {
@@ -30,32 +30,36 @@
     },
     {
         "text": ["Ogai, calm down!"],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "frustrated",
         "new": true
     },
     {
         "text": ["I think he’s telling the truth!! His hat is different and so is his voice."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "neutral"
     },
     {
         "text": ["… I MEAN, IF YOU’RE SURE, LEIRZA…"],
         "speaker": "ogai",
-        "mood": "neutral",
+        "mood": "sad",
         "new": true
     },
     {
         "text": ["Yeah. You don’t need to be on guard, it looks like he just wants to talk."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "neutral",
         "new": true
     },
     {
-        "text": ["I’m so sorry for my brother, handsome sir, Ogai’s just a bit overprotective.", 
-            "Are you alright?"],
-        "speaker": "fatale",
+        "text": ["I’m so sorry for my brother, handsome sir, Ogai’s just a bit overprotective."],
+        "speaker": "leirza",
         "mood": "sad"
+    },
+    {
+        "text": ["Are you alright?"],
+        "speaker": "leirza",
+        "mood": "inquisitive"
     },
     {
         "text": ["Yes, thank you.",
@@ -72,20 +76,25 @@
     },
     {
         "text": ["Ah yes, that fella..."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "neutral",
         "new": true
     },
     {
         "text": ["Y’see, so last night I’m finishing my last song, and this fella with a trench coat and a cowboy hat approaches me with a cake box in hand,",
-            "and asks me to go on a date with him. Real sweet thing he was, but unfortunately I’m allergic to cake.",
-            "So I couldn’t accept it."],
-        "speaker": "fatale",
+            "and asks me to go on a date with him."],
+        "speaker": "leirza",
         "mood": "neutral"
     },
     {
+        "text": ["Real sweet thing he was, but unfortunately I’m allergic to cake.",
+            "So I couldn’t accept it."],
+        "speaker": "leirza",
+        "mood": "sad"
+    },
+    {
         "text": ["But he really wanted to eat this cake with me and got into a small argument with my brother over here."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "neutral"
     },
     {
@@ -95,19 +104,14 @@
         "new": true
     },
     {
-        "text": ["Ah yes, that fella..."],
-        "speaker": "fatale",
-        "mood": "neutral",
+        "text": ["Well, he left after a while… probably went to eat that cake by himself. Poor thing."],
+        "speaker": "leirza",
+        "mood": "sad",
         "new": true
     },
     {
-        "text": ["Well, he left after a while… probably went to eat that cake by himself. Poor thing."],
-        "speaker": "fatale",
-        "mood": "sad"
-    },
-    {
         "text": ["Not to be vain, but… if I went on a date with every person who asked me out, I wouldn’t even have the time to sing here on stage."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "neutral"
     },
     {
@@ -120,7 +124,7 @@
     {
         "text": ["Oh, it’s from the bakery on the other side of the street, a cute little shop shaped like a slice of bread.",
             "Can’t miss it. "],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "happy",
         "new": true
     },
@@ -143,7 +147,7 @@
     },
     {
         "text": ["Oh hush, Ogai. I’ll see you later, Mister Detective~ I'm glad I was able to help."],
-        "speaker": "fatale",
+        "speaker": "leirza",
         "mood": "happy",
         "new": true
     }
