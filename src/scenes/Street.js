@@ -16,7 +16,7 @@ class Street extends baseScene {
         this.load.image('cones', './assets/street/street_cones.png');
         this.load.image('mushrooms', './assets/street/street_mushrooms.png');
         this.load.image('ufo', './assets/street/street_ufo.png');
-        this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 260, frameHeight: 368});
+        this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 260, frameHeight: 368, startFrame: 0, endFrame: 7});
         this.load.image('lilDet', './assets/detective.png');
     }
     create() {
@@ -63,6 +63,14 @@ class Street extends baseScene {
         this.music.pause();
         this.wipeIn();
         this.interrupt = true;
+
+        //define anims
+        this.anims.create({
+            key: 'detwalk',
+            frames: this.anims.generateFrameNumbers('walk', {start: 0, end: 7}),
+            frameRate: 9,
+            repeat: -1
+        })        
     }
     clickButton() {
         let startY = .45;
@@ -131,8 +139,10 @@ class Street extends baseScene {
             scale: {from: det.scale, to: (.0012*(y-(game.config.height*9/16)) + 1)},
             ease: 'Linear',
             duration: dur,
+            onActive: this.detective.anims.play('detwalk', true),
             onComplete: function() {
                 //this.move = false;
+                this.detective.anims.stop(null, true)
                 if (enter && !this.interrupt) {
                     this.wipeOut(enter);
                 }
