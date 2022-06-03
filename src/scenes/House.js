@@ -32,7 +32,7 @@ class House extends baseScene {
         this.chairs = this.add.image(game.config.width/2.2, game.config.height*2/3, 'chairs');
         this.stairs = this.add.image(game.config.width*3/4 - 37, game.config.height/2, 'stairs');
         this.cake = this.add.image(game.config.width/2.3, game.config.height*2/3.9, 'cake');
-        this.note = this.add.image(game.config.width/4, game.config.height*2.7/3, 'note');
+        this.note = this.add.image(game.config.width/2.6, game.config.height*2.3/3, 'note');
         
         
 
