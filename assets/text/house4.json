@@ -1,0 +1,17 @@
+[
+    {
+        "text": ["his must be the cake that our guy was trying to give Leirza."],
+        "speaker": "det",
+        "mood": "neutral"
+    },
+    {
+        "text": ["It says on the box that it’s called Super Blueberry. What makes it super?"],
+        "speaker": "det",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["More importantly, this seems like too much cake for one guy.",
+            "Maybe they have an accomplice?"],
+            "new": true
+    }
+]
