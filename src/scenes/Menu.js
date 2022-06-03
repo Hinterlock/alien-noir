@@ -28,7 +28,7 @@ class Menu extends Phaser.Scene {
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', function() {
             //change back to streetScene later
-            this.scene.start("houseScene");
+            this.scene.start("streetScene");
             this.sound.play('click');
         }, this);
         this.input.on('pointerdown', function() {

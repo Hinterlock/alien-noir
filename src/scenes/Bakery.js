@@ -14,6 +14,7 @@ class Bakery extends baseScene {
         this.load.image('broken_stand', './assets/bakery/broken_stand.png');
         this.load.image('fixed_stand', './assets/bakery/fixed_stand.png');
         this.load.image('trail_bakery', './assets/bakery/trail_bakery.png');
+        this.load.image('trail_bakery_outlined', './assets/bakery/trail_bakery_outlined.png');
     }
     create() {
         this.bakerywalls = this.add.image(game.config.width/2, game.config.height/2, 'bakery_walls');
@@ -26,13 +27,14 @@ class Bakery extends baseScene {
         this.broken_stand = this.add.image(275/2, game.config.height*3/4, 'broken_stand');
         this.trail_bakery = this.add.image(game.config.width/3.6, game.config.height*8/9, 'trail_bakery');
         this.setup();
+        this.clues[1] = this.trail_bakery;
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
         this.wipeIn();
     }
     clickButton() {
-        if (this.input.activePointer.y > game.config.height*.85) {
+        if (this.input.activePointer.y > game.config.height*.85 && (this.input.activePointer.x < this.trail_bakery.x - this.trail_bakery.width/2 ||this.input.activePointer.x > this.trail_bakery.x + this.trail_bakery.width/2)) {
             this.wipeOut("streetScene");
         }
     }
