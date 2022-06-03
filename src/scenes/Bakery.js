@@ -31,7 +31,8 @@ class Bakery extends baseScene {
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
-        this.wipeIn();
+        this.wipeIn(null, 'bell');
+        this.events.on('wake', function() {this.wipeIn(null, 'bell');}, this);
     }
     clickButton() {
         if (this.input.activePointer.y > game.config.height*.85 && (this.input.activePointer.x < this.trail_bakery.x - this.trail_bakery.width/2 ||this.input.activePointer.x > this.trail_bakery.x + this.trail_bakery.width/2)) {

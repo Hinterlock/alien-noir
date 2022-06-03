@@ -44,7 +44,7 @@ class baseScene extends Phaser.Scene {
         this.cursorUpdate();
     }
 
-    wipeIn(dialogue){ //horizontal wipe for start of scene, takes input for if dialogue automatically starts
+    wipeIn(dialogue, sfx){ //horizontal wipe for start of scene, takes input for if dialogue automatically starts
         this.tweens.add({
             targets: this.wipe,
             x: { from: this.cameras.main.scrollX + game.config.width/2, to: this.cameras.main.scrollX + game.config.width*2},
@@ -68,6 +68,9 @@ class baseScene extends Phaser.Scene {
             });
         } else {
             this.state = 1;
+        }
+        if (sfx) {
+            this.sound.play(sfx);
         }
     }
     wipeOut(destination){ //horizontal wipe of end of scene, takes input for scene to switch to, uses sleep instead of stop
