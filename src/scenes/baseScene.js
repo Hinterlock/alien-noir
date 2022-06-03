@@ -14,10 +14,11 @@ class baseScene extends Phaser.Scene {
         this.clues = {};
         this.currentHighlight = 0;
 
-        this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
-        this.borders.scale = 1.5;
+        // this.borders = this.add.image(game.config.width/2, game.config.height/2, 'borders');
+        // this.borders.scale = 1.5;
         
-        this.box = this.add.image(game.config.width/2, game.config.height/2, 'box');
+        // this.box = this.add.image(game.config.width/2, game.config.height/2, 'box');
+        this.box = this.add.rectangle(game.config.width/2, game.config.height*2/3 - 26, game.config.width, game.config.height/3 + 26, "#FFFFFF").setOrigin(0.5,0);
         this.box.alpha = 0;
         //detective talksprite
         this.det = new Speaker(this, 0, 'detective');
@@ -26,8 +27,9 @@ class baseScene extends Phaser.Scene {
 
         this.FONT = 'gem_font';
         this.FONTSIZE = 24;
-        this.text = this.add.bitmapText(game.config.width*2/8, game.config.height*5/8, this.FONT, '', this.FONTSIZE);
-        this.text.maxWidth = 500;
+        this.TEXTMARGIN = 50;
+        this.text = this.add.bitmapText(this.TEXTMARGIN, game.config.height*2/3, this.FONT, '', this.FONTSIZE).setOrigin(0, 0);
+        this.text.maxWidth = game.config.width - 2*this.TEXTMARGIN;
         this.nextText = this.add.bitmapText(game.config.width/2, game.config.height-25, this.FONT, '', this.FONTSIZE).setOrigin(1);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
@@ -150,16 +152,18 @@ class baseScene extends Phaser.Scene {
             targets: this.box,
             alpha: { from: 0, to: 1},
             ease: 'Sine.easeOut',
-            duration: 1000
-        });
-        this.tweens.add({
-            targets: this.borders,
-            scale: { from: 1.5, to: 1},
-            ease: 'Sine.easeOut',
             duration: 1000,
             onComplete: this.nextBox(),
             onCompleteScope: this
         });
+        // this.tweens.add({
+        //     targets: this.borders,
+        //     scale: { from: 1.5, to: 1},
+        //     ease: 'Sine.easeOut',
+        //     duration: 1000,
+        //     onComplete: this.nextBox(),
+        //     onCompleteScope: this
+        // });
     }
     nextBox() { //checks who is speaking, their emotion, switches up the sprites based on that, then hands off to nextLine()
         this.text.text = '';
@@ -287,12 +291,12 @@ class baseScene extends Phaser.Scene {
                     ease: 'Sine.easeIn',
                     duration: this.tweenTime
                 });
-                this.tweens.add({
-                    targets: this.borders,
-                    scale: { from: 1, to: 1.5},
-                    ease: 'Sine.easeIn',
-                    duration: this.tweenTime
-                });
+                // this.tweens.add({
+                //     targets: this.borders,
+                //     scale: { from: 1, to: 1.5},
+                //     ease: 'Sine.easeIn',
+                //     duration: this.tweenTime
+                // });
                 if (this.speaker) {
                     this.tweens.add({
                         targets: this[this.speaker],
