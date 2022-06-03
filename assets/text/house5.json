@@ -1,0 +1,25 @@
+[
+    {
+        "text": ["There's a ripped note. Let's see what it says."]
+    },
+    {
+        "text": ["Well well well, what do we have here? It seems like our perp kept himself to a schedule."],
+        "speaker": "det",
+        "mood": "neutral"
+    },
+    {
+        "text": ["Or at least tried to.",
+            "I get the feeling that they kept getting distracted by food and drink."],
+        "new": true
+    },
+    {
+        "text": ["Actually, how did they manage to get those cakes?",
+        "Gabo said the suspect somehow managed to take them directly into his stomach even though his hands were to his side."]
+    },
+    {
+        "text": ["There aren’t any aliens I’m aware of that have claws, multiple arms or some sort of external stomach storage and fur."]
+    },
+    {
+        "text": ["What could it be..."]
+    }
+]

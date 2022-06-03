@@ -1,0 +1,19 @@
+[
+    {
+        "text": ["Aha. So our troublesome thief does reside here."],
+        "speaker": "det",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["As I turn the hat around in my hands, I see some writing on the underside of the brim.",
+            "It says 'Bill’s Toyshop'."],
+        "new": true
+    },
+    {
+        "text": ["Toyshop? Maybe the suspect bought their hat from a toystore to make it harder to trace.",
+            "I would have gone to the specialty hat producers myself to ask about any suspicious customers."]
+    },
+    {
+        "text": ["Granted, I think that the suspect may be younger than I initially thought..."]
+    }
+]
