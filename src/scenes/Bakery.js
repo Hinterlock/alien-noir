@@ -16,6 +16,16 @@ class Bakery extends baseScene {
         this.load.image('fixed_stand', './assets/bakery/fixed_stand.png');
         this.load.image('trail_bakery', './assets/bakery/trail_bakery.png');
         this.load.image('trail_bakery_outlined', './assets/bakery/trail_bakery_outlined.png');
+        this.load.image('bread_1', './assets/bakery/bread_1.png');
+        this.load.image('bread_1_outlined', './assets/bakery/bread_1_outlined.png');
+        this.load.image('bread_2', './assets/bakery/bread_2.png');
+        this.load.image('bread_2_outlined', './assets/bakery/bread_2_outlined.png');
+        this.load.image('bread_3', './assets/bakery/bread_3.png');
+        this.load.image('bread_3_outlined', './assets/bakery/bread_3_outlined.png');
+        this.load.image('id', './assets/bakery/id.png');
+        this.load.image('id_outlined', './assets/bakery/id_outlined.png');
+        this.load.image('fur', './assets/bakery/fur.png');
+        this.load.image('fur_outlined', './assets/bakery/fur_outlined.png');
         //spritesheets
         this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});        
         //dialogue
@@ -31,6 +41,11 @@ class Bakery extends baseScene {
         this.right_stand = this.add.image(game.config.width - 275/2, game.config.height*3/4, 'right_stand');
         this.broken_stand = this.add.image(275/2, game.config.height*3/4, 'broken_stand');
         this.trail_bakery = this.add.image(game.config.width/3.6, game.config.height*8/9, 'trail_bakery');
+        this.bread_1 = this.add.image(game.config.width/3.5, game.config.height*2.2/3, 'bread_1');
+        this.bread_2 = this.add.image(game.config.width*3/4, game.config.height*2.3/3, 'bread_2');
+        this.bread_3 = this.add.image(game.config.width/9, game.config.height*9.5/10, 'bread_3');
+        this.id = this.add.image(game.config.width*1.8/3, game.config.height*8/9, 'id');
+        this.fur = this.add.image(game.config.width*1.4/3, game.config.height*8/9.6, 'fur');
 
         this.setup();
 
