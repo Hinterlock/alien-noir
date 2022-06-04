@@ -41,7 +41,7 @@ class Bakery extends baseScene {
         this.right_stand = this.add.image(game.config.width - 275/2, game.config.height*3/4, 'right_stand');
         this.broken_stand = this.add.image(275/2, game.config.height*3/4, 'broken_stand');
         this.trail_bakery = this.add.image(game.config.width/3.6, game.config.height*8/9, 'trail_bakery');
-        this.id = this.add.image(game.config.width*1.8/3, game.config.height*7.2/9, 'id');
+        this.id = this.add.image(game.config.width*2.9/9, game.config.height*2.1/3, 'id');
         this.bread_1 = this.add.image(game.config.width*1.8/3, game.config.height*7.2/9, 'bread_1');
         this.bread_2 = this.add.image(game.config.width*3/4, game.config.height*2.3/3, 'bread_2');
         this.bread_3 = this.add.image(game.config.width*2.8/9, game.config.height*2.1/3, 'bread_3'); 
