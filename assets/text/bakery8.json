@@ -51,7 +51,7 @@
         "mood": "inquisitive"
     },
     {
-        "text": ["I, and the great church of lord vrux'eok, try to keep a good relationship with the detective agencies and law enforcement so that they don’t go looking into the other business-"],
+        "text": ["I, and the great church of lord vrux'eok, try to keep a good relationship with the detective agencies and law enforcement so that they don't go looking into the other business-"],
         "speaker": "gabotop",
         "mood": "happy"
     },
@@ -69,7 +69,7 @@
         "new": true
     },
     {
-        "text": ["I thought it might be a denizen of Dertiza-5, but there weren’t any pools of magma erupting from his stomach so it had to be something else.",
+        "text": ["I thought it might be a denizen of Dertiza-5, but there weren't any pools of magma erupting from his stomach so it had to be something else.",
             "Maybe an acolyte of the other sect of our church. Regardless-"],
         "speaker": "gabotop",
         "mood": "neutral"
@@ -146,7 +146,7 @@
         "mood": "inquisitive"
     },
     {
-        "text": [" Hm. I think I have an idea of where our culprit may be located. Thanks for the assistance Gabo, you’ve been a great help.",
+        "text": [" Hm. I think I have an idea of where our culprit may be located. Thanks for the assistance Gabo, you've been a great help.",
             "Say, maybe I'll pay your church a visit when this is all finished up, what do ya say?"],
         "speaker": "det",
         "mood": "happy",

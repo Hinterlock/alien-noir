@@ -1,12 +1,12 @@
 [
     {
-        "text": ["Hey Gabo, do you have a pet? I’d assume not because of how clean you keep this joint, but I figured I’d ask anyway."],
+        "text": ["Hey Gabo, do you have a pet? I'd assume not because of how clean you keep this joint, but I figured I'd ask anyway."],
         "speaker": "det",
         "mood": "inquisitive",
         "new": true
     },
     {
-        "text": ["‘bzzt’ NEGATIVE"],
+        "text": ["'bzzt' NEGATIVE"],
         "speaker": "gabotop",
         "mood": "neutral",
         "new": true

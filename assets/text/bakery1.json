@@ -1,7 +1,7 @@
 [
     {
         "text": ["As the day began to chill, it came to pass that I was standing in front of an unusual building.", 
-            " A bakery they called it. But it wasn’t like any bakery I’d ever seen."],
+            " A bakery they called it. But it wasn't like any bakery I'd ever seen."],
         "new": true
     },
     {
@@ -9,7 +9,7 @@
             " with loads of pastries and confectioneries, their garish colors standing out like a half lit cigarette in the cool darkness of night."]
     },
     {
-        "text": ["Looking back at the entrance, I notice some sort of automaton givin’ me the side eye.",
+        "text": ["Looking back at the entrance, I notice some sort of automaton givin' me the side eye.",
              "As I walk over to greet them, they move back and start emitting a weird light."]
     },
     {
@@ -31,7 +31,7 @@
         "mood": "inquisitive"
     },
     {
-        "text": ["Unclean one, while you may have changed the apparel of your headdress, your guise doesn’t protect you from my gaze.", 
+        "text": ["Unclean one, while you may have changed the apparel of your headdress, your guise doesn't protect you from my gaze.", 
             "You have returned to desecrate the great bakery of our lord vrux'eok and steal another cake."],
         "speaker": "gabotop",
         "mood": "neutral"
@@ -74,14 +74,14 @@
         "mood": "neutral"
     },
     {
-        "text": ["I’m not doing that."],
+        "text": ["I'm not doing that."],
         "speaker": "det",
         "mood": "frustrated",
         "new": true
     },
     {
-        "text": ["Alright “Gabo”, first things first, I’m not the fella who nicked your stuff.",
-            "I’m actually trying to track down the guy who took em."],
+        "text": ["Alright “Gabo”, first things first, I'm not the fella who nicked your stuff.",
+            "I'm actually trying to track down the guy who took em."],
         "speaker": "det",
         "mood": "neutral",
         "new": true
@@ -92,7 +92,7 @@
         "mood": "sad"
     },
     {
-        "text": ["Say, why don’t you let me search the place eh?",
+        "text": ["Say, why don't you let me search the place eh?",
             "Help me help you."],
         "speaker": "det",
         "mood": "happy"
@@ -121,7 +121,7 @@
         "new": true
     },
     {
-        "text": ["Yeah, it’s the hat, I have a fedora, the other guy has a cowb-"],
+        "text": ["Yeah, it's the hat, I have a fedora, the other guy has a cowb-"],
         "speaker": "det",
         "mood": "inquisitive",
         "new": true
@@ -151,7 +151,7 @@
         "new": true
     },
     {
-        "text": ["‘bzzt’",
+        "text": ["'bzzt'",
             "AFFIRMATIVE."],
         "speaker": "gabotop",
         "mood": "happy",

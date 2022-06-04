@@ -12,21 +12,21 @@
         "text": ["The bartender is occupied serving drinks to the other aliens, but narrows his eye at me as I approach."]
     },
     {
-        "text": ["I can’t help but be impressed at the skillful shake of the wrists of the bartender as he mixes multiple cocktails at a time, and serves them in quick succession."]
+        "text": ["I can't help but be impressed at the skillful shake of the wrists of the bartender as he mixes multiple cocktails at a time, and serves them in quick succession."]
     },
     {
-        "text": ["...For the last time sir, I can’t serve you any drinks if you can’t show me an ID."],
+        "text": ["...For the last time sir, I can't serve you any drinks if you can't show me an ID."],
         "speaker": "bartender",
         "mood": "frustrated",
         "new": true
     },
     {
-        "text": ["...Also if you’re trying to disguise yourself by putting on a new hat, I’m afraid it’s not working. "],
+        "text": ["...Also if you're trying to disguise yourself by putting on a new hat, I'm afraid it's not working. "],
         "speaker": "bartender",
         "mood": "frustrated"
     },
     {
-        "text": ["I’m Private Investigator Dick Johnson.",
+        "text": ["I'm Private Investigator Dick Johnson.",
         "I have some questions and by the looks of it, you can provide answers."],
         "speaker": "det",
         "mood": "neutral",
@@ -47,7 +47,7 @@
     },
     {
         "text": ["Did you change personalities when you took off that cowboy hat?", 
-        "It’s almost like you’re a different person."],
+        "It's almost like you're a different person."],
         "speaker": "bartender",
         "mood": "inquisitive"
     },
@@ -58,7 +58,7 @@
         "new": true
     },
     {
-        "text": ["... But anyway, that’s besides the point-"],
+        "text": ["... But anyway, that's besides the point-"],
         "speaker": "det",
         "mood": "inquisitive"
     },
@@ -81,7 +81,7 @@
         "mood": "inquisitive"
     },
     {
-        "text": ["If I recall, he asked for a drink and when I said I didn’t serve without ID, he threw a tantrum and left."],
+        "text": ["If I recall, he asked for a drink and when I said I didn't serve without ID, he threw a tantrum and left."],
         "speaker": "bartender",
         "mood": "neutral"
     },
