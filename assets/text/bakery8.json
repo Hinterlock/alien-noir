@@ -1,0 +1,172 @@
+[
+    {
+        "text": ["Alright Gabo, I picked up your cakes. ",
+            "Tell me what happened here."],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Very well. You see Young One, what happened was-"],
+        "speaker": "gabotop",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["ACCESSING MEMORYBANKS.",
+            "TIME: 18 EARTH HOURS AGO",
+            "WEATHER: CLOUDY, WITH PATCHES OF SUNLIGHT",
+            "ENTROPIC PULL: AT MINIMAL LEVELS."],
+        "speaker": "gabotop",
+        "mood": "neutral"
+    },
+    {
+        "text": ["HE ASSAILANT-"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["walked into our divine bakery with an aura of arrogance."],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["They claimed that they were on some sort of a case, and demanded we grant them access to our selection of cakes under the pretense that it was found at the scene of a crime."],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["I, and the great church of lord vrux'eok, try to keep a good relationship with the detective agencies and law enforcement so that they don’t go looking into the other business-"],
+        "speaker": "gabotop",
+        "mood": "happy"
+    },
+    {
+        "text": ["Hold on, what oth-"],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["and as I was directing the sinner towards our breads, they used some sort of trickery or subterfuge to take my baked goods.",
+            "Somehow, as he was looking at the selection of desserts, they would be dragged into his stomach cavity."],
+        "speaker": "gabotop",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["I thought it might be a denizen of Dertiza-5, but there weren’t any pools of magma erupting from his stomach so it had to be something else.",
+            "Maybe an acolyte of the other sect of our church. Regardless-"],
+        "speaker": "gabotop",
+        "mood": "neutral"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["I ENACTED AUDITORY COMMUNICATION PROTOCOLS.",
+            "THE SUSPECT ATTEMPTED TO EXIT THE PREMISE.",
+            "AFTER [3] SECONDS, SUSPECT COLLAPSED AND FAILED TO EXIT."],
+        "speaker": "gabotop",
+        "mood": "neutral"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["It seemed the interloper fell upon his own coat and landed upon one of the display tables."],
+        "speaker": "gabotop",
+        "mood": "neutral"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["HEH. KARMATIC."],
+        "speaker": "gabotop",
+        "mood": "happy"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["I tried to restrain him, but that foul soul threw my own holy bread towards me.",
+            "Before I knew it, he had managed to get away. I recall he stepped into some of my cream cakes."],
+        "speaker": "gabotop",
+        "mood": "sad"
+    },
+    {
+        "text": ["Yeah, I noticed. Our guy has some small feet."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Indeed. I believe-"],
+        "speaker": "gabotop",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["FOOTPRINTS OBSERVED LEAVING BAKERY.",
+            "DESTINATION UNKNOWN."],
+        "speaker": "gabotop",
+        "mood": "neutral"
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": [" Hm. I think I have an idea of where our culprit may be located. Thanks for the assistance Gabo, you’ve been a great help.",
+            "Say, maybe I'll pay your church a visit when this is all finished up, what do ya say?"],
+        "speaker": "det",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["That would be most copacetic! I hope to-"],
+        "speaker": "gabotop",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["'bztt'"],
+        "speaker": "gabotop",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["OBSERVE YOU IN [1 - 5] HOURS WITH POSITIVE RESULTS."],
+        "speaker": "gabotop",
+        "mood": "happy"
+    }
+    
+]
