@@ -25,9 +25,7 @@ class Bakery extends baseScene {
         this.load.image('id', './assets/bakery/id.png');
         this.load.image('id_outlined', './assets/bakery/id_outlined.png');
         this.load.image('fur', './assets/bakery/fur.png');
-        this.load.image('fur_outlined', './assets/bakery/fur_outlined.png');
-        //spritesheets
-        this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});        
+        this.load.image('fur_outlined', './assets/bakery/fur_outlined.png');     
         //dialogue
         this.load.json('bakeryIntro', './assets/text/bakery2.json');
         this.load.json('??', './assets/text/bakery3.json');

@@ -25,6 +25,13 @@ class House extends baseScene {
 
         //dialogue
         this.load.json('houseIntro', './assets/text/house1.json');
+        this.load.json('hatText', './assets/text/house3.json');
+        this.load.json('cakeText', './assets/text/house4.json');
+        this.load.json('noteText', './assets/text/house5.json');
+        // this.load.json('', './assets/text/house6.json');
+        // this.load.json('', './assets/text/house7.json');
+        // this.load.json('', './assets/text/house8.json');
+        // this.load.json('', './assets/text/house9.json');
     }
     create() {
         // things behind the text boxes should be added before setup
@@ -47,14 +54,12 @@ class House extends baseScene {
         this.clues[5] = this.stairs;
         this.clues[6] = this.cake;
 
-        this.introTxt = this.cache.json.get('houseIntro');
-
         // talksprites added after
 
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
-        this.wipeIn(this.introTxt);
+        this.wipeIn(this.cache.json.get('houseIntro'));
     }
     clickButton() {
         if (gameProgress['houseScene'][this.currentHighlight]) {
@@ -66,12 +71,13 @@ class House extends baseScene {
                 case '4':
                     break;
                 case '3':
-                    // this.startDialogue(this.pplTxt);
+                    // this.startDialogue(this.cache.json.get());
                     break;
                 case '2':
                     break;
                 case '1':
-                    // this.startDialogue(this.bartenderTxt);
+                    this.startDialogue(this.cache.json.get('hatText'));
+                    gameProgress['houseScene'][1] = false;
                     break;
             }
         }

@@ -18,6 +18,11 @@ class Street extends baseScene {
         this.load.image('ufo', './assets/street/street_ufo.png');
         this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 130, frameHeight: 184, startFrame: 0, endFrame: 7});
         this.load.image('lilDet', './assets/detective.png');
+        //spritesheets
+        this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});
+        //json
+        this.load.json('houseOutsideIntro', './assets/text/house2.json');
+        this.load.json('bakeryOutsideIntro', './assets/text/bakery1.json');
     }
     create() {
         this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/4, 'sky');
