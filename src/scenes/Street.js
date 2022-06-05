@@ -66,15 +66,15 @@ class Street extends baseScene {
     clickButton() {
         let startY = .45;
         this.schmoovin++;
+        if (this.input.activePointer.x + this.cameras.main.scrollX < this.detective.x) {
+            this.detective.flipX = -1;
+        } else {
+            this.detective.flipX = 0;
+        }
         if (this.input.activePointer.y > game.config.height*startY) {
             //this.move = true;
             this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y);
             this.interrupt = true;
-            if (this.input.activePointer.x + this.cameras.main.scrollX < this.detective.x) {
-                this.detective.flipX = -1;
-            } else {
-                this.detective.flipX = 0;
-            }
         } else {
             switch (this.currentHighlight) {
                 case '1': //aleyway

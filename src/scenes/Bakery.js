@@ -30,6 +30,12 @@ class Bakery extends baseScene {
         this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});        
         //dialogue
         this.load.json('bakeryIntro', './assets/text/bakery2.json');
+        this.load.json('??', './assets/text/bakery3.json');
+        this.load.json('???', './assets/text/bakery4.json');
+        this.load.json('breadText', './assets/text/bakery5.json');
+        this.load.json('breadText2', './assets/text/bakery6.json');
+        this.load.json('breadText3', './assets/text/bakery7.json');
+        this.load.json('post-breadText', './assets/text/bakery8.json');
     }
     create() {
         this.bakerywalls = this.add.image(game.config.width/2, game.config.height/2, 'bakery_walls');
@@ -52,13 +58,15 @@ class Bakery extends baseScene {
         this.gabotop = new Speaker(this, 1, 'baker');
 
         this.clues[1] = this.trail_bakery;
-        
-        this.introTxt = this.cache.json.get('bakeryIntro');
+        this.clues[2] = this.bread_1;
+        this.clues[3] = this.bread_2;
+        this.clues[4] = this.bread_3;
+        this.breadCount = 0;
 
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
-        this.wipeIn(this.introTxt, 'bell');
+        this.wipeIn(this.cache.json.get('bakeryIntro'), 'bell');
         this.events.on('wake', function() {this.wipeIn(null, 'bell');}, this);
     }
     clickButton() {
@@ -66,12 +74,45 @@ class Bakery extends baseScene {
             this.wipeOut("streetScene");
         }
         if (this.state) {
-            if (this.checkMouseOver(this.input.activePointer, this.trail_bakery) && gameProgress['bakeryScene'][1]) {
-                // this.startDialogue(this.trailClue);
-                this.sound.play('clue');
-                this.trail_bakery.setTexture('trail_bakery');
-                this.currentHighlight = 0;
-                gameProgress['bakeryScene'][1] = false;
+            // if (this.checkMouseOver(this.input.activePointer, this.trail_bakery) && gameProgress['bakeryScene'][1]) {
+            //     // this.startDialogue(this.trailClue);
+            //     this.sound.play('clue');
+            //     this.trail_bakery.setTexture('trail_bakery');
+            //     this.currentHighlight = 0;
+            //     gameProgress['bakeryScene'][1] = false;
+            // }
+            let n;
+            switch (this.currentHighlight) {
+                case '1':
+                    this.sound.play('clue');
+                    this.trail_bakery.setTexture('trail_bakery');
+                    this.currentHighlight = 0;
+                    gameProgress['bakeryScene'][1] = false;
+                    break;
+                case '2':
+                    n = this.bread_1;
+                case '3':
+                    if (n == null) {
+                        n = this.bread_2;
+                    }
+                case '4':
+                    if (n == null) {
+                        n = this.bread_3;
+                    }
+                    if (this.breadCount == 0) {
+                        this.startDialogue(this.cache.json.get('breadText'));
+                    } else if (this.breadCount == 1) {
+                        this.startDialogue(this.cache.json.get('breadText2'));
+                    } else {
+                        this.startDialogue(this.cache.json.get('breadText3'));
+                    }
+                    gameProgress['bakeryScene'][this.currentHighlight] = false;
+                    // n.setTexture(n.texture.key.replace('_outlined',''));
+                    n.alpha = 0;
+                    this.currentHighlight = 0;
+                    this.breadCount++;
+                    break;
+
             }
         }
     }
