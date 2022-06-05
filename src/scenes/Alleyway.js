@@ -42,9 +42,7 @@ class Alleyway extends baseScene {
 
         this.natieks = new Speaker(this, 1, 'nat');
 
-        this.introTxt = this.cache.json.get('alley1_intro');
-        this.cardsTxt = this.cache.json.get('alley2');
-        this.wipeIn(this.introTxt);
+        this.wipeIn(this.cache.json.get('alley1_intro'));
     }
 
     update() {
@@ -54,7 +52,7 @@ class Alleyway extends baseScene {
     clickButton() {
         if (this.state) {
             if (this.checkMouseOver(this.input.activePointer, this.cards) && gameProgress['alleyWayScene'][1]) {
-                this.startDialogue(this.cardsTxt);
+                this.startDialogue(this.cache.json.get('alley2'));
                 this.sound.play('cardSFX');
                 this.cards.x = 530;
                 this.cards.y = 300;

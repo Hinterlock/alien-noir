@@ -41,9 +41,6 @@ class Bar extends baseScene {
         this.clues[2] = this.stage;
         this.clues[3] = this.aliens;
 
-        this.introTxt = this.cache.json.get('bar1_intro');
-        this.bartenderTxt = this.cache.json.get('bar2');
-        this.stage2Txt = this.cache.json.get('bar3');
         this.stage1Txt = this.cache.json.get('bar4');
         this.pplTxt = this.cache.json.get('bar5');
         
@@ -53,7 +50,7 @@ class Bar extends baseScene {
 
         this.investigateStatus = 0;
 
-        this.wipeIn(this.introTxt);
+        this.wipeIn(this.cache.json.get('bar1_intro'));
     }
     clickButton() {
         if (this.state) {
@@ -66,7 +63,7 @@ class Bar extends baseScene {
                         if (this.investigateStatus == 0) {
                             this.startDialogue(this.stage1Txt);
                         } else {
-                            this.startDialogue(this.stage2Txt);
+                            this.startDialogue(this.cache.json.get('bar3'));
                             this.currentHighlight = 0;
                             this.stage.setTexture('stage');
                             gameProgress['barScene'][2] = false;
@@ -74,7 +71,7 @@ class Bar extends baseScene {
                         }
                         break;
                     case '1':
-                        this.startDialogue(this.bartenderTxt);
+                        this.startDialogue(this.cache.json.get('bar2'));
                         gameProgress['barScene'][1] = false;
                         this.investigateStatus += 1;
                         this.currentHighlight = 0;
