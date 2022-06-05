@@ -273,10 +273,18 @@ class baseScene extends Phaser.Scene {
 
     space() { //spacebar input to progress dialogue
         if (!this.state){
-            // if (this.timer.getOverallRemaining() > 0) {
-            //     this.timer.remove(false);
-            //     this.textBox ++;
-            // }
+            if (this.timer.getOverallRemaining() > 0) {
+                this.timer.remove(false);
+                this.text.text = "";
+                for (let i in this.dialogue[this.textBox].text) {
+                    this.text.text = this.text.text.concat(this.dialogue[this.textBox].text[i]);
+                    this.text.text = this.text.text.concat("\n");
+                    this.textBox += 1;
+                    this.typing = false;
+                    this.nextText.text = '[SPACE]';
+                    return;
+                }
+            }
             if (this.textBox < this.dialogue.length) {
                 if (!this.typing) {
                     this.lastSpeaker = this.speaker;
