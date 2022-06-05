@@ -1,0 +1,289 @@
+[
+    {
+        "text": ["Out of the corner of my eye, I spot 'em."]
+    },
+    {
+        "text": ["Two pairs of glowing eyes peering from the darkness of the side closet.",
+            "For the imposters that have been terrorizing the city, they’re rather cowardly."]
+    },
+    {
+        "text": ["Hey, I know you’re in there. Open up."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["As I say that, the closet opens and I see two kittens holding each other up in a trenchcoat."],
+        "new": true
+    },
+    {
+        "text": ["You’re the ones messing with the town?!?"],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["I don’t know what you’re talking about sir, we’re just helping investigate stuff around the city..."],
+        "speaker": "sussy",
+        "mood": "sad",
+        "new": true
+    },
+    {
+        "text": ["Shut up, bro! Isn’t that like, self incrimination or something?"],
+        "speaker": "sussy",
+        "mood": "frustrated",
+    },
+    {
+        "text": ["... Isn’t that what you just did? Most people don’t bring up self incrimination unless you have something to hide!"],
+        "speaker": "sussy",
+        "mood": "frustrated",
+    },
+    {
+        "text": ["I see the lower cat elbow the upper cat."],
+        "new": true
+    },
+    {
+        "text": ["Who are you, mister?"],
+        "speaker": "sussy",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["My name is Dick Johnson. PI."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["I flash my card. As I do so, the upper cat’s eyes widen and shines, a childlike grin sprouting on his face.",
+            "The lower cat looks similarly amazed, and looks away upon meeting my steel gaze,"],
+        "new": true
+    },
+    {
+        "text": ["So... what brings you here today, sir?"],
+        "speaker": "sussy",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["You can drop the act, I know you two did this."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["What did we do? We’ve been here just um... enjoying this cake we bought."],
+        "speaker": "sussy",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Yeah! Anyway sir,  do you like, solve cases and stuff?"],
+        "speaker": "sussy",
+        "mood": "happy"
+    },
+    {
+        "text": ["Yeah. I’m solving a case of a wannabe detective who’s been scamming clients and stealing cakes."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["You’ve got nothin on us!"],
+        "speaker": "sussy",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Scram!!"],
+        "speaker": "sussy",
+        "mood": "frustrated",
+    },
+    {
+        "text": ["The hat the imposter wore is right there."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["I point to the cowboy hat with emphasis."],
+        "new": true
+    },
+    {
+        "text": ["And the cake that was taken was right there."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["My gaze trails cooly to the cake.",
+            "Then it shifts until I look at the lower cat’s feet."],
+        "new": true
+    },
+    {
+        "text": ["She didn’t clean off the cake from when she stepped in it at the bakery.",
+            "They both follow my gaze and freeze once they notice the incriminating cake bits beneath them."]
+    },
+    {
+        "text": ["I think he knows..."],
+        "speaker": "sussy",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Yeah..."],
+        "speaker": "sussy",
+        "mood": "frustrated"
+    },
+    {
+        "text": ["So what’s gonna happen now, sir? A-are we under arrest?"],
+        "speaker": "sussy",
+        "mood": "sad"
+    },
+    {
+        "text": ["Nope. What you’re gonna do is apologize to everyone you inconvenienced.",
+            "And you’ll go clean up the graffiti on Natieks home."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Who??"],
+        "speaker": "sussy",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["... The lizard lady that asked you to investigate who graffitied her house."],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["Ooh, her. Yeah, we were trying to help investigate by checking out the bar."],
+        "speaker": "sussy",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["But then we got thirsty and asked for a drink but the guy at the bar said no!"],
+        "speaker": "sussy",
+        "mood": "neutral"
+    },
+    {
+        "text": ["And then we got hungry and then we saw this pretty slug lady and I wanted to eat it with her",
+            "and then we went to get some cake and then we went to ask the lady and she said no a-"],
+        "speaker": "sussy",
+        "mood": "neutral"
+    },
+    {
+        "text": ["Hey, chill out man."],
+        "speaker": "sussy",
+        "mood": "neutral"
+    },
+    {
+        "text": ["I’ve already pieced that together."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["?"],
+        "speaker": "sussy",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["Yeah. My only question is why?"],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["Why go out of your way to pretend to be an investigator?"],
+        "speaker": "det",
+        "mood": "inquisitive"
+    },
+    {
+        "text": ["Because Mom said so? We all watched a movie about a man that investigated a missing person!",
+            "Before she went out to work at the bakery’s other business, she said to go play detective while she was gone."],
+        "speaker": "sussy",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["Wait, what busin-"],
+        "speaker": "det",
+        "mood": "inquisitive",
+        "new": true
+    },
+    {
+        "text": ["Anyway, we went trying to find people to help, but they wouldn’t take us seriously unless",
+            "we looked like detectives so we scrounged up some stuff around the house for our outfit."],
+        "speaker": "sussy",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["We really did wanna help folks, mister! We just got a bit distracted..."],
+        "speaker": "sussy",
+        "mood": "sad"
+    },
+    {
+        "text": ["I see. Well you still really inconvenienced people and I’ll have to take you in to apologize."],
+        "speaker": "det",
+        "mood": "frustrated",
+        "new": true
+    },
+    {
+        "text": ["But you two are pretty crafty. Pretty quick too."],
+        "speaker": "det",
+        "mood": "happy",
+    },
+    {
+        "text": ["... Hey, when this is all resolved and when you’ve been properly trained, would you be interested in becoming my interns- no, sidekicks?",
+            "I could use some extra hands in expanding the business."],
+        "speaker": "det",
+        "mood": "inquisitive",
+    },
+    {
+        "text": ["Would I ever! Sis, we could be the real deal!"],
+        "speaker": "sussy",
+        "mood": "happy",
+        "new": true
+    },
+    {
+        "text": ["The lower cat tries to hide her smile but it’s clear as day that she’s ecstatic about the offer."],
+        "new": true
+    },
+    {
+        "text": ["Yeah sure, that’d be cool I guess. I’d do it if you begged me."],
+        "speaker": "sussy",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["I could always find someone else if you're not interested..."],
+        "speaker": "det",
+        "mood": "neutral",
+        "new": true
+    },
+    {
+        "text": ["No!!"],
+        "speaker": "sussy",
+        "mood": "sad",
+        "new": true
+    },
+    {
+        "text": ["I mean, uh no, I’ll do it. Please."],
+        "speaker": "sussy",
+        "mood": "neutral",
+    },
+    {
+        "text": ["Heh. We’ll talk about it later.",
+            "For now, we’re gonna get you two back to the bar so you can apologize to your client."],
+        "speaker": "det",
+        "mood": "happy",
+        "new": true
+    }
+]
