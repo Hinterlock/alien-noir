@@ -50,7 +50,7 @@ class Menu extends Phaser.Scene {
             for (let n in gameProgress['streetScene']) {
                 gameProgress['streetScene'][n] = true;
             }
-            //change back to streetScene later
+            //gameProgress['streetScene'][4] = false;
             this.scene.start("streetScene");
             this.sound.play('click');
         }, this);

@@ -118,7 +118,7 @@ class baseScene extends Phaser.Scene {
             } else if (this.cursor.texture.key == 'cursorArrow') {
                 this.cursor.setTexture('cursor');
             }
-        }  
+        }
 
         if (this.state > 0) {
             for (let n in this.clues) {

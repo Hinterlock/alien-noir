@@ -129,12 +129,14 @@ class Bakery extends baseScene {
                     gameProgress['bakeryScene'][6] = false;
                     this.fur.alpha = 0;
                     this.currentHighlight = 0;
-
             }
-            if(this.breadCount == 3 && gameProgress['bakeryScene'][5] == false && gameProgress['bakeryScene'][6] == false){
-                this.startDialogue(this.cache.json.get('post-breadText'));
-                gameProgress['streetScene'][4] = true;
-            }
+        }
+    }
+    space() {
+        super.space()
+        if(this.state && this.breadCount == 3 && !gameProgress['bakeryScene'][5] && !gameProgress['bakeryScene'][6] && !gameProgress['streetScene'][4]){
+            this.startDialogue(this.cache.json.get('post-breadText'));
+            gameProgress['streetScene'][4] = true;
         }
     }
 }
