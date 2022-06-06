@@ -13,6 +13,8 @@ class Menu extends Phaser.Scene {
         // load music
         this.load.audio('streetsMusic', './assets/sound/The_Streets.wav');
         this.load.audio('slugKarenMusic', './assets/sound/An_Interruption.wav');
+        this.load.audio('barMusic', './assets/sound/The_Eyesore.wav');
+        this.load.audio('alleywayMusic', './assets/sound/Alleyway.wav');
 
         // load base images
         this.load.spritesheet('detective', './assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
@@ -40,6 +42,8 @@ class Menu extends Phaser.Scene {
 
         this.wipe = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);
         this.wipe.alpha = 0;
+        
+        this.sound.play('startup');
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', function() {
@@ -60,7 +64,6 @@ class Menu extends Phaser.Scene {
                     duration: 500,
                     onComplete: function() {
                         this.scene.start("alleyWayScene");
-                        this.sound.play('startup');
                     },
                     onCompleteScope: this
                 });

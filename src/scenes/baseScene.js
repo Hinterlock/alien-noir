@@ -211,7 +211,8 @@ class baseScene extends Phaser.Scene {
                 });
             }
         }
-        if (this.dialogue[this.textBox]['music'] != null) {
+        let mus = this.dialogue[this.textBox]['music'];
+        if (mus != null) {
             // console.log(this.dialogue[this.textBox]['music']);
             let tl = this.tweens.createTimeline();
             if (this.music) {
@@ -223,22 +224,25 @@ class baseScene extends Phaser.Scene {
                     duration: 250,
                     onComplete: function() {
                         this.music.stop();
-                        this.music = this.sound.add(this.dialogue[this.textBox]['music'],{loop: true});
-                        this.music.play;
+                        // console.log(mus);
+                        this.music = this.sound.add(mus,{loop: true});
+                        this.music.play();
                     },
                     onCompleteScope: this
                 });
             } else {
                 // console.log("b");
-                this.music = this.sound.add(this.dialogue[this.textBox]['music'],{loop: true});
+                this.music = this.sound.add(mus,{loop: true});
                 this.music.play();
             }
+            // console.log("b");
             tl.add({
                 targets: this.music,
                 volume: { from: 0, to: 1},
                 ease: 'Sine.easeIn',
                 duration: 250
             });
+            // console.log("c");
             tl.play();
         }
         this.nextLine(0);
@@ -273,17 +277,17 @@ class baseScene extends Phaser.Scene {
 
     space() { //spacebar input to progress dialogue
         if (!this.state){
-            if (this.timer.getOverallRemaining() > 0) {
+            if (this.typing) {
                 this.timer.remove(false);
                 this.text.text = "";
                 for (let i in this.dialogue[this.textBox].text) {
                     this.text.text = this.text.text.concat(this.dialogue[this.textBox].text[i]);
                     this.text.text = this.text.text.concat("\n");
-                    this.textBox += 1;
-                    this.typing = false;
-                    this.nextText.text = '[SPACE]';
-                    return;
                 }
+                this.textBox += 1;
+                this.typing = false;
+                this.nextText.text = '[SPACE]';
+                return;
             }
             if (this.textBox < this.dialogue.length) {
                 if (!this.typing) {
