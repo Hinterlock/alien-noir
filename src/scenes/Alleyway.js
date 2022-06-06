@@ -41,6 +41,10 @@ class Alleyway extends baseScene {
         this.clues[1] = this.cards;
 
         this.natieks = new Speaker(this, 1, 'nat');
+        
+        this.music = this.sound.add('alleywayMusic',{loop: true});
+        this.music.play();
+        this.music.pause();
 
         this.wipeIn(this.cache.json.get('alley1_intro'));
     }
