@@ -28,12 +28,13 @@ class Bakery extends baseScene {
         this.load.image('fur_outlined', './assets/bakery/fur_outlined.png');     
         //dialogue
         this.load.json('bakeryIntro', './assets/text/bakery2.json');
-        this.load.json('??', './assets/text/bakery3.json');
-        this.load.json('???', './assets/text/bakery4.json');
+        this.load.json('furclueText', './assets/text/bakery3.json');
+        this.load.json('idclueText', './assets/text/bakery4.json');
         this.load.json('breadText', './assets/text/bakery5.json');
         this.load.json('breadText2', './assets/text/bakery6.json');
         this.load.json('breadText3', './assets/text/bakery7.json');
         this.load.json('post-breadText', './assets/text/bakery8.json');
+        this.load.json('altidtext', './assets/text/bakery9.json');
     }
     create() {
         this.bakerywalls = this.add.image(game.config.width/2, game.config.height/2, 'bakery_walls');
@@ -59,6 +60,8 @@ class Bakery extends baseScene {
         this.clues[2] = this.bread_1;
         this.clues[3] = this.bread_2;
         this.clues[4] = this.bread_3;
+        this.clues[5] = this.id;
+        this.clues[6] = this.fur;
         this.breadCount = 0;
 
         this.input.on('pointerdown', function() {
@@ -94,8 +97,11 @@ class Bakery extends baseScene {
                         n = this.bread_2;
                     }
                 case '4':
+                    // this.startDialogue(this.cache.json.get('altidtext'));
+                    // gameProgress['bakeryScene'][5] = true;
                     if (n == null) {
                         n = this.bread_3;
+                        gameProgress['bakeryScene'][5] = true;
                     }
                     if (this.breadCount == 0) {
                         this.startDialogue(this.cache.json.get('breadText'));
@@ -110,7 +116,24 @@ class Bakery extends baseScene {
                     this.currentHighlight = 0;
                     this.breadCount++;
                     break;
+                case '5':
+                    this.sound.play('clue');
+                    this.startDialogue(this.cache.json.get('idclueText'));
+                    gameProgress['bakeryScene'][5] = false;
+                    this.id.alpha = 0;
+                    this.currentHighlight = 0;
+                    break;
+                case '6':
+                    this.sound.play('clue');
+                    this.startDialogue(this.cache.json.get('furclueText'));
+                    gameProgress['bakeryScene'][6] = false;
+                    this.fur.alpha = 0;
+                    this.currentHighlight = 0;
 
+            }
+            if(this.breadCount == 3 && gameProgress['bakeryScene'][5] == false && gameProgress['bakeryScene'][6] == false){
+                this.startDialogue(this.cache.json.get('post-breadText'));
+                gameProgress['streetScene'][4] = true;
             }
         }
     }

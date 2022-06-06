@@ -31,12 +31,12 @@
     {
         "text": ["Shut up, bro! Isn’t that like, self incrimination or something?"],
         "speaker": "sussy",
-        "mood": "frustrated",
+        "mood": "frustrated"
     },
     {
         "text": ["... Isn’t that what you just did? Most people don’t bring up self incrimination unless you have something to hide!"],
         "speaker": "sussy",
-        "mood": "frustrated",
+        "mood": "frustrated"
     },
     {
         "text": ["I see the lower cat elbow the upper cat."],
@@ -97,7 +97,7 @@
     {
         "text": ["Scram!!"],
         "speaker": "sussy",
-        "mood": "frustrated",
+        "mood": "frustrated"
     },
     {
         "text": ["The hat the imposter wore is right there."],
@@ -238,13 +238,13 @@
     {
         "text": ["But you two are pretty crafty. Pretty quick too."],
         "speaker": "det",
-        "mood": "happy",
+        "mood": "happy"
     },
     {
         "text": ["... Hey, when this is all resolved and when you’ve been properly trained, would you be interested in becoming my interns- no, sidekicks?",
             "I could use some extra hands in expanding the business."],
         "speaker": "det",
-        "mood": "inquisitive",
+        "mood": "inquisitive"
     },
     {
         "text": ["Would I ever! Sis, we could be the real deal!"],
@@ -277,7 +277,7 @@
     {
         "text": ["I mean, uh no, I’ll do it. Please."],
         "speaker": "sussy",
-        "mood": "neutral",
+        "mood": "neutral"
     },
     {
         "text": ["Heh. We’ll talk about it later.",

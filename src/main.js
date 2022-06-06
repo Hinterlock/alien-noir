@@ -33,7 +33,9 @@ let gameProgress = {
         1 : true, //trail
         2 : true, //bread1
         3 : true, //bread2
-        4 : true //bread3
+        4 : true, //bread3
+        5 : false, //id
+        6 : true //fur
     },
     houseScene: {
         1 : true,
