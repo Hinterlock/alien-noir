@@ -9,6 +9,7 @@ class Speaker extends Phaser.GameObjects.Sprite{
             this.home = this.width*this.scale + game.config.width;
             this.flipX = -1;
         }
+        this.alpha = 0;
         this.x = this.home;
         scene.add.existing(this);
     }

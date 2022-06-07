@@ -148,6 +148,7 @@ class baseScene extends Phaser.Scene {
         this.textBox = 0;
         this.state = 0;
         this.cursor.x = -100;
+        this.box.x = this.cameras.main.scrollX + game.config.width/2;
         this.tweens.add({
             targets: this.box,
             alpha: { from: 0, to: 1},
@@ -195,14 +196,21 @@ class baseScene extends Phaser.Scene {
         }
         if (this.dialogue[this.textBox]['new'] == true) {
             if (this.lastSpeaker) {
+                let n = this.lastSpeaker;
                 this.tweens.add({
                     targets: this[this.lastSpeaker],
                     x: { from: this[this.lastSpeaker].x, to: this[this.lastSpeaker].home},
                     ease: 'Sine.easeIn',
-                    duration: this.tweenTime
+                    duration: this.tweenTime,
+                    onComplete: function() {
+                        this[n].alpha = 0;
+                    },
+                    onCompleteScope: this
                 });
             }
+            
             if (this.speaker) {
+                this[this.speaker].alpha = 1;
                 this.tweens.add({
                     targets: this[this.speaker],
                     x: { from: this[this.speaker].home, to: x},

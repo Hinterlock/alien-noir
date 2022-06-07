@@ -22,7 +22,8 @@ let gameProgress = {
         1 : true,   //alleyway
         2 : false,  //bakery
         3 : false,  //bar
-        4 : false   //cats
+        4 : false,   //cats
+        5 : false //baker
     },
     barScene: {
         1 : true, //bartender

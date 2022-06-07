@@ -87,7 +87,7 @@ class House extends baseScene {
                 case '1':
                     this.startDialogue(this.cache.json.get('hatText'));
                     gameProgress['houseScene'][1] = false;
-                    this.fur.alpha = 0;
+                    this.hat.alpha = 0;
                     this.currentHighlight = 0;
                     
                     break;

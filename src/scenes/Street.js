@@ -41,7 +41,7 @@ class Street extends baseScene {
 
         this.street = this.add.image(game.config.width - 70, game.config.height * .72, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
-        this.baker = this.add.sprite(this.buildings.width *1/13, game.config.height * 1/3, 'overworldbaker');
+        this.baker = this.add.sprite(this.buildings.width *1/18, game.config.height * 1/2.5, 'overworldbaker');
         this.baker.setScale(.7);
         
         this.detective = this.add.sprite(710, game.config.height*.45,'walk').setOrigin(0.5, 0.9);
@@ -51,12 +51,16 @@ class Street extends baseScene {
         this.bakeryFinished = true;
         this.setup();
         this.events.on('wake', function() {
-            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn('bakeryOutsideOutro'); this.bakeryFinished = false;} else {this.wipeIn();}
+            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn(this.cache.json.get('bakeryOutsideOutro')); this.bakeryFinished = false;} else {this.wipeIn();}
         }, this);
+
+        this.gabotop = new Speaker(this, 1, 'baker');
+
         this.clues[1] = this.alleyway;
         this.clues[2] = this.bakery;
         this.clues[3] = this.bar;
         this.clues[4] = this.cats;
+        this.clues[5] = this.baker;
 
         this.state = 2;
         // this.move = false;
@@ -76,6 +80,9 @@ class Street extends baseScene {
         })        
     }
     clickButton() {
+        if (this.state == 0) {
+            return;
+        }
         let startY = .45;
         this.schmoovin++;
         if (this.input.activePointer.x + this.cameras.main.scrollX < this.detective.x) {
@@ -83,7 +90,7 @@ class Street extends baseScene {
         } else {
             this.detective.flipX = 0;
         }
-        if (this.input.activePointer.y > game.config.height*startY) {
+        if (this.input.activePointer.y > game.config.height*startY && this.currentHighlight != 5) {
             //this.move = true;
             this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, this.input.activePointer.y);
             this.interrupt = true;
@@ -94,6 +101,7 @@ class Street extends baseScene {
                     this.interrupt = false;
                     break;
                 case '2': //bakery
+                    console.log("click");
                     this.moveTo(this.detective, this.bakery.x, game.config.height*startY, "bakeryScene");
                     this.interrupt = false;
                     break;
@@ -105,6 +113,18 @@ class Street extends baseScene {
                     this.moveTo(this.detective, this.cats.x, game.config.height*startY, "houseScene");
                     this.interrupt = false;
                     break;
+                case '5': //baker
+                    console.log("click");
+                    this.interrupt = true;
+                    this.startDialogue(this.cache.json.get('bakeryOutsideIntro'));
+                    this.currentHighlight = 0;
+                    //this.baker.alpha = 0;
+                    this.baker.setTexture('overworldbaker');
+        
+                    gameProgress['streetScene'][2] = true;
+                    gameProgress['streetScene'][5] = false;
+                    
+                    break;
                 default:
                     this.moveTo(this.detective, this.input.activePointer.x + this.cameras.main.scrollX, game.config.height*startY);
             }
@@ -113,7 +133,7 @@ class Street extends baseScene {
     update() {
         let cam = this.cameras.main;
         this.cursorUpdate();
-        if (this.detective.x < this.street.width - cam.width/2 && this.detective.x > cam.width/2) {
+        if (this.detective.x < this.street.width - cam.width/2 && this.detective.x > cam.width/2 && this.state != 0) {
             cam.scrollX = this.detective.x - cam.width/2;
         }
     }
