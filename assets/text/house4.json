@@ -1,8 +1,9 @@
 [
     {
-        "text": ["his must be the cake that our guy was trying to give Leirza."],
+        "text": ["this must be the cake that our guy was trying to give Leirza."],
         "speaker": "det",
-        "mood": "neutral"
+        "mood": "neutral",
+        "new": true
     },
     {
         "text": ["It says on the box that it's called Super Blueberry. What makes it super?"],

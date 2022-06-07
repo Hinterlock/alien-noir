@@ -1,7 +1,8 @@
 [
     {
         "text": ["As I exit the cultish confectionary, I stand stationary atop the quiet city road contemplating the many questions surrounding this case,",
-            "the mysteries looming over me like large forest trees to a young child who had just beheld them for the first time."]
+            "the mysteries looming over me like large forest trees to a young child who had just beheld them for the first time."],
+        "new" : true
     },
     {
         "text": ["Speaking of time, that is one thing I'm quickly running out of."]
