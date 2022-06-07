@@ -38,11 +38,11 @@ let gameProgress = {
         6 : true //fur
     },
     houseScene: {
-        1 : true,
-        2 : true,
-        3 : true,
-        4 : true,
-        5 : true,
-        6 : true
+        1 : true, //hat
+        2 : false, //closet
+        3 : true, //note
+        4 : false, //chairs
+        5 : false, //stairs
+        6 : true //cake
     }
 }

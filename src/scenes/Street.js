@@ -19,10 +19,11 @@ class Street extends baseScene {
         this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 130, frameHeight: 184, startFrame: 0, endFrame: 7});
         this.load.image('lilDet', './assets/detective.png');
         //spritesheets
-        this.load.spritesheet('baker', './assets/spritesheets/ChefSheet.png', {frameWidth: 2891, frameHeight: 3133});
+        this.load.spritesheet('baker', './assets/spritesheets/BakerSheet.png', {frameWidth: 2891, frameHeight: 3133});
         //json
         this.load.json('houseOutsideIntro', './assets/text/house2.json');
         this.load.json('bakeryOutsideIntro', './assets/text/bakery1.json');
+        this.load.json('bakeryOutsideOutro', './assets/text/house1.json');
     }
     create() {
         this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/4, 'sky');
@@ -43,9 +44,11 @@ class Street extends baseScene {
         if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
             this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
         }
-
+        this.bakeryFinished = true;
         this.setup();
-
+        this.events.on('wake', function() {
+            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn('bakeryOutsideOutro'); this.bakeryFinished = false;} else {this.wipeIn();}
+        }, this);
         this.clues[1] = this.alleyway;
         this.clues[2] = this.bakery;
         this.clues[3] = this.bar;

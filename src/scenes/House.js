@@ -24,14 +24,14 @@ class House extends baseScene {
         this.load.image('note_zoomed', './assets/house/note_zoomed.png');
 
         //dialogue
-        this.load.json('houseIntro', './assets/text/house1.json');
+        //this.load.json('houseIntro', './assets/text/house1.json');
         this.load.json('hatText', './assets/text/house3.json');
         this.load.json('cakeText', './assets/text/house4.json');
         this.load.json('noteText', './assets/text/house5.json');
-        // this.load.json('', './assets/text/house6.json');
-        // this.load.json('', './assets/text/house7.json');
-        // this.load.json('', './assets/text/house8.json');
-        // this.load.json('', './assets/text/house9.json');
+        this.load.json('evidenceConclusionText', './assets/text/house6.json');
+        this.load.json('chairText', './assets/text/house7.json');
+        this.load.json('upstairsText', './assets/text/house8.json');
+        this.load.json('closetText', './assets/text/house9.json');
     }
     create() {
         // things behind the text boxes should be added before setup
@@ -65,6 +65,10 @@ class House extends baseScene {
         if (gameProgress['houseScene'][this.currentHighlight]) {
             switch (this.currentHighlight) {
                 case '6':
+                    this.startDialogue(this.cache.json.get('cakeText'));
+                    gameProgress['houseScene'][6] = false;
+                    this.cake.alpha = 0;
+                    this.currentHighlight = 0;
                     break;
                 case '5':
                     break;
@@ -72,12 +76,20 @@ class House extends baseScene {
                     break;
                 case '3':
                     // this.startDialogue(this.cache.json.get());
+                    this.startDialogue(this.cache.json.get('noteText'));
+                    gameProgress['houseScene'][3] = false;
+                    this.note.alpha = 0;
+                    this.currentHighlight = 0;
                     break;
                 case '2':
+                    
                     break;
                 case '1':
                     this.startDialogue(this.cache.json.get('hatText'));
                     gameProgress['houseScene'][1] = false;
+                    this.fur.alpha = 0;
+                    this.currentHighlight = 0;
+                    
                     break;
             }
         }
