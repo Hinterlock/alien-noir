@@ -111,7 +111,7 @@ class baseScene extends Phaser.Scene {
         if (this.state == 1) {
             this.cursor.x = this.input.activePointer.x;
             this.cursor.y = this.input.activePointer.y;
-            if (this.input.activePointer.y > game.config.height*.85) {
+            if (this.input.activePointer.y > game.config.height*.90 ) {
                 if (this.cursor.texture.key == 'cursor') {
                     this.cursor.setTexture('cursorArrow');
                 }

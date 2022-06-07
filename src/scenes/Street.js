@@ -17,6 +17,8 @@ class Street extends baseScene {
         this.load.image('mushrooms', './assets/street/street_mushrooms.png');
         this.load.image('ufo', './assets/street/street_ufo.png');
         this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 130, frameHeight: 184, startFrame: 0, endFrame: 7});
+        this.load.image('overworldbaker', './assets/street/baker_overworld.png');
+        this.load.image('overworldbaker_outlined', './assets/street/baker_overworld_outlined.png');
         this.load.image('lilDet', './assets/detective.png');
         //spritesheets
         this.load.spritesheet('baker', './assets/spritesheets/BakerSheet.png', {frameWidth: 2891, frameHeight: 3133});
@@ -39,6 +41,8 @@ class Street extends baseScene {
 
         this.street = this.add.image(game.config.width - 70, game.config.height * .72, 'street');
         // this.street = this.add.image(game.config.width + 90, game.config.height * 1/2, 'street');
+        this.baker = this.add.sprite(this.buildings.width *1/13, game.config.height * 1/3, 'overworldbaker');
+        this.baker.setScale(.7);
         
         this.detective = this.add.sprite(710, game.config.height*.45,'walk').setOrigin(0.5, 0.9);
         if (this.detective.x < this.street.width - this.cameras.main.width/2 && this.detective.x > this.cameras.main.width/2) {
