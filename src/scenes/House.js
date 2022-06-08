@@ -98,11 +98,13 @@ class House extends baseScene {
                     this.startDialogue(this.cache.json.get('noteText'));
                     gameProgress['houseScene'][3] = false;
                     this.note.alpha = 0;
-                    this.note_zoom.alpha = 1;
+                    this.tweens.add({
+                        targets: this.note_zoom,
+                        alpha: { from: 0, to: 1},
+                        ease: 'Sine.easeIn',
+                        duration: this.tweenTime
+                    });
                     this.currentHighlight = 0;
-                    if(keySPACE.isDown){
-                        this.note_zoom.alpha = 0;
-                    }
                     break;
                 case '2':
                     this.startDialogue(this.cache.json.get('closetText'));
@@ -126,7 +128,15 @@ class House extends baseScene {
         }
     }
     space() {
-        super.space()
+        super.space();
+        if (this.note_zoom.alpha == 1) {
+            this.tweens.add({
+                targets: this.note_zoom,
+                alpha: { from: 1, to: 0},
+                ease: 'Sine.easeOut',
+                duration: this.tweenTime
+            });
+        }
         if(this.state && this.midscene == false && !gameProgress['houseScene'][1] && !gameProgress['houseScene'][6] && !gameProgress['houseScene'][3]){
             console.log("test");
             this.startDialogue(this.cache.json.get('evidenceConclusionText'));
