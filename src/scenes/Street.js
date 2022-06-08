@@ -23,9 +23,10 @@ class Street extends baseScene {
         //spritesheets
         this.load.spritesheet('baker', './assets/spritesheets/BakerSheet.png', {frameWidth: 2891, frameHeight: 3133});
         //json
-        this.load.json('houseOutsideIntro', './assets/text/house2.json');
+        
         this.load.json('bakeryOutsideIntro', './assets/text/bakery1.json');
         this.load.json('bakeryOutsideOutro', './assets/text/house1.json');
+        this.load.json('finalText', './assets/text/final.json');
     }
     create() {
         this.buildings = this.add.image(game.config.width - 70, game.config.height * 1/4, 'sky');
@@ -51,7 +52,9 @@ class Street extends baseScene {
         this.bakeryFinished = true;
         this.setup();
         this.events.on('wake', function() {
-            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn(this.cache.json.get('bakeryOutsideOutro')); this.bakeryFinished = false;} else {this.wipeIn();}
+            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn(this.cache.json.get('bakeryOutsideOutro')); this.bakeryFinished = false;} 
+            if(isFinished == true){console.log("please work");this.wipeIn(this.cache.json.get('finalText'));} 
+            else {this.wipeIn();}
         }, this);
 
         this.gabotop = new Speaker(this, 1, 'baker');

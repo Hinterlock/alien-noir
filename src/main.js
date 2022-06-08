@@ -14,6 +14,7 @@ let moveSpd = 3;
 let keySPACE;
 
 // global values to track investigation progress (what you can access)
+let isFinished = false;
 let gameProgress = {
     alleyWayScene: {
         1 : true    //cards

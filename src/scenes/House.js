@@ -26,6 +26,7 @@ class House extends baseScene {
 
         //dialogue
         //this.load.json('houseIntro', './assets/text/house1.json');
+        this.load.json('houseIntro', './assets/text/house2.json');
         this.load.json('hatText', './assets/text/house3.json');
         this.load.json('cakeText', './assets/text/house4.json');
         this.load.json('noteText', './assets/text/house5.json');
@@ -96,6 +97,9 @@ class House extends baseScene {
                 case '2':
                     this.startDialogue(this.cache.json.get('closetText'));
                     gameProgress['houseScene'][2] = false;
+                    gameProgress['houseScene'][4] = false;
+                    gameProgress['houseScene'][5] = false;
+                    isFinished = true;
                     this.currentHighlight = 0;
                     break;
                 case '1':
