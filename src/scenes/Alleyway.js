@@ -4,8 +4,6 @@ class Alleyway extends baseScene {
     }
 
     preload() {
-        this.load.image('alley', './assets/alley.png');
-        // this.load.image('cards', './assets/cards.png');
         this.load.spritesheet('nat', './assets/spritesheets/NatieksSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.json('alley1_intro', './assets/text/alley1.json');
         this.load.json('alley2', './assets/text/alley2.json');

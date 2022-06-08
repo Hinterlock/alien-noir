@@ -19,7 +19,6 @@ class Street extends baseScene {
         this.load.spritesheet('walk', './assets/street/spritesheet.png', {frameWidth: 130, frameHeight: 184, startFrame: 0, endFrame: 7});
         this.load.image('overworldbaker', './assets/street/baker_overworld.png');
         this.load.image('overworldbaker_outlined', './assets/street/baker_overworld_outlined.png');
-        this.load.image('lilDet', './assets/detective.png');
         //spritesheets
         this.load.spritesheet('baker', './assets/spritesheets/BakerSheet.png', {frameWidth: 2891, frameHeight: 3133});
         //json
@@ -52,8 +51,10 @@ class Street extends baseScene {
         this.bakeryFinished = true;
         this.setup();
         this.events.on('wake', function() {
-            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn(this.cache.json.get('bakeryOutsideOutro')); this.bakeryFinished = false;} 
-            if(isFinished == true){console.log("please work");this.wipeIn(this.cache.json.get('finalText'));} 
+            if (gameProgress['streetScene'][4] && this.bakeryFinished) {
+                this.wipeIn(this.cache.json.get('bakeryOutsideOutro'));
+                this.bakeryFinished = false;
+            } else if(isFinished == true){this.wipeIn(this.cache.json.get('finalText')); isFinished = false;} 
             else {this.wipeIn();}
         }, this);
 
