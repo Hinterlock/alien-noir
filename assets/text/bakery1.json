@@ -83,8 +83,7 @@
         "text": ["Alright “Gabo”, first things first, I'm not the fella who nicked your stuff.",
             "I'm actually trying to track down the guy who took em."],
         "speaker": "det",
-        "mood": "neutral",
-        "new": true
+        "mood": "neutral"
     },
     {
         "text": ["Seems he was causing problems at the bar earlier."],
@@ -110,7 +109,7 @@
     },
     {
         "text": ["As the machine shines its pale light at me once again, I pull my fedora a bit closer so it can properly distinguish between the hat and some cheap cowboy hat"],
-        "new": "true"
+        "new": true
     },
     {
         "text": ["IDENTIFICATION COMPLETE. THERE IS [1] DISCREPANCY DETECTED", 

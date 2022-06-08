@@ -4,10 +4,10 @@
     },
     {
         "text": ["Two pairs of glowing eyes peering from the darkness of the side closet.",
-            "For the imposters that have been terrorizing the city, they’re rather cowardly."]
+            "For the imposters that have been terrorizing the city, they're rather cowardly."]
     },
     {
-        "text": ["Hey, I know you’re in there. Open up."],
+        "text": ["Hey, I know you're in there. Open up."],
         "speaker": "det",
         "mood": "neutral",
         "new": true
@@ -17,24 +17,24 @@
         "new": true
     },
     {
-        "text": ["You’re the ones messing with the town?!?"],
+        "text": ["You're the ones messing with the town?!?"],
         "speaker": "det",
         "mood": "inquisitive",
         "new": true
     },
     {
-        "text": ["I don’t know what you’re talking about sir, we’re just helping investigate stuff around the city..."],
+        "text": ["I don't know what you're talking about sir, we're just helping investigate stuff around the city..."],
         "speaker": "sussy",
         "mood": "sad",
         "new": true
     },
     {
-        "text": ["Shut up, bro! Isn’t that like, self incrimination or something?"],
+        "text": ["Shut up, bro! Isn't that like, self incrimination or something?"],
         "speaker": "sussy",
         "mood": "frustrated"
     },
     {
-        "text": ["... Isn’t that what you just did? Most people don’t bring up self incrimination unless you have something to hide!"],
+        "text": ["... Isn't that what you just did? Most people don't bring up self incrimination unless you have something to hide!"],
         "speaker": "sussy",
         "mood": "frustrated"
     },
@@ -55,7 +55,7 @@
         "new": true
     },
     {
-        "text": ["I flash my card. As I do so, the upper cat’s eyes widen and shines, a childlike grin sprouting on his face.",
+        "text": ["I flash my card. As I do so, the upper cat's eyes widen and shines, a childlike grin sprouting on his face.",
             "The lower cat looks similarly amazed, and looks away upon meeting my steel gaze,"],
         "new": true
     },
@@ -72,7 +72,7 @@
         "new": true
     },
     {
-        "text": ["What did we do? We’ve been here just um... enjoying this cake we bought."],
+        "text": ["What did we do? We've been here just um... enjoying this cake we bought."],
         "speaker": "sussy",
         "mood": "neutral",
         "new": true
@@ -83,13 +83,13 @@
         "mood": "happy"
     },
     {
-        "text": ["Yeah. I’m solving a case of a wannabe detective who’s been scamming clients and stealing cakes."],
+        "text": ["Yeah. I'm solving a case of a wannabe detective who's been scamming clients and stealing cakes."],
         "speaker": "det",
         "mood": "neutral",
         "new": true
     },
     {
-        "text": ["You’ve got nothin on us!"],
+        "text": ["You've got nothin on us!"],
         "speaker": "sussy",
         "mood": "frustrated",
         "new": true
@@ -117,11 +117,11 @@
     },
     {
         "text": ["My gaze trails cooly to the cake.",
-            "Then it shifts until I look at the lower cat’s feet."],
+            "Then it shifts until I look at the lower cat's feet."],
         "new": true
     },
     {
-        "text": ["She didn’t clean off the cake from when she stepped in it at the bakery.",
+        "text": ["She didn't clean off the cake from when she stepped in it at the bakery.",
             "They both follow my gaze and freeze once they notice the incriminating cake bits beneath them."]
     },
     {
@@ -136,13 +136,13 @@
         "mood": "frustrated"
     },
     {
-        "text": ["So what’s gonna happen now, sir? A-are we under arrest?"],
+        "text": ["So what's gonna happen now, sir? A-are we under arrest?"],
         "speaker": "sussy",
         "mood": "sad"
     },
     {
-        "text": ["Nope. What you’re gonna do is apologize to everyone you inconvenienced.",
-            "And you’ll go clean up the graffiti on Natieks home."],
+        "text": ["Nope. What you're gonna do is apologize to everyone you inconvenienced.",
+            "And you'll go clean up the graffiti on Natieks home."],
         "speaker": "det",
         "mood": "neutral",
         "new": true
@@ -182,7 +182,7 @@
         "mood": "neutral"
     },
     {
-        "text": ["I’ve already pieced that together."],
+        "text": ["I've already pieced that together."],
         "speaker": "det",
         "mood": "neutral",
         "new": true
@@ -206,7 +206,7 @@
     },
     {
         "text": ["Because Mom said so? We all watched a movie about a man that investigated a missing person!",
-            "Before she went out to work at the bakery’s other business, she said to go play detective while she was gone."],
+            "Before she went out to work at the bakery's other business, she said to go play detective while she was gone."],
         "speaker": "sussy",
         "mood": "happy",
         "new": true
@@ -218,8 +218,7 @@
         "new": true
     },
     {
-        "text": ["Anyway, we went trying to find people to help, but they wouldn’t take us seriously unless",
-            "we looked like detectives so we scrounged up some stuff around the house for our outfit."],
+        "text": ["Anyway, we went trying to find people to help, but they wouldn't take us seriously unlesswe looked like detectives so we scrounged up some stuff around the house for our outfit."],
         "speaker": "sussy",
         "mood": "neutral",
         "new": true
@@ -230,7 +229,7 @@
         "mood": "sad"
     },
     {
-        "text": ["I see. Well you still really inconvenienced people and I’ll have to take you in to apologize."],
+        "text": ["I see. Well you still really inconvenienced people and I'll have to take you in to apologize."],
         "speaker": "det",
         "mood": "frustrated",
         "new": true
@@ -241,7 +240,7 @@
         "mood": "happy"
     },
     {
-        "text": ["... Hey, when this is all resolved and when you’ve been properly trained, would you be interested in becoming my interns- no, sidekicks?",
+        "text": ["... Hey, when this is all resolved and when you've been properly trained, would you be interested in becoming my interns- no, sidekicks?",
             "I could use some extra hands in expanding the business."],
         "speaker": "det",
         "mood": "inquisitive"
@@ -253,11 +252,11 @@
         "new": true
     },
     {
-        "text": ["The lower cat tries to hide her smile but it’s clear as day that she’s ecstatic about the offer."],
+        "text": ["The lower cat tries to hide her smile but it's clear as day that she's ecstatic about the offer."],
         "new": true
     },
     {
-        "text": ["Yeah sure, that’d be cool I guess. I’d do it if you begged me."],
+        "text": ["Yeah sure, that'd be cool I guess. I'd do it if you begged me."],
         "speaker": "sussy",
         "mood": "neutral",
         "new": true
@@ -275,13 +274,13 @@
         "new": true
     },
     {
-        "text": ["I mean, uh no, I’ll do it. Please."],
+        "text": ["I mean, uh no, I'll do it. Please."],
         "speaker": "sussy",
         "mood": "neutral"
     },
     {
-        "text": ["Heh. We’ll talk about it later.",
-            "For now, we’re gonna get you two back to the bar so you can apologize to your client."],
+        "text": ["Heh. We'll talk about it later.",
+            "For now, we're gonna get you two back to the bar so you can apologize to your client."],
         "speaker": "det",
         "mood": "happy",
         "new": true
