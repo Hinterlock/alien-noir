@@ -35,7 +35,7 @@ class Menu extends Phaser.Scene {
         // this.add.text(20, 20, 'Click to start, use the mouse to investigate and move around the neighborhood');
         
         this.menuBttn = this.add.image(game.config.width/2, game.config.height*2/3, 'start_button');
-        this.creditsBttn = this.add.image(game.config.width/2, game.config.height*5/6, 'credits_button');
+        //this.creditsBttn = this.add.image(game.config.width/2, game.config.height*5/6, 'credits_button');
         //this.title = this.add.image(game.config.width/2, game.config.height/2, 'title');
 
         this.wipe = this.add.rectangle(game.config.width/2, game.config.height/2, game.config.width, game.config.height, game.config.backgroundColor._color);

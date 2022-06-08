@@ -49,12 +49,13 @@ class Street extends baseScene {
             this.cameras.main.scrollX = this.detective.x - this.cameras.main.width/2;
         }
         this.bakeryFinished = true;
+        this.finalFlag = false;
         this.setup();
         this.events.on('wake', function() {
             if (gameProgress['streetScene'][4] && this.bakeryFinished) {
                 this.wipeIn(this.cache.json.get('bakeryOutsideOutro'));
                 this.bakeryFinished = false;
-            } else if(isFinished == true){this.wipeIn(this.cache.json.get('finalText')); isFinished = false;} 
+            } else if(isFinished == true){this.wipeIn(this.cache.json.get('finalText')); isFinished = false; this.finalFlag = true} 
             else {this.wipeIn();}
         }, this);
 
@@ -110,6 +111,9 @@ class Street extends baseScene {
                     this.interrupt = false;
                     break;
                 case '3': //bar
+                    if(this.finalFlag == true){
+                        this.scene.start('endgameScene');
+                    }
                     this.moveTo(this.detective, this.bar.x, game.config.height*startY, "barScene");
                     this.interrupt = false;
                     break;
