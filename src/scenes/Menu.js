@@ -20,8 +20,6 @@ class Menu extends Phaser.Scene {
         this.load.spritesheet('detective', './assets/spritesheets/DetectiveSheet.png', {frameWidth: 2891, frameHeight: 3133});
         this.load.image('cursor', './assets/magnifying.png');
         this.load.image('cursorArrow', './assets/CursorArrow.png');
-        this.load.image('borders', './assets/borders.png');
-        this.load.image('box', './assets/textbox.png');
 
         // load menu images
         this.load.image('menuBg', './assets/menu/title_screen.png');
