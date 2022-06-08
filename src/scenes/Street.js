@@ -51,8 +51,10 @@ class Street extends baseScene {
         this.bakeryFinished = true;
         this.setup();
         this.events.on('wake', function() {
-            if (gameProgress['streetScene'][4] && this.bakeryFinished) {this.wipeIn(this.cache.json.get('bakeryOutsideOutro')); this.bakeryFinished = false;} 
-            if(isFinished == true){console.log("please work");this.wipeIn(this.cache.json.get('finalText'));} 
+            if (gameProgress['streetScene'][4] && this.bakeryFinished) {
+                this.wipeIn(this.cache.json.get('bakeryOutsideOutro'));
+                this.bakeryFinished = false;
+            } else if(isFinished == true){this.wipeIn(this.cache.json.get('finalText')); isFinished = false;} 
             else {this.wipeIn();}
         }, this);
 
