@@ -22,6 +22,7 @@ class House extends baseScene {
         this.load.image('lights', './assets/house/lights.png');
         this.load.image('table', './assets/house/table.png');
         this.load.image('note_zoomed', './assets/house/note_zoomed.png');
+        this.load.spritesheet('sussy', './assets/spritesheets/SussySheet.png', {frameWidth: 2891, frameHeight: 3133});
 
         //dialogue
         //this.load.json('houseIntro', './assets/text/house1.json');
@@ -44,8 +45,11 @@ class House extends baseScene {
         this.stairs = this.add.image(game.config.width*3/4 - 37, game.config.height/2, 'stairs');
         this.cake = this.add.image(game.config.width/2.3, game.config.height*2/3.9, 'cake');
         this.note = this.add.image(game.config.width/2.6, game.config.height*2.3/3, 'note');
+        this.note_zoom = this.add.image(game.config.width/2, game.config.height*3/4.3, 'note_zoomed');
         
         this.setup();
+
+        this.sussy = new Speaker(this, 1, 'sussy');
 
         this.clues[1] = this.hat;
         this.clues[2] = this.closet;
@@ -54,7 +58,9 @@ class House extends baseScene {
         this.clues[5] = this.stairs;
         this.clues[6] = this.cake;
 
+        this.note_zoom.alpha = 0;
         // talksprites added after
+        this.midscene = false;
 
         this.input.on('pointerdown', function() {
             this.clickButton();
@@ -71,8 +77,14 @@ class House extends baseScene {
                     this.currentHighlight = 0;
                     break;
                 case '5':
+                    this.startDialogue(this.cache.json.get('upstairsText'));
+                    gameProgress['houseScene'][5] = false;
+                    this.currentHighlight = 0;
                     break;
                 case '4':
+                    this.startDialogue(this.cache.json.get('chairText'));
+                    gameProgress['houseScene'][4] = false;
+                    this.currentHighlight = 0;
                     break;
                 case '3':
                     // this.startDialogue(this.cache.json.get());
@@ -82,7 +94,9 @@ class House extends baseScene {
                     this.currentHighlight = 0;
                     break;
                 case '2':
-                    
+                    this.startDialogue(this.cache.json.get('closetText'));
+                    gameProgress['houseScene'][2] = false;
+                    this.currentHighlight = 0;
                     break;
                 case '1':
                     this.startDialogue(this.cache.json.get('hatText'));
@@ -95,6 +109,17 @@ class House extends baseScene {
         }
         if (this.input.activePointer.y > game.config.height*.85) {
             this.wipeOut("streetScene");
+        }
+    }
+    space() {
+        super.space()
+        if(this.state && this.midscene == false && !gameProgress['houseScene'][1] && !gameProgress['houseScene'][6] && !gameProgress['houseScene'][3]){
+            console.log("test");
+            this.startDialogue(this.cache.json.get('evidenceConclusionText'));
+            gameProgress['houseScene'][2] = true;
+            gameProgress['houseScene'][4] = true;
+            gameProgress['houseScene'][5] = true;
+            this.midscene = true;
         }
     }
 }
