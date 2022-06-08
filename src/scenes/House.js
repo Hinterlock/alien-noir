@@ -63,6 +63,10 @@ class House extends baseScene {
         // talksprites added after
         this.midscene = false;
 
+        this.music = this.sound.add('slugKarenMusic',{loop: true});
+        this.music.play();
+        this.music.pause();
+
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);

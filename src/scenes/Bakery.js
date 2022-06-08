@@ -67,6 +67,11 @@ class Bakery extends baseScene {
         this.input.on('pointerdown', function() {
             this.clickButton();
         }, this);
+        
+        this.music = this.sound.add('alleywayMusic',{loop: true});
+        this.music.play();
+        this.music.pause();
+
         this.wipeIn(this.cache.json.get('bakeryIntro'), 'bell');
         this.events.on('wake', function() {this.wipeIn(null, 'bell');}, this);
     }
