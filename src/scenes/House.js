@@ -46,7 +46,7 @@ class House extends baseScene {
         this.stairs = this.add.image(game.config.width*3/4 - 37, game.config.height/2, 'stairs');
         this.cake = this.add.image(game.config.width/2.3, game.config.height*2/3.9, 'cake');
         this.note = this.add.image(game.config.width/2.6, game.config.height*2.3/3, 'note');
-        this.note_zoom = this.add.image(game.config.width/2, game.config.height*3/4.3, 'note_zoomed');
+        
         
         this.setup();
 
@@ -59,6 +59,8 @@ class House extends baseScene {
         this.clues[5] = this.stairs;
         this.clues[6] = this.cake;
 
+        this.note_zoom = this.add.image(game.config.width/2, game.config.height*3/9, 'note_zoomed');
+        this.note_zoom.setScale(.7);
         this.note_zoom.alpha = 0;
         // talksprites added after
         this.midscene = false;
@@ -96,7 +98,11 @@ class House extends baseScene {
                     this.startDialogue(this.cache.json.get('noteText'));
                     gameProgress['houseScene'][3] = false;
                     this.note.alpha = 0;
+                    this.note_zoom.alpha = 1;
                     this.currentHighlight = 0;
+                    if(keySPACE.isDown){
+                        this.note_zoom.alpha = 0;
+                    }
                     break;
                 case '2':
                     this.startDialogue(this.cache.json.get('closetText'));
