@@ -32,7 +32,7 @@ let gameProgress = {
         3 : true, //singer
     },
     bakeryScene: {
-        1 : true, //trail
+        // 1 : true, //trail
         2 : true, //bread1
         3 : true, //bread2
         4 : true, //bread3

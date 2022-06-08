@@ -17,7 +17,7 @@ class baseScene extends Phaser.Scene {
         // this.borders.scale = 1.5;
         
         // this.box = this.add.image(game.config.width/2, game.config.height/2, 'box');
-        this.box = this.add.rectangle(game.config.width/2, game.config.height*2/3 - 26, game.config.width, game.config.height/3 + 26, "#FFFFFF").setOrigin(0.5,0);
+        this.box = this.add.rectangle(this.cameras.main.scrollX, game.config.height*2/3 - 26, game.config.width, game.config.height/3 + 26, "#FFFFFF").setOrigin(0.5,0);
         this.box.alpha = 0;
         //detective talksprite
         this.det = new Speaker(this, 0, 'detective');
@@ -29,7 +29,7 @@ class baseScene extends Phaser.Scene {
         this.TEXTMARGIN = 50;
         this.text = this.add.bitmapText(this.TEXTMARGIN, game.config.height*2/3, this.FONT, '', this.FONTSIZE).setOrigin(0, 0);
         this.text.maxWidth = game.config.width - 2*this.TEXTMARGIN;
-        this.nextText = this.add.bitmapText(game.config.width/2, game.config.height-25, this.FONT, '', this.FONTSIZE).setOrigin(1);
+        this.nextText = this.add.bitmapText(game.config.width/2+ this.cameras.main.scrollX , game.config.height-25, this.FONT, '', this.FONTSIZE).setOrigin(1);
 
         keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
         keySPACE.on('down', this.space, this);
@@ -143,6 +143,8 @@ class baseScene extends Phaser.Scene {
     }
 
     startDialogue(dialogue) { //brings in background fade and detective talk sprite, hands off to nextBox()
+        this.text.x = this.TEXTMARGIN + this.cameras.main.scrollX;
+        this.nextText.x = game.config.width/2+ this.cameras.main.scrollX;
         this.dialogue = dialogue;
         this.lastSpeaker = null;
         this.textBox = 0;

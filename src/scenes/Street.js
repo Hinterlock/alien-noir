@@ -139,6 +139,10 @@ class Street extends baseScene {
         if (this.detective.x < this.street.width - cam.width/2 && this.detective.x > cam.width/2 && this.state != 0) {
             cam.scrollX = this.detective.x - cam.width/2;
         }
+        if (this.state == 1) {
+            this.state == 2;
+            this.cursor.alpha = 0;
+        }
     }
     moveTo(det, x, y, enter) {
         let dur = moveSpd * Math.sqrt((det.x - (x))*(det.x - (x)) + (det.y - y)*(det.y - y));
