@@ -32,7 +32,7 @@ class Menu extends Phaser.Scene {
 
     create() {
         this.add.image(game.config.width/2, game.config.height/2, 'menuBg');
-        this.add.text(20, 20, 'Click to start, use the mouse to investigate and move around the neighborhood');
+        // this.add.text(20, 20, 'Click to start, use the mouse to investigate and move around the neighborhood');
         
         this.menuBttn = this.add.image(game.config.width/2, game.config.height*2/3, 'start_button');
         this.creditsBttn = this.add.image(game.config.width/2, game.config.height*5/6, 'credits_button');
@@ -43,15 +43,15 @@ class Menu extends Phaser.Scene {
         
         this.sound.play('startup');
 
-        keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
-        keySPACE.on('down', function() {
-            for (let n in gameProgress['streetScene']) {
-                gameProgress['streetScene'][n] = true;
-            }
-            //gameProgress['streetScene'][4] = false;
-            this.scene.start("streetScene");
-            this.sound.play('click');
-        }, this);
+        // keySPACE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.SPACE);
+        // keySPACE.on('down', function() {
+        //     for (let n in gameProgress['streetScene']) {
+        //         gameProgress['streetScene'][n] = true;
+        //     }
+        //     //gameProgress['streetScene'][4] = false;
+        //     this.scene.start("streetScene");
+        //     this.sound.play('click');
+        // }, this);
         this.input.on('pointerdown', function() {
             if (this.checkMouseOver(this.input.activePointer, this.menuBttn)) {
                 this.wipe.alpha = 1;
